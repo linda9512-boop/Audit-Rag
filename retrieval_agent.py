@@ -1,76 +1,123 @@
 import os
+import json
 import numpy as np
 from sentence_transformers import SentenceTransformer
 from pdf_chunking import parse_pdf_to_section_chunks
+from extracting_latest import get_latest_revisions
+
+CACHE_DIR = os.path.join(os.path.dirname(__file__), ".vector_cache")
+CACHE_EMBEDDINGS = os.path.join(CACHE_DIR, "embeddings.npy")
+CACHE_CHUNKS     = os.path.join(CACHE_DIR, "chunks.json")
 
 
 class RetrievalAgent:
     """
-    Retrieval Agent: 감사 질문을 받아 관련 문서 chunk를 반환.
+    Retrieval Agent: receives an audit question and returns relevant document chunks.
 
     Flow:
-        1. docs_folder 안의 모든 PDF를 로드 & 청킹
-        2. 각 chunk를 embedding으로 벡터화 (캐시)
-        3. 쿼리 embedding과 코사인 유사도 계산
-        4. 상위 top_k chunk 반환
+        1. Load & chunk all PDFs in docs_folder
+        2. Embed each chunk (saved to .vector_cache/ so recomputation is skipped on next run)
+        3. Compute cosine similarity against the query embedding
+        4. Return top_k chunks
     """
 
     def __init__(self, docs_folder: str, model_name: str = "all-MiniLM-L6-v2"):
         self.docs_folder = docs_folder
         self.model = SentenceTransformer(model_name)
-        self.chunks = []          # list of dict: {title, text_content, source, heading_level}
-        self.embeddings = None    # np.ndarray shape (N, D)
+        self.chunks = []
+        self.embeddings = None
 
         print(f"[RetrievalAgent] Loading documents from: {docs_folder}")
         self._load_and_index()
 
     # ------------------------------------------------------------------
-    # Internal helpers
+    # Cache helpers
+    # ------------------------------------------------------------------
+
+    def _cache_exists(self) -> bool:
+        return os.path.isfile(CACHE_EMBEDDINGS) and os.path.isfile(CACHE_CHUNKS)
+
+    def _save_cache(self):
+        os.makedirs(CACHE_DIR, exist_ok=True)
+        np.save(CACHE_EMBEDDINGS, self.embeddings)
+        with open(CACHE_CHUNKS, "w") as f:
+            json.dump(self.chunks, f)
+        print(f"[RetrievalAgent] Cache saved to {CACHE_DIR}")
+
+    def _load_cache(self):
+        self.embeddings = np.load(CACHE_EMBEDDINGS)
+        with open(CACHE_CHUNKS) as f:
+            self.chunks = json.load(f)
+        print(f"[RetrievalAgent] Loaded {len(self.chunks)} chunks from cache.")
+
+    # ------------------------------------------------------------------
+    # Indexing
     # ------------------------------------------------------------------
 
     def _load_and_index(self):
-        """docs_folder 내 PDF 파일을 모두 청킹 후 임베딩 인덱스 구축."""
-        pdf_files = [
-            f for f in os.listdir(self.docs_folder) if f.lower().endswith(".pdf")
-        ]
+        """Chunk all PDFs and build the embedding index (or load from cache)."""
+        if self._cache_exists():
+            print("[RetrievalAgent] Cache found — skipping re-embedding.")
+            self._load_cache()
+            return
 
-        if not pdf_files:
+        pdf_metas = get_latest_revisions(self.docs_folder)
+
+        if not pdf_metas:
             print("[RetrievalAgent] WARNING: No PDF files found in the folder.")
             return
 
-        for pdf_file in pdf_files:
-            pdf_path = os.path.join(self.docs_folder, pdf_file)
-            print(f"  -> Chunking: {pdf_file}")
+        for meta in pdf_metas:
+            print(f"  -> Chunking (latest revision): {meta['filename']}")
             try:
-                raw_chunks = parse_pdf_to_section_chunks(pdf_path)
+                raw_chunks = parse_pdf_to_section_chunks(meta["local_path"])
                 for chunk in raw_chunks:
-                    self.chunks.append({
-                        "title": chunk["title"],
+                    # Each chunk stores section content + file-level metadata:
+                    #   "title"         — section heading   e.g. "5.0 Requirements"
+                    #   "text_content"  — body text         e.g. "All devices must..."
+                    #   "heading_level" — heading depth     e.g. 1 / 2 / 3
+                    #   "source"        — filename          e.g. "D72001_REV03.pdf"
+                    #   "document_id"   — doc ID            e.g. "D72001"
+                    #   "revision"      — revision number   e.g. 3
+                    #   "folder_type"   — top-level folder  e.g. "design changes"
+                    #   "subfolder"     — subfolder (only if it exists) e.g. "concept proposal"
+                    entry = {
+                        "title":        chunk["title"],
                         "text_content": chunk["text_content"],
                         "heading_level": chunk["heading_level"],
-                        "source": pdf_file,
-                    })
+                        "source":       meta["filename"],
+                        "document_id":  meta["document_id"],
+                        "revision":     meta["revision"],
+                        "folder_type":  meta["folder_type"],
+                    }
+                    if "subfolder" in meta:
+                        entry["subfolder"] = meta["subfolder"]
+                    self.chunks.append(entry)
             except Exception as e:
-                print(f"  [!] Failed to parse {pdf_file}: {e}")
+                print(f"  [!] Failed to parse {meta['filename']}: {e}")
 
         if not self.chunks:
             print("[RetrievalAgent] WARNING: No chunks were produced.")
             return
 
-        print(f"[RetrievalAgent] Total chunks indexed: {len(self.chunks)}")
-        print("[RetrievalAgent] Building embedding index...")
-
-        texts = [
-            f"{c['title']} {c['text_content']}" for c in self.chunks
-        ]
+        print(f"[RetrievalAgent] Total chunks: {len(self.chunks)} — building embeddings...")
+        texts = [f"{c['title']} {c['text_content']}" for c in self.chunks]
         self.embeddings = self.model.encode(
             texts,
             batch_size=64,
             show_progress_bar=True,
             convert_to_numpy=True,
-            normalize_embeddings=True,   # L2-normalised → dot product == cosine similarity
+            normalize_embeddings=True,  # L2-normalised → dot product == cosine similarity
         )
+        self._save_cache()
         print("[RetrievalAgent] Index ready.\n")
+
+    def clear_cache(self):
+        """Delete cached vectors so the index is rebuilt on next run."""
+        for path in (CACHE_EMBEDDINGS, CACHE_CHUNKS):
+            if os.path.isfile(path):
+                os.remove(path)
+        print("[RetrievalAgent] Cache cleared.")
 
     @staticmethod
     def _cosine_similarity(query_vec: np.ndarray, corpus_vecs: np.ndarray) -> np.ndarray:
