@@ -16,7 +16,7 @@ def print_results(results: list[dict]):
     for r in results:
         print(f"\n[Rank {r['rank']}]  Score: {r['score']:.4f}")
         print(f"  Source : {r['source']}")
-        print(f"  Section: {r['title']}  (Level {r['heading_level']})")
+        print(f"  Section: {r['title']}  (Level {r['heading_level']}, Page {r['page']})")
         print(f"  Preview: {r['text_content'][:200]}{'...' if len(r['text_content']) > 200 else ''}")
     print(f"\n{'='*60}\n")
 
@@ -34,7 +34,7 @@ def main():
     # ------------------------------------------------------------------
     # 2. Retrieval Agent 초기화 (PDF 로드 + 인덱스 구축)
     # ------------------------------------------------------------------
-    agent = RetrievalAgent(docs_folder=DOCS_FOLDER, model_name="all-MiniLM-L6-v2")
+    agent = RetrievalAgent(docs_folder=DOCS_FOLDER)
 
     # ------------------------------------------------------------------
     # 3. 감사 질문 입력 루프

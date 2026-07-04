@@ -88,7 +88,7 @@ def synthesis_agent(query: str, chunks: list[dict]) -> str:
     context_parts = []
     for c in chunks:
         context_parts.append(
-            f"[Source: {c['source']} | Section: {c['title']}]\n{c['text_content']}"
+            f"[Source: {c['source']} | Section: {c['title']} | Page: {c['page']}]\n{c['text_content']}"
         )
     context = "\n\n---\n\n".join(context_parts)
 
@@ -220,7 +220,7 @@ def main():
         return
 
     print("[Setup] Loading documents and building index...")
-    agent = RetrievalAgent(docs_folder=DOCS_FOLDER, model_name="all-MiniLM-L6-v2")
+    agent = RetrievalAgent(docs_folder=DOCS_FOLDER)
 
     print("\nAudit RAG Pipeline — Ready")
     print("Type your audit question. Enter 'quit' to exit.\n")

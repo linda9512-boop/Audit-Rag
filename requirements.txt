@@ -1,0 +1,4 @@
+anthropic
+pinecone
+python-dotenv
+PyMuPDF

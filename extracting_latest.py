@@ -1,13 +1,29 @@
+import csv
 import re
 from pathlib import Path
 
 
+MIN_ID_DIGITS = 3  # digit runs shorter than this (e.g. "CH2.2") aren't treated as a doc ID
+
+
 def extract_document_id(filename):
     """
-    Extract document ID such as:
-    D72001_xyz_REV02.pdf -> D72001
+    Extract document ID: leading letters (if any) + a run of digits, anchored
+    at the very start of the filename, e.g.:
+    D72001_xyz_REV02.pdf       -> D72001
+    CD0534-A HAL 4.0...pdf     -> CD0534
+    70001791 Rev0.1...pdf      -> 70001791
+
+    Any leading special characters (quotes, dashes, etc.) are stripped first,
+    so the ID match starts at the first letter/digit. The digit run must be
+    at least MIN_ID_DIGITS long, so short/incidental numbers (version
+    numbers, change-order labels like "CH2.2") don't get mistaken for the
+    ID. If no such pattern is found at the very start, there is no ID (no
+    fallback search elsewhere in the filename) -- the file is left out of
+    dedup and always included as-is.
     """
-    match = re.search(r"\b(D\d+)\b", filename, re.IGNORECASE)
+    name = re.sub(r"^[^A-Za-z0-9]+", "", filename)
+    match = re.match(rf"([A-Za-z]*\d{{{MIN_ID_DIGITS},}})", name)
     return match.group(1).upper() if match else None
 
 
@@ -23,20 +39,39 @@ def extract_revision(filename):
     REV_003
     Rev-4
     rev.05
+    v02
+    V2
+    version02
+    ver.2
+    rev.0.2   (decimal "0.N" form -- treated the same as "N", e.g. rev.0.2 == v2)
+
+    Returns None if no revision pattern is found at all (as opposed to an
+    actual revision of 0) -- callers should treat "no revision info" as
+    "can't safely compare against other files with the same doc ID."
     """
     stem = Path(filename).stem
 
+    # (?<![A-Za-z]) / (?!\d) instead of \b: \b treats "_" as a word char, so
+    # e.g. "MR1_Rev03" or "REV_003" would otherwise fail to match (no boundary
+    # before "rev" / after the digits when adjacent to "_").
+    #
+    # The optional "(?:\.0*(\d+))?" tail captures a decimal suffix like the
+    # ".2" in "rev.0.2". When the whole-number part is 0, that decimal part
+    # is the real revision (rev.0.2 == v2), so it takes priority below.
     patterns = [
-        r"\brev(?:ision)?[\s_\-\.]*0*(\d+)\b",
-        r"\br[\s_\-\.]*0*(\d+)\b",
+        r"(?<![A-Za-z])(?:rev(?:ision)?|version|ver|v)[\s_\-\.]*0*(\d+)(?:\.0*(\d+))?(?!\d)",
+        r"(?<![A-Za-z])r[\s_\-\.]*0*(\d+)(?:\.0*(\d+))?(?!\d)",
     ]
 
     for pattern in patterns:
         match = re.search(pattern, stem, re.IGNORECASE)
         if match:
-            return int(match.group(1))
+            whole, decimal = match.group(1), match.group(2)
+            if decimal is not None and int(whole) == 0:
+                return int(decimal)
+            return int(whole)
 
-    return 0
+    return None
 
 
 def build_metadata(device_name, folder_type, pdf_path):
@@ -102,15 +137,20 @@ def get_latest_revisions(docs_folder: str) -> list[dict]:
 
     # Group by document ID: { "D72001": (revision_int, Path), ... }
     latest: dict[str, tuple[int, Path]] = {}
-    no_id: list[Path] = []
+    always_include: list[Path] = []  # no ID, or ID but no revision info -- can't safely dedup these
 
     for pdf_path in pdf_files:
         doc_id = extract_document_id(pdf_path.name)
         if doc_id is None:
-            no_id.append(pdf_path)
+            always_include.append(pdf_path)
             continue
 
         rev = extract_revision(pdf_path.name)
+        if rev is None:
+            # Has an ID but no revision marker -- nothing to compare against, keep it.
+            always_include.append(pdf_path)
+            continue
+
         if doc_id not in latest or rev > latest[doc_id][0]:
             latest[doc_id] = (rev, pdf_path)
 
@@ -127,4 +167,27 @@ def get_latest_revisions(docs_folder: str) -> list[dict]:
             meta["subfolder"] = folder_info["subfolder"]
         return meta
 
-    return [_to_meta(path) for _, path in latest.values()] + [_to_meta(p) for p in no_id]
+    return [_to_meta(path) for _, path in latest.values()] + [_to_meta(p) for p in always_include]
+
+
+def save_latest_revisions_csv(docs_folder: str, output_path: str):
+    """Write the latest-revision selection to a CSV file for review."""
+    latest = get_latest_revisions(docs_folder)
+    latest.sort(key=lambda m: m["filename"].lower())
+
+    fieldnames = ["filename", "document_id", "revision", "folder_type", "subfolder", "local_path"]
+    with open(output_path, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        for meta in latest:
+            writer.writerow({k: meta.get(k, "") for k in fieldnames})
+
+    print(f"Saved {len(latest)} latest-revision file entries to {output_path}")
+
+
+if __name__ == "__main__":
+   
+
+    _docs_folder = Path(__file__).parent / "docs"
+    _output_path = Path(__file__).parent / "latest_revisions.csv"
+    save_latest_revisions_csv(str(_docs_folder), str(_output_path))
