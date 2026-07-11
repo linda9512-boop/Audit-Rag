@@ -1,0 +1,13 @@
+Audit question: Are these procedures consistently applied to all identified devices?
+Chunks used: 37
+================================================================================
+The provided excerpts do not directly contain information specific to whether procedures are consistently applied to all identified devices for the Halcyon 4.0 radiotherapy system.
+
+Several excerpts confirm that Varian's procedures and standard operating procedures (SOPs) are applied to ensure compliance with various standards and regulations. However, they do not explicitly state whether these procedures have been uniformly applied to all devices within the Halcyon 4.0 series or provide evidence of the consistent application across identified devices.
+
+Without explicit evidence showing application consistency across identified devices, we cannot conclusively answer the audit question. More detailed documents such as design control records or detailed procedural audits specific to device processing across the Halcyon 4.0 range would be necessary to determine the consistency of procedure application across all identified devices.
+
+No relevant evidence was found regarding the consistency of procedure application to all identified devices based on the retrieved excerpts.
+
+Documents cited:
+No documents cited as none directly addressed the audit question.

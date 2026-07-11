@@ -1,0 +1,25 @@
+Audit question: Does the organization have documented design and development procedures compliant with applicable regulations?
+Sub-queries used: ['design and development procedures documentation', 'regulatory compliance for design and development', 'evidence of adherence to design and development regulations']
+Chunks used: 200 (68 matched from 3 facet sub-queries + augmented context)
+================================================================================
+The organization has documented design and development procedures that show compliance with applicable regulations for the HAL 4.0 radiotherapy system. The procedures are clearly outlined in various documents which detail the standards and processes followed during the design and development phases:
+
+1. **Design and Development Procedure (DND01):** This is a key document that defines the phases of a project, including documentation requirements for each phase. It's designed to comply with global regulatory requirements, specifically US FDA 21 CFR 820 and ISO 13485 [Regulatory / D70036 HAL 4.0 Software Description Report China Submission Rev 03 .docx.pdf, Page 23].
+
+2. **Design and Development Plan (DND04T01):** This plan references and integrates the DND01 procedure and includes detailed planning for software development, risk management, and configuration management. It is part of the deliverables of the Inception and Elaboration Phases [Regulatory / Test Reports - Regulatory Compliance / 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf, Page 226-227].
+
+3. **Software Development Planning:** The manufacturer has established procedures to cover various aspects such as software safety classifications, traceability between system requirements, risk control measures, and the coordination of software and system development [Regulatory / Test Reports - Regulatory Compliance / 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf, Page 223-224].
+
+4. **Configuration Management Procedures (DND19):** These procedures link responsibilities to tasks and include activities and tasks for configuration management, ensuring the DND04T01 Design and Development Plan documents the controlled items [Regulatory / Test Reports - Regulatory Compliance / 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf, Page 239-240].
+
+5. **Regulatory Plans and Standards Compliance:** Various documents, such as the Regulatory Plan and the Applicable Product Standards Record, demonstrate the product's compliance with required safety standards, including IEC 60601-1 and EN ISO 13485, ensuring that the development process aligns with established international regulations [Regulatory / D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf, Page 9; Regulatory / Applicable Standards / D47457 HAL 4.0 APS Record Rev 04.docx.pdf, Page 4].
+
+These documents indicate that the organization's procedures align with regulatory standards, suggesting a structured and compliant approach to the design and development of the HAL 4.0 radiotherapy system.
+
+Documents cited:
+- Regulatory / D70036 HAL 4.0 Software Description Report China Submission Rev 03 .docx.pdf, Page 23
+- Regulatory / Test Reports - Regulatory Compliance / 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf, Page 226-227
+- Regulatory / Test Reports - Regulatory Compliance / 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf, Page 223-224
+- Regulatory / Test Reports - Regulatory Compliance / 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf, Page 239-240
+- Regulatory / D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf, Page 9
+- Regulatory / Applicable Standards / D47457 HAL 4.0 APS Record Rev 04.docx.pdf, Page 4

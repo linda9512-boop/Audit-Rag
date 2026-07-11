@@ -1,0 +1,17 @@
+Audit question: How does the organization ensure global regulatory requirements are considered in determining design control applicability?
+Chunks used: 37
+================================================================================
+The organization ensures global regulatory requirements are considered in determining design control applicability for the Halcyon 4.0 radiotherapy system by implementing specific processes and planning documented in various plans and standards. The following documents provide evidence for the audit question:
+
+1. **Design and Development Procedures**: Varian utilizes a process based on the Rational Unified Process, and this process is articulated in the document reference DND01 Design and Development. It aims specifically to comply with global regulatory requirements for design control, most notably US FDA 21 CFR 820 and ISO 13485 standards, along with guidance on risk management consistent with EN ISO 14971 [Regulatory / D70036 HAL 4.0 Software Description Report China Submission Rev 03 .docx.pdf, Page: 23].
+
+2. **Regulatory Plans and Standards Compliance**: The HAL 4.0 Regulatory Plan ensures compliance with both general and specific regulatory requirements across different regions. The project team is tasked with ensuring that all regulatory requirements are integrated into the design and development plans, according to current Good Manufacturing Practices (cGMPs) and national legislation. The plan identifies specific standards that need to be adhered to, which are listed for different countries in the country-specific sections of the plan [Regulatory / Regulatory Plans / D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf, Page: 9].
+
+3. **Applicable Standards Document**: It evaluates and specifies the standards necessary to gain and maintain market access in VOS’s principal worldwide markets and includes additional standards for evaluation which may be requested by customers or dictated by commercial considerations. This document identifies the standards applicable to the entire device [Regulatory / Applicable Standards / D45070 Hal 4 Applicable Product Standards Rev 2.docx.pdf, Page: 3-4].
+
+These documents collectively show that Varian recognizes the importance of global regulatory standards in the development of the Halcyon 4.0 and integrates these considerations into its design control processes through dedicated plans and documented compliance with international quality and risk management standards.
+
+Documents cited:
+- Regulatory / D70036 HAL 4.0 Software Description Report China Submission Rev 03 .docx.pdf | Page: 23
+- Regulatory / Regulatory Plans / D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | Page: 9
+- Regulatory / Applicable Standards / D45070 Hal 4 Applicable Product Standards Rev 2.docx.pdf | Page: 3-4

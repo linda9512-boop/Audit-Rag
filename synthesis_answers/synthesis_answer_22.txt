@@ -1,0 +1,7 @@
+Audit question: Who has responsibility for maintaining technical documentation?
+Chunks used: 37
+================================================================================
+No relevant evidence was found in the provided excerpts regarding the responsibility for maintaining technical documentation related to the Halcyon 4.0 device. The excerpts mainly discuss roles related to maintenance of hardware, customer support, regulatory compliance, validation activities, and manufacturing responsibilities, but do not specify who is responsible for maintaining the technical documentation itself.
+
+Documents cited:
+(None, as no relevant information was found regarding the specific audit question.)

@@ -1,0 +1,23 @@
+Audit question: What criteria are used to classify a product as a medical device under applicable regulatory jurisdictions?
+Sub-queries used: ['medical device classification criteria by FDA', 'EU medical device classification guidelines', 'product classification as medical device in Canada']
+Chunks used: 213 (191 matched from 3 facet sub-queries + augmented context)
+================================================================================
+The criteria used to classify a product as a medical device under applicable regulatory jurisdictions for the HAL 4.0 radiotherapy system are detailed across several regulatory documents, which specify various international standards and regulations.
+
+1. **United States**: The HAL 4.0 is classified as Class II under 21 CFR §892.5050 [Regulatory / Regulatory Plans / D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf, Page 5]. This classification is informed by FDA regulations, which involve device classifications based on risk to patients and users.
+
+2. **European Union**: The device is classified as Class IIb according to the EU Medical Device Regulation (MDR) 2017/745, Rule 9, as described in the HAL 4.0 Device Description document [Design Output Specification / Design Descriptions / D58308 HAL 4.0 Device Description Rev 1.0.docx.pdf, Page 3-4].
+
+3. **Canada**: According to the Canadian Medical Device Regulations (SOR/98-282), the HAL 4.0 is categorized as Class III. This is based on Schedule 1, Rule 8 of the referenced regulations [Regulatory / Regulatory Plans / D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf, Page 5].
+
+4. **Japan**: The device is classified as Class III under the Pharmaceutical and Medical Device Act (PMD Act), Article 2, Paragraph 5 [Regulatory / Regulatory Plans / D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf, Page 5].
+
+5. **China**: The HAL 4.0 is classified as Class III by the NMPA (National Medical Products Administration) based on the classification category 05-01-01 [Regulatory / Regulatory Plans / D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf, Page 5].
+
+6. **Australia**: The classification for Australia falls under the Therapeutic Goods (Medical Devices) Regulations 2002, also as a Class IIb device, supported by the GSPR Checklist [Design Output Specification / Design Descriptions / D58308 HAL 4.0 Device Description Rev 1.0.docx.pdf, Page 3-4].
+
+The different classification standards and regulations reflect the diverse criteria under which medical devices are assessed and classified across global jurisdictions, primarily focusing on the intended use, risk, and operational characteristics of the device.
+
+Documents cited:
+- Regulatory / Regulatory Plans / D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf
+- Design Output Specification / Design Descriptions / D58308 HAL 4.0 Device Description Rev 1.0.docx.pdf

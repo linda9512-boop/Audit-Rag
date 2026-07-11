@@ -1,0 +1,30 @@
+Audit question: Is technical documentation established and maintained for each device?
+Sub-queries used: ['technical documentation creation and maintenance procedures', 'device-specific technical file documentation', 'recordkeeping for technical documentation updates']
+Chunks used: 200 (83 matched from 3 facet sub-queries + augmented context)
+================================================================================
+The available excerpts confirm that technical documentation is established and maintained for the Halcyon 4.0 device.
+
+1. **System Requirements Specification (SyRS):** This document includes installation and maintenance considerations specific to the device, indicating that technical requirements are clearly documented [Regulatory / Test Reports - Regulatory Compliance / 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | Page: 248-249].
+
+2. **Design History File:** A comprehensive Design History File Index is maintained, listing all required project documents, their titles, identification numbers, revisions, and storage locations. This documentation is referenced within the document control system [Design Output Specification / D67731 HAL 4.0 Design History File Index Rev 05.docx.pdf | Page: 13-14].
+
+3. **User Needs and Workflows:** Documentation addresses user needs with clear and accurate customer-facing instructions on performing tasks, including maintenance, suggesting that operational documentation for users is in place [Design Input Specification / Product Requirement Documents / D57043 HAL 4.0 User Needs and Detailed Workflows Rev 2.0.docx.pdf | Page: 67-68].
+
+4. **Service Documentation:** Technical documentation provides written procedures for maintenance and servicing tasks, indicating that service instructions are established and maintained for the Halcyon 4.0 [Design Validation / Test Reports / D69032 HAL 4.0 Validation Test Log Rev 01.pdf | Page: 68].
+
+5. **Compliance with Standards:** The technical documentation is set up to meet regulatory and compliance standards, including maintaining records for verification and risk management, as presented in the compliance reports [Regulatory / Test Reports - Regulatory Compliance / 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | Page: 249-250].
+
+6. **Service User Needs:** Documentation supporting service activities includes detailed workflows and instructions for the Customer Support Representative, ensuring that procedures are documented for various scenarios encountered during maintenance [Design Input Specification / Product Requirement Documents / D62523 HAL 4.0 Service User Needs and Detailed Workflows Rev 3.0.docx.pdf | Page: 6].
+
+7. **Regulatory Documentation and Strategy:** The Halcyon 2.0 Regulatory Plan outlines documentation requirements for various markets, which likely extend to Halcyon 4.0, ensuring global compliance [01. Design and Development Planning / 01. System / D30786 Halcyon 2.0 Regulatory Plan Rev 1.0.doc.pdf | Page: 61-62].
+
+These documents confirm that technical documentation is not only established but also continuously updated and managed to support the device's requirements across installations, maintenance, user needs, and regulatory compliance.
+
+Documents cited:
+- Regulatory / Test Reports - Regulatory Compliance / 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | Page: 248-249
+- Design Output Specification / D67731 HAL 4.0 Design History File Index Rev 05.docx.pdf | Page: 13-14
+- Design Input Specification / Product Requirement Documents / D57043 HAL 4.0 User Needs and Detailed Workflows Rev 2.0.docx.pdf | Page: 67-68
+- Design Validation / Test Reports / D69032 HAL 4.0 Validation Test Log Rev 01.pdf | Page: 68
+- Regulatory / Test Reports - Regulatory Compliance / 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | Page: 249-250
+- Design Input Specification / Product Requirement Documents / D62523 HAL 4.0 Service User Needs and Detailed Workflows Rev 3.0.docx.pdf | Page: 6
+- 01. Design and Development Planning / 01. System / D30786 Halcyon 2.0 Regulatory Plan Rev 1.0.doc.pdf | Page: 61-62

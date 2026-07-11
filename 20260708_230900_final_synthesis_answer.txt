@@ -1,0 +1,30 @@
+Audit question: How are changes such as maintenance releases, configuration changes, or software updates evaluated to determine if design controls apply?
+Sub-queries used: ['evaluation process for maintenance release impact on design controls', 'assessment of configuration changes for design control requirements', 'software update evaluation in relation to design controls']
+Chunks used: 200 (83 matched from 3 facet sub-queries + augmented context)
+================================================================================
+The evaluation of changes such as maintenance releases, configuration changes, or software updates to determine if design controls apply is evidenced by several documents related to HAL 4.0. Here's a summary of the provided excerpts:
+
+1. **Maintenance Release Documents**:
+   - The HAL 4.0 MR1 Maintenance Release Document specifies that no hardware changes are involved, and the release scope is limited to software changes only, which have defined regulatory and project management scopes without introducing new functionality or impacting existing device interfaces [Design Changes / Maintenance Releases / D69533 HAL 4.0 MR1 Maintenance Release Document Rev09.docx.pdf, page 10].
+   - For both MR1 and MR2 maintenance releases, there is an explicit statement that these changes do not introduce new risks or hazards, and the risk management reports do not require updates [Design Changes / Maintenance Releases / D95424 HAL 4.0 MR2 (HAL Evolve) Maintenance Release Document Rev 04.pdf, pages 25-26; Design Changes / Maintenance Releases / D69533 HAL 4.0 MR1 Maintenance Release Document Rev09.docx.pdf, pages 27-28].
+
+2. **Project Management and Design Controls**:
+   - In the documents, it is noted that no separate Design Output Review will be conducted for certain projects. Instead, an approval of the final maintenance release document confirms the closure of design output activities [Design Changes / Maintenance Releases / D95424 HAL 4.0 MR2 (HAL Evolve) Maintenance Release Document Rev 04.pdf, page 9-10; Design Changes / Maintenance Releases / D69533 HAL 4.0 MR1 Maintenance Release Document Rev09.docx.pdf, page 12].
+
+3. **Risk Management and Configuration Management**:
+   - Necessary design changes are to be handled via change request, and a risk assessment is to be performed for any update necessitating design changes. This includes documenting any test activities and assessing the scope of updates [Regulatory / Test Reports - Regulatory Compliance / D78333 Ethos 4.0 Description of interoperability Study Rev01.docx.pdf, page 21].
+   - Configuration management for software is managed per specified procedures, ensuring that changes are controlled and follow established processes, such as impact analysis and verification & validation tasks [Regulatory / D70036 HAL 4.0 Software Description Report China Submission Rev 03 .docx.pdf, pages 27-28].
+
+4. **Change Request Process**:
+   - Multiple change request documents outline the criteria necessitating a change request. Major changes in functionality, design, or compliance thresholds trigger the mandatory creation of a change request to assess the impact and determine the necessary approval process [Design Changes / Change Requests / D52222 HAL 4.0 Change Request 2 rev 01.pdf, page 1; Design Changes / Change Requests / D64997 HAL4.0 Change Request_Kemnath takes place of Crawley to build HAL4.0 Rev 01.pdf, page 1].
+
+Overall, these documents demonstrate a structured approach to evaluate changes through defined project management processes, risk assessment, configuration management, and change request protocols to determine when design controls are applicable for HAL 4.0 system changes.
+
+**Documents Cited:**
+- Design Changes / Maintenance Releases / D69533 HAL 4.0 MR1 Maintenance Release Document Rev09.docx.pdf, page 10
+- Design Changes / Maintenance Releases / D95424 HAL 4.0 MR2 (HAL Evolve) Maintenance Release Document Rev 04.pdf, pages 25-26
+- Design Changes / Maintenance Releases / D95424 HAL 4.0 MR2 (HAL Evolve) Maintenance Release Document Rev 04.pdf, page 9-10
+- Regulatory / Test Reports - Regulatory Compliance / D78333 Ethos 4.0 Description of interoperability Study Rev01.docx.pdf, page 21
+- Regulatory / D70036 HAL 4.0 Software Description Report China Submission Rev 03 .docx.pdf, pages 27-28
+- Design Changes / Change Requests / D52222 HAL 4.0 Change Request 2 rev 01.pdf, page 1
+- Design Changes / Change Requests / D64997 HAL4.0 Change Request_Kemnath takes place of Crawley to build HAL4.0 Rev 01.pdf, page 1

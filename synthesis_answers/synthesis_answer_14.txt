@@ -1,0 +1,17 @@
+Audit question: Is there a defined structure for technical documentation, such as DHF, STED, or Technical File?
+Chunks used: 37
+================================================================================
+The audit question is whether a defined structure exists for technical documentation, such as DHF, STED, or Technical File, concerning the Halcyon 4.0 radiotherapy system.
+
+1. *Design History File (DHF)*: 
+   - The DHF for the Halcyon 4.0 is clearly structured and documented. The document titled "Design History File Index" provides an index that lists all the necessary project documentation for the released version [Design Output Specification / D67731 HAL 4.0 Design History File Index Rev 05.docx.pdf | Page: 13-14]. This index details how documentation is referenced with the title, identification number, revision number, and location where it is physically or electronically stored.
+
+2. *Archiving in DHF*: 
+   - The processes for archiving documents and ensuring that they become part of the DHF are defined. For example, finalized User Assistance Plans (UAPs) and significant changes to documents must be approved and filed in the DHF [Design Output Specification / D84239 HAL 4.0 CRN UA Checklist Rev02.docx.pdf | Page: 6; Design Output Specification / D65651 Halcyon-Ethos 4.0 IFU (P1058124-001-A) User Assistance Checklist Rev01.docx.pdf | Page: 6].
+
+While there is evidence of a defined structure for the Design History File specifically concerning HAL 4.0, no excerpts specified structures for STED or Technical Files.
+
+Documents cited:
+- Design Output Specification / D67731 HAL 4.0 Design History File Index Rev 05.docx.pdf | Page: 13-14
+- Design Output Specification / D84239 HAL 4.0 CRN UA Checklist Rev02.docx.pdf | Page: 6
+- Design Output Specification / D65651 Halcyon-Ethos 4.0 IFU (P1058124-001-A) User Assistance Checklist Rev01.docx.pdf | Page: 6

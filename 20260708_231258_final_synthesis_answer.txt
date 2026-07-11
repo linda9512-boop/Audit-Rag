@@ -1,0 +1,28 @@
+Audit question: Does the documentation meet regulatory requirements for applicable markets?
+Sub-queries used: ['regulatory approval documents and certifications for primary markets', 'compliance checklist and market-specific requirements', 'labeling, instructions, and regulatory documentation for distribution']
+Chunks used: 200 (85 matched from 3 facet sub-queries + augmented context)
+================================================================================
+The documentation partially meets regulatory requirements for applicable markets. The documents retrieved provide some evidence of compliance with standards and documentation requirements for specific markets, but comprehensive evidence of compliance across all applicable standards and markets is incomplete based on the retrieved excerpts.
+
+1. **EU Requirements:**
+   - Conformity with EU MDR is demonstrated through compliance with EN standards, such as IEC 62304 for medical device software and IEC 62366-1 for usability engineering [Regulatory / Applicable Standards / D47457 HAL 4.0 APS Record Rev 04.docx.pdf, page 7].
+   - The documentation for the EU includes requirements related to the CE Mark and International Submission Dossier (ISD), indicating that certain documents must be submitted electronically and comply with evolving EU regulatory requirements [01. Design and Development Planning / 01. System / D30786 Halcyon 2.0 Regulatory Plan Rev 1.0.doc.pdf, page 50].
+
+2. **Brazil Requirements:**
+   - Brazil requires documentation of quality certificates, software versions, safety and efficacy data, and test reports conforming to IEC standards [Regulatory / Regulatory Plans / D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf, pages 64-65]. Anvisa certification of conformity is required if an IEC standard is translated for Brazilian use [Regulatory / Regulatory Plans / D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf, pages 66-67].
+   - Key documents include the INMETRO certification and Good Manufacturing Practice (GMP) certificates approved by ANVISA [Regulatory / Regulatory Plans / D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf, page 64-65].
+
+3. **Canada Requirements:**
+   - For Health Canada, the document outlines the need for a medical device license application and compliance with ISO 13485 [Regulatory / Regulatory Plans / D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf, page 45].
+   - Additional requirements include documentation for device descriptions, safety and effectiveness information, and complaint and recall handling [01. Design and Development Planning / 01. System / D30786 Halcyon 2.0 Regulatory Plan Rev 1.0.doc.pdf, pages 54-55].
+
+4. **Korea, China, and Japan Requirements:**
+   - Documentation indicates compliance with country-specific standards, such as IEC 60601 standards for Korea and product labeling requirements for China [Regulatory / Regulatory Plans / D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf, page 69].
+   - The Shonin process in Japan requires a range of documents, including sales data, schematics, and Japanese labeling [Regulatory / Regulatory Plans / D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf, pages 48-49].
+
+The documentation appears to address various regulatory strategies. However, there is a lack of specific certification outcomes, comprehensive test reports, or declarations of conformity provided in the excerpts for all applicable standards and markets, such as the requirements specific to the US FDA or the broader set of countries within the Medical Device Single Audit Program (MDSAP).
+
+Documents cited:
+- 01. Design and Development Planning / 01. System / D30786 Halcyon 2.0 Regulatory Plan Rev 1.0.doc.pdf, pages 50, 54-55
+- Regulatory / Regulatory Plans / D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf, pages 45, 64-67, 69
+- Regulatory / Applicable Standards / D47457 HAL 4.0 APS Record Rev 04.docx.pdf, page 7

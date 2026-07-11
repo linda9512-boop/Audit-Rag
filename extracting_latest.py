@@ -92,7 +92,6 @@ def build_metadata(device_name, folder_type, pdf_path):
     }
 
 
-def _extract_folder_info(pdf_path: Path, docs_folder: Path) -> dict:
     """
     Given a PDF path, return folder_type and subfolder relative to docs_folder.
 

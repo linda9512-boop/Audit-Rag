@@ -1,0 +1,22 @@
+Audit question: Is technical documentation established and maintained for each device?
+Chunks used: 37
+================================================================================
+The audit question asks if technical documentation is established and maintained for the Halcyon 4.0 device. The provided excerpts offer evidence on this:
+
+1. **Establishment of Technical Documentation**: The design and development of the Halcyon 4.0 include comprehensive documentation processes. The Design History File Index specifically lists all the required documentation for the Halcyon 4.0 platform, indicating the establishment of a comprehensive suite of documents for the device [Design Output Specification / D67731 HAL 4.0 Design History File Index Rev 05.docx.pdf, Page 13].
+
+2. **Components of Technical Documentation**: 
+   - The clinical evaluation report, which is part of the technical documentation, is prepared to support the general safety and performance requirements for the device [Regulatory / International Submission Dossier / D48516 HAL 4.0 Clinical Evaluation Plan Rev 01.pdf, Page 3].
+   - Usability engineering processes are documented in compliance with relevant standards, and the associated documentation, such as instructions for use, is included in the technical description [Regulatory / Test Reports - Regulatory Compliance / D101278 106485676MIN-002 IEC60601-1-6 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf, Pages 7-8].
+   - The risk management documentation, including risk management reports, is maintained within the Design History File for each project, showing an ongoing record maintenance [Regulatory / Test Reports - Regulatory Compliance / 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf, Page 306].
+
+3. **Maintenance and Updating of Documentation**: 
+   - Records of problem reports and their resolution, including verification and test records, are maintained in the Design History File. This indicates an ongoing process to update the documentation as needed [Regulatory / Test Reports - Regulatory Compliance / 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf, Page 306].
+
+The concrete determination is that Varian Medical Systems maintains a comprehensive set of technical documentation for Halcyon 4.0, including design, risk management, usability, and clinical evaluation reports, which are established as part of the device's compliance and operational processes. There is evidence of ongoing maintenance and update procedures to ensure the documentation remains current.
+
+Documents cited:
+- Regulatory / International Submission Dossier / D48516 HAL 4.0 Clinical Evaluation Plan Rev 01.pdf, Page 3
+- Regulatory / Test Reports - Regulatory Compliance / D101278 106485676MIN-002 IEC60601-1-6 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf, Pages 7-8
+- Regulatory / Test Reports - Regulatory Compliance / 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf, Page 306
+- Design Output Specification / D67731 HAL 4.0 Design History File Index Rev 05.docx.pdf, Page 13

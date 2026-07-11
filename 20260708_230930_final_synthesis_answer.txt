@@ -1,0 +1,8 @@
+Audit question: Are legacy devices assessed for compliance with current design control requirements?
+Sub-queries used: ['legacy device compliance assessment report for current design controls', 'evaluation of design control updates for legacy devices', 'legacy device redesign and compliance strategy documentation']
+Chunks used: 200 (71 matched from 3 facet sub-queries + augmented context)
+================================================================================
+The retrieved document excerpts do not provide direct information or evidence regarding the assessment of legacy devices for compliance with current design control requirements specific to the Halcyon 4.0 (HAL 4.0) radiotherapy system. The excerpts focus mainly on risk control measures, validation strategies, and testing outcomes related to the device but do not specifically address the compliance assessment of legacy devices under current design control requirements. 
+
+Documents cited:
+- None (no relevant evidence found)

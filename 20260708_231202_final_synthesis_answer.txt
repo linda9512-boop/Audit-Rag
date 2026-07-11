@@ -1,0 +1,25 @@
+Audit question: How is risk integrated into design and development activities?
+Sub-queries used: ['risk analysis and management process during device design', 'design controls and risk mitigation strategies in development', 'documentation of risk assessment and integration in design phases']
+Chunks used: 200 (83 matched from 3 facet sub-queries + augmented context)
+================================================================================
+The integration of risk into design and development activities for the HAL 4.0 device follows a structured risk management process conforming to ISO 14971, a standard for risk management of medical devices. This process is integrated at various stages of the device lifecycle and documented in multiple reports and plans. Here are specific ways risk is integrated into the design and development activities:
+
+1. **Risk Management System and Iterative Process**: HAL 4.0 follows a continuous iterative risk management process throughout the device lifecycle. This involves establishing, implementing, documenting, and maintaining a risk management system. Risk management activities include the creation of risk management plans for each device, identification and analysis of hazards, and re-evaluation of risks when software requirements are established [Regulatory / Essential Requirements Checklist / D70060 HAL 4.0-GSPR Checklist.pdf | Page: 3-4], [Regulatory / International Submission Dossier / D70060 HAL 4.0 GSPR Checklist Rev2.docx.pdf | Page: 4].
+
+2. **Risk Management Plan and Activities**: A specific risk management plan (RMP) for HAL 4.0 is in place, detailing the activities and processes to manage risks. This includes conducting top-down risk hazard analysis, bottom-up risk failure mode and effects analysis (FMEA), and regular reviews by competent personnel [Risk Management / Risk Management Plans / D59555 HAL 4.0 Risk Management Plan rev03.pdf | Page: 6], [Risk Management / Risk Management Plans / D59555 HAL 4.0 Risk Management Plan rev03.pdf | Page: 7].
+
+3. **Verification and Validation**: Risk control measures identified and implemented during the design and development are verified and validated. This is documented in the Risk Management Report and other verification and validation reports, which confirm the implementation and effectiveness of risk control measures [Regulatory / Test Reports - Regulatory Compliance / 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | Page: 292-293].
+
+4. **Post-production Monitoring**: Production and post-production information are continuously monitored to identify new risks or reassess known risks. This ongoing process informs updates to risk management activities based on new information from production changes, defect identifications, and external reports [Risk Management / Risk Management Plans / D59555 HAL 4.0 Risk Management Plan rev03.pdf | Page: 9-10].
+
+5. **Integration into Design Control**: Risk control measures are integrated into system and software requirements through a design and development procedure. This ensures a systematic connection between risk controls and software functionality, complying with ISO 14971 [Regulatory / Test Reports - Regulatory Compliance / D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | Page: 242-243].
+
+Overall, the HAL 4.0's approach to integrating risk into design and development is comprehensive, involving systematic risk assessment processes, continuous monitoring, and verification of implemented controls across all device lifecycle phases.
+
+Documents cited:
+- Regulatory / Essential Requirements Checklist / D70060 HAL 4.0-GSPR Checklist.pdf | Page: 3-4
+- Regulatory / International Submission Dossier / D70060 HAL 4.0 GSPR Checklist Rev2.docx.pdf | Page: 4
+- Risk Management / Risk Management Plans / D59555 HAL 4.0 Risk Management Plan rev03.pdf | Page: 6
+- Risk Management / Risk Management Plans / D59555 HAL 4.0 Risk Management Plan rev03.pdf | Page: 7
+- Regulatory / Test Reports - Regulatory Compliance / 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | Page: 292-293
+- Risk Management / Risk Management Plans / D59555 HAL 4.0 Risk Management Plan rev03.pdf | Page: 9-10

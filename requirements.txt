@@ -1,4 +1,6 @@
 anthropic
+openai
 pinecone
 python-dotenv
 PyMuPDF
+openpyxl

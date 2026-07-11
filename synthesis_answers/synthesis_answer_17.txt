@@ -1,0 +1,24 @@
+Audit question: Is traceability established from requirements to design to verification and validation?
+Chunks used: 37
+================================================================================
+Traceability from requirements to design to verification and validation is established for the Halcyon 4.0 radiotherapy system, based on the evidence provided in the document excerpts.
+
+1. **Traceability from Requirements to Design:**
+   - The design trace matrix, as indicated in the documents, captures the traceability from requirements to design elements. The document D68782 HAL 4.0 Requirement Tracing rev 01 shows upward tracing of requirements, which implies mapping from requirements to design features. [Design Output Specification / Design Trace Matrices / D68782 HAL 4.0 Requirement Tracing rev 01.pdf | Page: 3]
+
+2. **Traceability from Design to Verification:**
+   - The D68599 HAL 4.0 Design Verification Trace Matrix provides traceability from requirements to test cases and test results, demonstrating the link from design elements to verification activities. This matrix is explicitly mentioned to show traces from requirements to verification test cases. [Design Output Specification / Design Trace Matrices / D68599 Hal 4.0 Design Verification Trace Matrix Rev 02.pdf | Page: 3 | Section: 1. Introduction > 1.1 Purpose]
+   - Additionally, the procedure for traceability between software requirements and verification is confirmed via DND0603 Design Trace Matrix which records tests to requirements. [Regulatory / Test Reports - Regulatory Compliance / D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | Page: 265-266]
+
+3. **Traceability from Verification and Validation:**
+   - The D74887 HAL 4.0 MR1 Validation Summary Report Rev01 includes a validation trace matrix for validation test case results and associated user needs and risk control measures, showing the trace from verification to validation. [Design Validation / Verification and Validation Summary Reports / D74887 HAL 4.0 MR1 Validation Summary Report Rev01.docx.pdf | Page: 8]
+   - The D70753 HAL 4.0 MR1 Validation Plan explains how validation traceability is included in the Validation Summary Report, which references user needs and risk control measures, indicating traceability to validation. [Design Validation / Verification and Validation Plans / D70753 HAL 4.0 MR1 Validation Plan Rev 02.docx.pdf | Page: 17-18]
+
+In conclusion, the evidence from the extracted documents affirms that Halcyon 4.0 has established traceability from requirements through design to verification and validation.
+
+Documents cited:
+- [Design Output Specification / Design Trace Matrices / D68782 HAL 4.0 Requirement Tracing rev 01.pdf | Page: 3]
+- [Design Output Specification / Design Trace Matrices / D68599 Hal 4.0 Design Verification Trace Matrix Rev 02.pdf | Page: 3 | Section: 1. Introduction > 1.1 Purpose]
+- [Regulatory / Test Reports - Regulatory Compliance / D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | Page: 265-266]
+- [Design Validation / Verification and Validation Summary Reports / D74887 HAL 4.0 MR1 Validation Summary Report Rev01.docx.pdf | Page: 8]
+- [Design Validation / Verification and Validation Plans / D70753 HAL 4.0 MR1 Validation Plan Rev 02.docx.pdf | Page: 17-18]

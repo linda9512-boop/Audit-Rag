@@ -1,0 +1,36 @@
+Audit question: How does the organization ensure design controls are applied across the lifecycle for new, modified, and legacy devices?
+Chunks used: 89
+================================================================================
+To answer the audit question about how the organization ensures design controls are applied across the lifecycle for new, modified, and legacy devices, we have the following evidence from the provided excerpts:
+
+1. **Software Configuration Management and Integrity**:
+   - For the Halcyon 4.0 system, software is managed as per documented procedures which include controlling software configuration, versioning, and updates, thereby maintaining integrity throughout the lifecycle. Software items within the system are maintained at Class C, with comprehensive risk management and V&V coverage [Regulatory / D70036 HAL 4.0 Software Description Report China Submission Rev 03 .docx.pdf | Page: 25].
+   - The organization emphasizes the integrity of the software build during the design and development phases, using processes to prevent improper or incompatible software versions from being released [Risk Management / Risk Management Plans / D68685 HAL 4.0 Cybersecurity Statement Rev 01.docx.pdf | Page: 5].
+
+2. **Product Lifecycle Cybersecurity**:
+   - Varian implements a lifecycle framework that incorporates "Secure by Design" principles into product development and continues with the management of cybersecurity risks post-market. This is a proactive approach to manage risks associated with vulnerabilities in the product lifecycle [Risk Management / Risk Management Reports / D68686 HAL 4.0 Cybersecurity Summary Report Rev 03.pdf | Page: 6].
+
+3. **Risk Management and Design Control**:
+   - The use of standards such as ISO 13485 ensures design and manufacturing quality, while ISO 14971 provides a full lifecycle risk management framework. This framework is applied to reduce risks and maintain an acceptable risk level throughout the device's lifecycle [Regulatory / International Submission Dossier / D70060 HAL 4.0 GSPR Checklist Rev2.docx.pdf | Page: 3].
+   - The risk management plan outlines continuous monitoring of production and post-production information to identify new risks or revisions of standards that may impact device safety [Risk Management / Risk Management Plans / D59555 HAL 4.0 Risk Management Plan rev03.pdf | Page: 9-10].
+
+4. **Design and Development Process**:
+   - Varian follows a detailed design and development process (DND01), ensuring that system and software requirements are regularly evaluated and updated. This process spans all development phases and ensures that design controls are consistently applied [Regulatory / Test Reports - Regulatory Compliance / D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | Page: 242].
+
+5. **Usability Engineering and UX Process**:
+   - A User-Centered Design (UCD) process is integrated into the Product Life Cycle (PLC), ensuring usability and ergonomics are considered early in the design stage and maintained throughout the device's lifecycle [Regulatory / Test Reports - Regulatory Compliance / D101278 106485676MIN-002 IEC60601-1-6 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | Page: 7-9].
+
+6. **Version Control and Changes Management**:
+   - Documentation and rigorous controls are in place for managing software releases and product updates. This involves documenting changes, performing risk assessments for updates, and ensuring that every change is reviewed and verified [Regulatory / International Submission Dossier / D70060 HAL 4.0 GSPR Checklist Rev2.docx.pdf | Page: 21].
+
+From these findings, it's evident that the organization applies design controls throughout the lifecycle for new, modified, and legacy devices by adhering to established procedures and standards, ensuring consistency, product integrity, and risk management at all stages.
+
+Documents cited:
+- Regulatory / D70036 HAL 4.0 Software Description Report China Submission Rev 03 .docx.pdf | Page: 25
+- Risk Management / Risk Management Plans / D68685 HAL 4.0 Cybersecurity Statement Rev 01.docx.pdf | Page: 5
+- Risk Management / Risk Management Reports / D68686 HAL 4.0 Cybersecurity Summary Report Rev 03.pdf | Page: 6
+- Regulatory / International Submission Dossier / D70060 HAL 4.0 GSPR Checklist Rev2.docx.pdf | Page: 3
+- Risk Management / Risk Management Plans / D59555 HAL 4.0 Risk Management Plan rev03.pdf | Page: 9-10
+- Regulatory / Test Reports - Regulatory Compliance / D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | Page: 242
+- Regulatory / Test Reports - Regulatory Compliance / D101278 106485676MIN-002 IEC60601-1-6 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | Page: 7-9
+- Regulatory / International Submission Dossier / D70060 HAL 4.0 GSPR Checklist Rev2.docx.pdf | Page: 21

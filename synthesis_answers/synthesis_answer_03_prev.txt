@@ -1,0 +1,27 @@
+Audit question: Are all devices, including accessories, software, variants, and families, appropriately identified and included?
+Chunks used: 37
+================================================================================
+The audit question asks whether all devices, including accessories, software, variants, and families, are appropriately identified and included. Based on the provided excerpts, here is the analysis:
+
+1. **Identification of Products, Versions, and Builds:**
+   - There are procedures in place to define and confirm the identification of products, versions, and builds for Varian and third-party devices, as noted in the process orchestrated by SysEng with input from various teams and the need for an Engineering Release Memo (ERM) [Design Validation / Verification and Validation Summary Reports / D65886 HAL 4.0 Validation Scorecard Rev 02.docx.pdf, Page 19].
+
+2. **Inclusion of Accessories and Components:**
+   - The HAL 4.0 and all models within this platform, such as Halcyon and Ethos, include specific accessories and components as described in the design output documents. These are distinctly listed unless otherwise noted [Design Output Specification / Design Descriptions / D46704 HAL  4.0 Accessory and Component List Rev 1.0.docx.pdf, Page 3].
+   - However, there are conflicting reports about the presence of accessories. The Regulatory documents state explicitly that "there are no accessories with HAL" [Regulatory / International Submission Dossier / D70060 HAL 4.0 GSPR Checklist Rev2.docx.pdf, Page 34-35; Regulatory / Essential Requirements Checklist / D70060 HAL 4.0-GSPR Checklist.pdf, Page 31]. This presents a conflict with the document listing accessories and components.
+
+3. **Identification of Versions:**
+   - Unique identification for configuration items, including software version details, is documented as per the software configuration management procedures [Regulatory / Test Reports - Regulatory Compliance / D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf, Page 284-285].
+
+4. **Variants and Family Identification:**
+   - Variants are noted to be required only when there are design changes that accommodate different anatomical requirements, implying that not all design changes result in new variants [Regulatory / Regulatory Plans / D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf, Page 70-71].
+
+The audit requires explicit evidence for the inclusion and identification of all device aspects, but while there is some evidence of systematic identification of products, versions, and components, there is a conflict regarding the inclusion of accessories, and thus, this aspect is not conclusively resolved.
+
+Documents cited:
+- Design Validation / Verification and Validation Summary Reports / D65886 HAL 4.0 Validation Scorecard Rev 02.docx.pdf, Page 19
+- Design Output Specification / Design Descriptions / D46704 HAL  4.0 Accessory and Component List Rev 1.0.docx.pdf, Page 3
+- Regulatory / International Submission Dossier / D70060 HAL 4.0 GSPR Checklist Rev2.docx.pdf, Page 34-35
+- Regulatory / Essential Requirements Checklist / D70060 HAL 4.0-GSPR Checklist.pdf, Page 31
+- Regulatory / Test Reports - Regulatory Compliance / D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf, Page 284-285
+- Regulatory / Regulatory Plans / D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf, Page 70-71

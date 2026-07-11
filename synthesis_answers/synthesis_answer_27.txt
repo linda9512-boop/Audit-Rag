@@ -1,0 +1,23 @@
+Audit question: Is traceability maintained across product families and versions?
+Chunks used: 37
+================================================================================
+Based on the provided excerpts, there is some evidence related to maintaining traceability across product families and versions for the Halcyon 4.0 device.
+
+1. **Updates to Traceability Matrices**: The document titled "D95424 HAL 4.0 MR2 (HAL Evolve) Maintenance Release Document Rev 04" mentions that the trace matrix is updated with the changes in the release for Halcyon Evolve, indicating traceability is maintained in terms of product versioning and updates. [Design Changes / Maintenance Releases / D95424 HAL 4.0 MR2 (HAL Evolve) Maintenance Release Document Rev 04.pdf | Page: 39-40]
+
+2. **Platform-wide Traceability Plan**: The "D58685-Rev04-HAL4.0 Traceability Plan.pdf" covers traceability for the entire HAL4.0 product platform including Halcyon 4.0 and Ethos Radiotherapy System 4.0, encompassing software and hardware elements. This plan ensures that both hardware and software components are traced across the HAL 4.0 platform. [Design Transfer / Manufacturing Documentation / D58685-Rev04-HAL4.0 Traceability Plan.pdf | Page: 4]
+
+3. **Traceability Analysis for Software**: The "D70036 HAL 4.0 Software Description Report China Submission Rev 03" specifies that traceability analysis and other related documentation are maintained for the software used in the product. This ensures that non-clinical software features are traceable throughout updates and releases. [Regulatory / D70036 HAL 4.0 Software Description Report China Submission Rev 03 .docx.pdf | Page: 50]
+
+4. **Linkage of Requirements and Compliance**: Test reports and traceability to system requirements, software requirements, and risk control measures are mentioned in the "IEC 60601-1" report, demonstrating traceability within safety and compliance scope. [Regulatory / Test Reports - Regulatory Compliance / 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | Page: 227]
+
+5. **Versioning and Compatibility**: The maintenance of compatibility with previous versions shown in numerous Engineering Release Memos (e.g., D61143 HAL 4.0 System Build ERM TRR1) underscores the product versioning approach to maintain compatibility and traceability across product families and versions. [Design Output Specification / Engineering Release Memos / D61143 HAL 4.0 System Build ERM TRR1 Rev1.pdf | Page: 9]
+
+The documents cited support that traceability is maintained, especially focusing on version updates, platform-wide traceability plans, and software traceability analysis. However, more specific evidence detailing the entire process of traceability linking all parts of design, development, and deployment activities across different product families and variants is not fully addressed in these snippets.
+
+Documents cited:
+- Design Changes / Maintenance Releases / D95424 HAL 4.0 MR2 (HAL Evolve) Maintenance Release Document Rev 04.pdf | Page: 39-40
+- Design Transfer / Manufacturing Documentation / D58685-Rev04-HAL4.0 Traceability Plan.pdf | Page: 4
+- Regulatory / D70036 HAL 4.0 Software Description Report China Submission Rev 03 .docx.pdf | Page: 50
+- Regulatory / Test Reports - Regulatory Compliance / 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | Page: 227
+- Design Output Specification / Engineering Release Memos / D61143 HAL 4.0 System Build ERM TRR1 Rev1.pdf | Page: 9

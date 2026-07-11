@@ -1,0 +1,920 @@
+[RetrievalAgent] Loading documents from: docs
+[RetrievalAgent] Index already has 25586 vectors — skipping re-embedding.
+
+================================================================================
+SUB-QUERY: How does the organization determine which products/devices are subject to design and development controls?
+================================================================================
+ 1  0.1067  (orig 0.4158)  | D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 6. The MSO shall only be used to power the console cabinet (Continued)
+ 2  0.1007  (orig 0.4063)  | 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | 4 Supply voltage: (Continued)
+ 3  0.0960  (orig 0.3683)  | D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 6. The MSO shall only be used to power the console cabinet (Continued)
+ 4  0.0500  (orig 0.3203)  | D59555 HAL 4.0 Risk Management Plan rev03.pdf | 7.0 Verification Activities > 7.2 Programmable electrical medical system (PEMS)
+ 5  0.0248  (orig 0.3581)  | D45070 Hal 4 Applicable Product Standards Rev 2.docx.pdf | 2. Standards Evaluation > 2.1.1  Applicable Standards (Continued)
+ 6  0.0247  (orig 0.3425)  | 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | 4 Supply voltage: (Continued)
+ 7  0.0221  (orig 0.3482)  | D70036 HAL 4.0 Software Description Report China Submission Rev 03 .docx.pdf | 4 on-board USB 3.0 ports > 2.4 Life Cycle (生存周期)(No change) > 2.4.2 Configuration Management Plan
+ 8  0.0169  (orig 0.3411)  | D23997 Halcyon v2 Design and Development Plan Rev 01.pdf | 3.2.3 Project Controls (Continued)
+ 9  0.0168  (orig 0.3223)  | D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | 8. General & Specific Regulatory Requirements
+10  0.0162  (orig 0.3210)  | D101278 106485676MIN-002 IEC60601-1-6 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 40 51st Way NE, Suite 100 (Continued)
+11  0.0148  (orig 0.3406)  | D45070 Hal 4 Applicable Product Standards Rev 2.docx.pdf | 2. Standards Evaluation > 2.1.1  Applicable Standards (Continued)
+12  0.0124  (orig 0.3403)  | D70060 HAL 4.0 GSPR Checklist Rev2.docx.pdf | 2. Canada Medical Device Regulations (CMDR) – 2024-12-14 (Continued)
+13  0.0121  (orig 0.3161)  | D59555 HAL 4.0 Risk Management Plan rev03.pdf | 8.0 Production and Post-production Information
+14  0.0113  (orig 0.3226)  | D60827-ENU-01_HAL4.0 Manufacturing Process Map.pdf | 5.0 References and Appendices > 5.3 Appendices – Not applicable (Continued)
+15  0.0112  (orig 0.3267)  | D101278 106485676MIN-002 IEC60601-1-6 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 40 51st Way NE, Suite 100 (Continued)
+16  0.0072  (orig 0.3173)  | D23997 Halcyon v2 Design and Development Plan Rev 01.pdf | 3.4 Project Risk Management > 5.2.4 SOUP
+17  0.0070  (orig 0.3339)  | D70060 HAL 4.0-GSPR Checklist.pdf | 2. Canada Medical Device Regulations (CMDR) – 2019-06-21 (Continued)
+18  0.0060  (orig 0.3539)  | D61200 HAL 4.0 DFMEA rev01.pdf | 2. Design FMEA Summary (Continued)
+19  0.0052  (orig 0.3392)  | D70060 HAL 4.0 GSPR Checklist Rev2.docx.pdf | 2. Canada Medical Device Regulations (CMDR) – 2024-12-14 (Continued)
+20  0.0046  (orig 0.3488)  | D70060 HAL 4.0-GSPR Checklist.pdf | 2. Canada Medical Device Regulations (CMDR) – 2019-06-21 (Continued)
+21  0.0045  (orig 0.3340)  | D19996 Halcyon 2.0 Manufacturing Plan - Rev04.pdf | 2. Project Organization > 4.14 Quality Assurance > 4.14.1 QC Inspection
+22  0.0045  (orig 0.3451)  | D67097 HAL 4.0 Summative Usability Evaluation Plan Rev01.docx.pdf | 9.0 List of Tasks > 9.1 Use-related Risk Analysis
+23  0.0045  (orig 0.3190)  | D70154 HAL 4.0 Machinery Directive Checklist Rev 01.pdf | 2. Detailed Instructions > 2.1 Detailed Instructions for Clause 1.2.2 Control devices (Continued)
+24  0.0044  (orig 0.3326)  | D75414 HAL 4.0 Cybersecurity Summary Report China Submission Rev 01.pdf | 2. Implementation Process > 2.1 Risk Management (风险管理) (Continued)
+25  0.0039  (orig 0.3194)  | D47457 HAL 4.0 APS Record Rev 04.docx.pdf | 3.0 Summary of Applicable Standards and Guidance documents > 3.1 Applicable Standards (Continued)
+26  0.0024  (orig 0.3344)  | D61200 HAL 4.0 DFMEA rev01.pdf | 2. Design FMEA Summary (Continued)
+27  0.0022  (orig 0.3279)  | D19996 Halcyon 2.0 Manufacturing Plan - Rev04.pdf | 2. Project Organization > 4.13 Costs > 4.13.8 Certification
+28  0.0022  (orig 0.3217)  | D96388 HAL 4.0 UA Legal Information (EU REP Change) UA Checklist Rev 01.docx.pdf | 3.0 Checklist (Continued)
+29  0.0022  (orig 0.3273)  | D70154 HAL 4.0 Machinery Directive Checklist Rev 01.pdf | 1. Checklist Form (Continued)
+30  0.0015  (orig 0.3181)  | D58685-Rev04-HAL4.0 Traceability Plan.pdf | 3. Responsibilities 职责 > 4.5 For HAL4.0 production we have below rating: (Continued)
+
+================================================================================
+SUB-QUERY: What criteria are used to classify a product as a medical device under applicable regulatory jurisdictions?
+================================================================================
+ 1  0.5757  (orig 0.5051)  | D47457 HAL 4.0 APS Record Rev 04.docx.pdf | 3.0 Summary of Applicable Standards and Guidance documents > 3.1 Applicable Standards (Continued)
+ 2  0.3965  (orig 0.5390)  | D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | 4. Type of Device
+ 3  0.3131  (orig 0.4400)  | D45070 Hal 4 Applicable Product Standards Rev 2.docx.pdf | 2. Standards Evaluation > 2.1.1  Applicable Standards
+ 4  0.2958  (orig 0.4292)  | D58308 HAL 4.0 Device Description Rev 1.0.docx.pdf | 1.0 Executive Summary > 1.2 Device Classification
+ 5  0.2473  (orig 0.3454)  | D74442 - HAL 4.0 - Medical Device Classification for Brazil Rev 01.pdf | Document_Header (Continued)
+ 6  0.2294  (orig 0.3346)  | D74442 - HAL 4.0 - Medical Device Classification for Brazil Rev 01.pdf | Document_Header (Continued)
+ 7  0.2042  (orig 0.3871)  | D74311 HAL 4.0 Medical Device Classification for Canada Rev 01.pdf | Document_Header (Continued)
+ 8  0.1445  (orig 0.4541)  | D70060 HAL 4.0-GSPR Checklist.pdf | 2. Canada Medical Device Regulations (CMDR) – 2019-06-21 (Continued)
+ 9  0.1025  (orig 0.3560)  | D74311 HAL 4.0 Medical Device Classification for Canada Rev 01.pdf | Document_Header (Continued)
+10  0.1014  (orig 0.4692)  | D93257 Halcyon Evolve User Assistance Plan Rev02.docx.pdf | 2. User Assistance Deliverables > 2.2 Regulatory Requirements – Medical Devices > 2.2.1 Medical Device Classification
+11  0.1000  (orig 0.4284)  | D45070 Hal 4 Applicable Product Standards Rev 2.docx.pdf | 2. Standards Evaluation (Continued)
+12  0.0981  (orig 0.4598)  | D70060 HAL 4.0 GSPR Checklist Rev2.docx.pdf | 2. Canada Medical Device Regulations (CMDR) – 2024-12-14 (Continued)
+13  0.0862  (orig 0.4186)  | D58308 HAL 4.0 Device Description Rev 1.0.docx.pdf | 12 mm > 2.10 Principal Safety Features > 2.10.1 Compliance to International Safety Standards (Continued)
+14  0.0795  (orig 0.4012)  | D67731 HAL 4.0 Design History File Index Rev 05.docx.pdf | 2. Design History File Index > 2.11 Regulatory (Continued)
+15  0.0695  (orig 0.4756)  | D70060 HAL 4.0-GSPR Checklist.pdf | 2. Canada Medical Device Regulations (CMDR) – 2019-06-21
+16  0.0623  (orig 0.4102)  | D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | 2. “Ethos Radiotherapy System ” > 9.13  Australia & New Zealand (Continued)
+17  0.0580  (orig 0.4546)  | D70060 HAL 4.0 GSPR Checklist Rev2.docx.pdf | 2. Canada Medical Device Regulations (CMDR) – 2024-12-14
+18  0.0465  (orig 0.3878)  | D30786 Halcyon 2.0 Regulatory Plan Rev 1.0.doc.pdf | 7.2 Specific Medical Device Standards (Continued)
+19  0.0434  (orig 0.3906)  | D58685-Rev04-HAL4.0 Traceability Plan.pdf | 2. Requirements 需求
+20  0.0379  (orig 0.4429)  | D48516 HAL 4.0 Clinical Evaluation Plan Rev 01.pdf | 2.0 Definitions (Continued)
+21  0.0375  (orig 0.4219)  | D48516 HAL 4.0 Clinical Evaluation Plan Rev 01.pdf | 1.0 Introduction > 1.1 Purpose
+22  0.0353  (orig 0.4119)  | D70154 HAL 4.0 Machinery Directive Checklist Rev 01.pdf | 1. Checklist Form (Continued)
+23  0.0349  (orig 0.5101)  | D47457 HAL 4.0 APS Record Rev 04.docx.pdf | 3.0 Summary of Applicable Standards and Guidance documents > 3.2 Relevant Guidance Documents (Continued)
+24  0.0322  (orig 0.4005)  | D70154 HAL 4.0 Machinery Directive Checklist Rev 01.pdf | 1. Checklist Form (Continued)
+25  0.0147  (orig 0.3792)  | D30786 Halcyon 2.0 Regulatory Plan Rev 1.0.doc.pdf | 7.3 Information Technology Equipment Standards (Continued)
+26  0.0142  (orig 0.3819)  | D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 6. The MSO shall only be used to power the console cabinet (Continued)
+27  0.0140  (orig 0.3907)  | D59555 HAL 4.0 Risk Management Plan rev03.pdf | 4.0 Requirements for Risk Management Activities and their Review (Continued)
+28  0.0136  (orig 0.3982)  | D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 6. The MSO shall only be used to power the console cabinet (Continued)
+29  0.0112  (orig 0.4030)  | D70155-HAL 4.0 Construction Material Data Rev01.pdf | 2.0 CMR and Endocrine-Disrupting Substances
+30  0.0052  (orig 0.3385)  | D74481 HAL 4.0 Medical Device Classification for Japan (Intended for Hardware or Combined Hardware-Software Devices) Rev 01.pdf | Document_Header (Continued)
+
+================================================================================
+SUB-QUERY: Are all devices, including accessories, software, variants, and families, appropriately identified and included?
+================================================================================
+ 1  0.3705  (orig 0.3352)  | D68685 HAL 4.0 Cybersecurity Statement Rev 01.docx.pdf | 3.0 Definitions > 4.4 Accountability
+ 2  0.2721  (orig 0.2719)  | D65886 HAL 4.0 Validation Scorecard Rev 02.docx.pdf | 1.8 Overall Quality Impression (Continued)
+ 3  0.0768  (orig 0.2714)  | D70060 HAL 4.0-GSPR Checklist.pdf | 2. Canada Medical Device Regulations (CMDR) – 2019-06-21 (Continued)
+ 4  0.0634  (orig 0.2937)  | 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | 4 Supply voltage: (Continued)
+ 5  0.0358  (orig 0.2524)  | D45070 Hal 4 Applicable Product Standards Rev 2.docx.pdf | 3. Summary of Identified Standards (Continued)
+ 6  0.0331  (orig 0.2762)  | D70036 HAL 4.0 Software Description Report China Submission Rev 03 .docx.pdf | 4 on-board USB 3.0 ports > 2.5 Verification and Validation (验证与确认) > 2.5.1 Test and Review Types (Continued)
+ 7  0.0324  (orig 0.2630)  | D70036 HAL 4.0 Software Description Report China Submission Rev 03 .docx.pdf | 4 on-board USB 3.0 ports > 2.5 Verification and Validation (验证与确认) > 2.5.1 Test and Review Types
+ 8  0.0271  (orig 0.2567)  | D56979 HAL 4.0 Risk Management Report rev07.pdf | 6.0 Metrics and Trends (Continued)
+ 9  0.0241  (orig 0.3111)  | D70060 HAL 4.0 GSPR Checklist Rev2.docx.pdf | 2. Canada Medical Device Regulations (CMDR) – 2024-12-14 (Continued)
+10  0.0213  (orig 0.2797)  | D65886 HAL 4.0 Validation Scorecard Rev 02.docx.pdf | 1.8 Overall Quality Impression (Continued)
+11  0.0200  (orig 0.2720)  | D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 6. The MSO shall only be used to power the console cabinet (Continued)
+12  0.0181  (orig 0.2750)  | D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 6. The MSO shall only be used to power the console cabinet (Continued)
+13  0.0165  (orig 0.3153)  | D70060 HAL 4.0 GSPR Checklist Rev2.docx.pdf | 2. Canada Medical Device Regulations (CMDR) – 2024-12-14 (Continued)
+14  0.0106  (orig 0.2519)  | D58685-Rev04-HAL4.0 Traceability Plan.pdf | 3. Responsibilities 职责 > 3.4 RA/QA 法规部/质量部 (Continued)
+15  0.0100  (orig 0.2519)  | D33048 HAL 4.0 TSCL for SN 3 Rev 23.pdf | 1.2 Scope > 2.3.3 Accessories
+16  0.0096  (orig 0.2771)  | D70060 HAL 4.0-GSPR Checklist.pdf | 2. Canada Medical Device Regulations (CMDR) – 2019-06-21 (Continued)
+17  0.0086  (orig 0.2592)  | D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | 2. “Ethos Radiotherapy System ” > 9.13  Australia & New Zealand (Continued)
+18  0.0082  (orig 0.3071)  | D68685 HAL 4.0 Cybersecurity Statement Rev 01.docx.pdf | 6.0 References and Appendices > 6.1 External Guidance: (Continued)
+19  0.0079  (orig 0.2522)  | D47457 HAL 4.0 APS Record Rev 04.docx.pdf | 3.0 Summary of Applicable Standards and Guidance documents > 3.2 Relevant Guidance Documents (Continued)
+20  0.0066  (orig 0.2591)  | D51185 HAL 4.0 Elaboration Phase RHA Review Report rev02.pdf | 1.6 Existing HAL RMR Entries from HAL 3.0 and Changes for HAL 4.0 (Continued)
+21  0.0065  (orig 0.2643)  | D101280 106485676MIN-005  IEC60601-2-1 Ed.4.0 HAL4.0_30_APR_2026 Rev 1.pdf | 40 51st Way NE, Suite 100 (Continued)
+22  0.0061  (orig 0.2849)  | 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | 4 Supply voltage: (Continued)
+23  0.0061  (orig 0.2592)  | D51185 HAL 4.0 Elaboration Phase RHA Review Report rev02.pdf | 1.5 New Risks RMR Table (Continued)
+24  0.0029  (orig 0.2772)  | D46673 Use Related Risks and Applied Mitigators Review Report rev03.pdf | 4.0 discussion. (Continued)
+25  0.0027  (orig 0.2628)  | D70154 HAL 4.0 Machinery Directive Checklist Rev 01.pdf | 1. Checklist Form (Continued)
+26  0.0022  (orig 0.2678)  | D95548 HAL 4.0MR2 (HAL Evolve) Product Versioning Memo Rev 01.pdf | 3.0 Version Consideration (Continued)
+27  0.0018  (orig 0.2520)  | D101280 106485676MIN-005  IEC60601-2-1 Ed.4.0 HAL4.0_30_APR_2026 Rev 1.pdf | 40 51st Way NE, Suite 100 (Continued)
+28  0.0013  (orig 0.2570)  | D81648 HAL 4.0 Product Versioning Memo_Ethos Small Imager Rev 01.docx.pdf | 3.0  Version Consideration (Continued)
+29  0.0011  (orig 0.2547)  | D46673 Use Related Risks and Applied Mitigators Review Report rev03.pdf | 4.0 discussion. (Continued)
+30  0.0010  (orig 0.2570)  | D68683 HAL 4.0 Cybersecurity Traceability Analysis Rev 01.pdf | 1. Requirements (Continued)
+
+================================================================================
+SUB-QUERY: How are changes such as maintenance releases, configuration changes, or software updates evaluated to determine if design controls apply?
+================================================================================
+ 1  0.4636  (orig 0.4655)  | D78333 Ethos 4.0 Description of interoperability Study Rev01.docx.pdf | 1. Basic Information > 2.2 Interoperation Maintenance (Continued)
+ 2  0.2108  (orig 0.3568)  | D95424 HAL 4.0 MR2 (HAL Evolve) Maintenance Release Document Rev 04.pdf | 1. Maintenance Release Plan > 1.3 Project Management Process > 1.3.2 Design Control
+ 3  0.1616  (orig 0.3415)  | D70036 HAL 4.0 Software Description Report China Submission Rev 03 .docx.pdf | 4 on-board USB 3.0 ports > 2.4 Life Cycle (生存周期)(No change) > 2.4.3 Software Maintenance Planning (Continued)
+ 4  0.0942  (orig 0.3285)  | D69533 HAL 4.0 MR1 Maintenance Release Document Rev09.docx.pdf | 2. Requirements > 3.2 Risk Analysis
+ 5  0.0689  (orig 0.3440)  | D67424 Ethos 4.0 Product Technical Requirements Rev 02.pdf | 3. BB is not used (Continued)
+ 6  0.0554  (orig 0.3657)  | D79299 Ethos with small Imager Product Technical Requirements Rev 02.docx.pdf | 3. BB is not used (Continued)
+ 7  0.0474  (orig 0.3735)  | D69533 HAL 4.0 MR1 Maintenance Release Document Rev09.docx.pdf | 1. Maintenance Release Plan > 1.3 Project Management Process > 1.3.1 Project Controls
+ 8  0.0355  (orig 0.3726)  | D64997 HAL4.0 Change Request_Kemnath takes place of Crawley to build HAL4.0 Rev 01.pdf | 1. HAL4.0 Change Request > 1.1 Change Request
+ 9  0.0343  (orig 0.3746)  | D62414 Rev01_HAL4.0 Change Request – Adding San Jose factory to do HAL4.0 LSC.pdf | 1. HAL4.0 Change Request > 1.1 Change Request
+10  0.0327  (orig 0.3382)  | D56979 HAL 4.0 Risk Management Report rev07.pdf | 6.0 Metrics and Trends (Continued)
+11  0.0325  (orig 0.3471)  | D70036 HAL 4.0 Software Description Report China Submission Rev 03 .docx.pdf | 3. Conclusion:
+12  0.0313  (orig 0.3654)  | D51969 HAL 4.0 Change Request 1 Rev 01.docx.pdf | 1. HAL 4.0 Change Request 1 > 1.1 Change Request
+13  0.0286  (orig 0.3754)  | D52222 HAL 4.0 Change Request 2 rev 01.pdf | 1. HAL 4.0 Change Request 2 > 1.1 Change Request
+14  0.0270  (orig 0.3743)  | D89591 HAL Evolve Product Technical Requirements Rev01.docx.pdf | 3. BB is not used (Continued)
+15  0.0258  (orig 0.3227)  | D77160 HAL 4.0 Ethos with standard kV imager MRD Rev 05.docx.pdf | 4.0 Ethos with standard kV imager. > 1.3 Project Management Process > 1.3.2 Design Control
+16  0.0245  (orig 0.3377)  | D95424 HAL 4.0 MR2 (HAL Evolve) Maintenance Release Document Rev 04.pdf | 1. Maintenance Release Plan > 1.3 Project Management Process > 1.3.1 Project Controls (Continued)
+17  0.0180  (orig 0.3389)  | CD0589 HAL  4.0  Additional Ethos Tube-Imager Configuration Rev 01.pdf | 2. Technology and design:
+18  0.0129  (orig 0.3961)  | D95548 HAL 4.0MR2 (HAL Evolve) Product Versioning Memo Rev 01.pdf | 3.0 Version Consideration (Continued)
+19  0.0109  (orig 0.3476)  | D33048 HAL 4.0 TSCL for SN 3 Rev 23.pdf | 1.2 Scope (Continued)
+20  0.0079  (orig 0.3688)  | D81648 HAL 4.0 Product Versioning Memo_Ethos Small Imager Rev 01.docx.pdf | 3.0  Version Consideration (Continued)
+21  0.0075  (orig 0.3344)  | D73168 HAL 4.0 MR1 Project Plan Change Request 2 Rev01.docx.pdf | 1.1 Change Request
+22  0.0072  (orig 0.3267)  | CD0534-A HAL 4.0 MR1 Rev05.pdf | 2. Technology and design: (Continued)
+23  0.0069  (orig 0.3263)  | CD0335 HAL 4.0 Rev 2.0 (Dragon)  Final.docx.pdf | 2. Technology and design: (Continued)
+24  0.0065  (orig 0.3248)  | D68599 Hal 4.0 Design Verification Trace Matrix Rev 02.pdf | 5. (Subsys) CSI – Control System Infrastructure (Continued)
+25  0.0055  (orig 0.3305)  | D23997 Halcyon v2 Design and Development Plan Rev 01.pdf | 3.2.1 Scope, Schedule and Budget Control
+26  0.0054  (orig 0.3183)  | D75414 HAL 4.0 Cybersecurity Summary Report China Submission Rev 01.pdf | 2. Implementation Process > 2.4 Maintenance Plan (维护计划)
+27  0.0051  (orig 0.3559)  | D95548 HAL 4.0MR2 (HAL Evolve) Product Versioning Memo Rev 01.pdf | 3.0 Version Consideration (Continued)
+28  0.0050  (orig 0.3512)  | D81648 HAL 4.0 Product Versioning Memo_Ethos Small Imager Rev 01.docx.pdf | 3.0  Version Consideration (Continued)
+29  0.0044  (orig 0.3394)  | D68685 HAL 4.0 Cybersecurity Statement Rev 01.docx.pdf | 3.0 Definitions > 4.2 Integrity > 4.2.2 Software Integrity:
+30  0.0033  (orig 0.3637)  | D54550 HAL 4.0 Validation Plan Rev 05.docx.pdf | 2. Validation Overview > 2.2.5 Regression Testing (Continued)
+
+================================================================================
+SUB-QUERY: Are legacy devices assessed for compliance with current design control requirements?
+================================================================================
+ 1  0.0912  (orig 0.3308)  | D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 6. The MSO shall only be used to power the console cabinet (Continued)
+ 2  0.0217  (orig 0.3462)  | D68492 HAL 4.0 Validation Test Results  Interim Rev 01.docx.pdf | 1. HAL 4.0 Validation Test Design Strategy – D64929 (Continued)
+ 3  0.0157  (orig 0.3281)  | D68014 HAL 4.0 Validation Summary Report Rev 02.docx.pdf | 35. HAL 4.0 Validation Scorecard - D65886 – Rev 02 (Continued)
+ 4  0.0147  (orig 0.3112)  | D68492 HAL 4.0 Validation Test Results  Interim Rev 01.docx.pdf | 1. HAL 4.0 Validation Test Design Strategy – D64929 (Continued)
+ 5  0.0102  (orig 0.3418)  | D68779 HAL 4.0 Risk Control Measures Trace Matrix rev01.pdf | 2. Risk Control Measures Verification Trace Matrix (Continued)
+ 6  0.0099  (orig 0.3746)  | D64929 HAL 4.0 Validation Test Design Strategy Rev 02.docx.pdf | 4. Validation Test Approach > 4.4 Test Case Selection Rationale > 4.4.3 Risk Control Measure Validation > 4.4.3.2 RCMs for Legacy Features (Continued)
+ 7  0.0081  (orig 0.3748)  | D64929 HAL 4.0 Validation Test Design Strategy Rev 02.docx.pdf | 4. Validation Test Approach > 4.4 Test Case Selection Rationale > 4.4.3 Risk Control Measure Validation > 4.4.3.2 RCMs for Legacy Features (Continued)
+ 8  0.0061  (orig 0.3617)  | D70923 HAL 4.0 MR1 Test Case Selection Rationale Rev 02.docx.pdf | 4. HAL 4.0 Test Case Selection Rationale > 4.4 Risk Control Measures Validation > 4.4.2 RCMs for Legacy Features (Continued)
+ 9  0.0050  (orig 0.3026)  | D47457 HAL 4.0 APS Record Rev 04.docx.pdf | 3.0 Summary of Applicable Standards and Guidance documents > 3.2 Relevant Guidance Documents
+10  0.0031  (orig 0.3114)  | D68014 HAL 4.0 Validation Summary Report Rev 02.docx.pdf | 35. HAL 4.0 Validation Scorecard - D65886 – Rev 02 (Continued)
+11  0.0029  (orig 0.3101)  | D70060 HAL 4.0-GSPR Checklist.pdf | 2. Canada Medical Device Regulations (CMDR) – 2019-06-21 (Continued)
+12  0.0027  (orig 0.3678)  | D70923 HAL 4.0 MR1 Test Case Selection Rationale Rev 02.docx.pdf | 4. HAL 4.0 Test Case Selection Rationale > 4.4 Risk Control Measures Validation > 4.4.2 RCMs for Legacy Features (Continued)
+13  0.0024  (orig 0.3100)  | D45070 Hal 4 Applicable Product Standards Rev 2.docx.pdf | 2. Standards Evaluation > 2.1.1  Applicable Standards (Continued)
+14  0.0023  (orig 0.3319)  | D68779 HAL 4.0 Risk Control Measures Trace Matrix rev01.pdf | 2. Risk Control Measures Verification Trace Matrix (Continued)
+15  0.0015  (orig 0.3375)  | D70154 HAL 4.0 Machinery Directive Checklist Rev 01.pdf | 1. Checklist Form (Continued)
+16  0.0013  (orig 0.3168)  | D70060 HAL 4.0-GSPR Checklist.pdf | 2. Canada Medical Device Regulations (CMDR) – 2019-06-21 (Continued)
+17  0.0012  (orig 0.3241)  | D45070 Hal 4 Applicable Product Standards Rev 2.docx.pdf | 2. Standards Evaluation > 2.1.1  Applicable Standards (Continued)
+18  0.0011  (orig 0.3118)  | 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | 4 Supply voltage: (Continued)
+19  0.0007  (orig 0.3378)  | D70154 HAL 4.0 Machinery Directive Checklist Rev 01.pdf | 2. Detailed Instructions > 2.1 Detailed Instructions for Clause 1.2.2 Control devices (Continued)
+20  0.0007  (orig 0.3072)  | D47457 HAL 4.0 APS Record Rev 04.docx.pdf | 3.0 Summary of Applicable Standards and Guidance documents > 3.1 Applicable Standards (Continued)
+21  0.0007  (orig 0.3069)  | D70060 HAL 4.0 GSPR Checklist Rev2.docx.pdf | 2. Canada Medical Device Regulations (CMDR) – 2024-12-14 (Continued)
+22  0.0007  (orig 0.3057)  | 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | 4 Supply voltage: (Continued)
+23  0.0007  (orig 0.3074)  | D54550 HAL 4.0 Validation Plan Rev 05.docx.pdf | 2. Validation Overview > 2.2.5 Regression Testing (Continued)
+24  0.0006  (orig 0.3387)  | D61200 HAL 4.0 DFMEA rev01.pdf | 2. Design FMEA Summary (Continued)
+25  0.0005  (orig 0.3098)  | D65651 Halcyon-Ethos 4.0 IFU (P1058124-001-A) User Assistance Checklist Rev01.docx.pdf | 3.0 Checklist (Continued)
+26  0.0005  (orig 0.3110)  | D70060 HAL 4.0 GSPR Checklist Rev2.docx.pdf | 2. Canada Medical Device Regulations (CMDR) – 2024-12-14 (Continued)
+27  0.0004  (orig 0.3024)  | D68782 HAL 4.0 Requirement Tracing rev 01.pdf | 2. Requirements Tracing (Continued)
+28  0.0004  (orig 0.3187)  | D61200 HAL 4.0 DFMEA rev01.pdf | 2. Design FMEA Summary (Continued)
+29  0.0002  (orig 0.3144)  | D49189 HAL4.0 Manufacturing Plan Rev 08.pdf | 2. Manufacture extra inventories for HAL4.0 (Continued)
+30  0.0002  (orig 0.3061)  | D96388 HAL 4.0 UA Legal Information (EU REP Change) UA Checklist Rev 01.docx.pdf | 3.0 Checklist (Continued)
+
+================================================================================
+SUB-QUERY: How does the organization ensure global regulatory requirements are considered in determining design control applicability?
+================================================================================
+ 1  0.2666  (orig 0.3252)  | D70036 HAL 4.0 Software Description Report China Submission Rev 03 .docx.pdf | 4 on-board USB 3.0 ports > 2.4 Life Cycle (生存周期)(No change)
+ 2  0.1287  (orig 0.3742)  | D30786 Halcyon 2.0 Regulatory Plan Rev 1.0.doc.pdf | 6.5 Biocompatibility Information (Continued)
+ 3  0.1025  (orig 0.4466)  | D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | 8. General & Specific Regulatory Requirements
+ 4  0.0449  (orig 0.3389)  | D67017-Rev 02-HAL4.0 Golden Disk Build Instruction.pdf | 6.0 References and Appendices > 6.3 Appendices (Continued)
+ 5  0.0306  (orig 0.3916)  | D60827-ENU-01_HAL4.0 Manufacturing Process Map.pdf | 5.0 References and Appendices > 5.3 Appendices – Not applicable (Continued)
+ 6  0.0075  (orig 0.4042)  | D45070 Hal 4 Applicable Product Standards Rev 2.docx.pdf | 1. Introduction > 1.2 Scope
+ 7  0.0058  (orig 0.3174)  | D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 6. The MSO shall only be used to power the console cabinet (Continued)
+ 8  0.0045  (orig 0.4307)  | D47457 HAL 4.0 APS Record Rev 04.docx.pdf | 1.0 Introduction > 1.2     Scope
+ 9  0.0043  (orig 0.3387)  | D59555 HAL 4.0 Risk Management Plan rev03.pdf | 7.0 Verification Activities > 7.1 Risk control measures
+10  0.0038  (orig 0.3907)  | D30786 Halcyon 2.0 Regulatory Plan Rev 1.0.doc.pdf | 7.2 Specific Medical Device Standards (Continued)
+11  0.0033  (orig 0.3279)  | D27054 Halcyon 2.0 Market Introduction Plan Rev 5.0.docx.pdf | 6.0 section 3.1.4. > 5.1.7 Worldwide Sales
+12  0.0028  (orig 0.4021)  | D45070 Hal 4 Applicable Product Standards Rev 2.docx.pdf | 2. Standards Evaluation > 2.1.1  Applicable Standards (Continued)
+13  0.0021  (orig 0.3525)  | D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | 9. Global Submission Priorities
+14  0.0020  (orig 0.3451)  | D70060 HAL 4.0 GSPR Checklist Rev2.docx.pdf | 2. Canada Medical Device Regulations (CMDR) – 2024-12-14 (Continued)
+15  0.0019  (orig 0.3585)  | D58308 HAL 4.0 Device Description Rev 1.0.docx.pdf | 12 mm > 2.10 Principal Safety Features > 2.10.1 Compliance to International Safety Standards
+16  0.0019  (orig 0.3475)  | D70154 HAL 4.0 Machinery Directive Checklist Rev 01.pdf | 1. Checklist Form (Continued)
+17  0.0018  (orig 0.3367)  | D68599 Hal 4.0 Design Verification Trace Matrix Rev 02.pdf | 13. (Subsys) TXA - Treatment (Continued)
+18  0.0016  (orig 0.3378)  | D70060 HAL 4.0 GSPR Checklist Rev2.docx.pdf | 2. Canada Medical Device Regulations (CMDR) – 2024-12-14 (Continued)
+19  0.0014  (orig 0.3147)  | D68779 HAL 4.0 Risk Control Measures Trace Matrix rev01.pdf | 2. Risk Control Measures Verification Trace Matrix (Continued)
+20  0.0014  (orig 0.3309)  | D67731 HAL 4.0 Design History File Index Rev 05.docx.pdf | 2. Design History File Index > 2.11 Regulatory
+21  0.0010  (orig 0.4257)  | D47457 HAL 4.0 APS Record Rev 04.docx.pdf | 3.0 Summary of Applicable Standards and Guidance documents > 3.1 Applicable Standards (Continued)
+22  0.0009  (orig 0.3571)  | D70060 HAL 4.0-GSPR Checklist.pdf | 2. Canada Medical Device Regulations (CMDR) – 2019-06-21 (Continued)
+23  0.0007  (orig 0.3452)  | D70060 HAL 4.0-GSPR Checklist.pdf | 2. Canada Medical Device Regulations (CMDR) – 2019-06-21 (Continued)
+24  0.0004  (orig 0.3110)  | D44094_HAL4.0_CER_Rev05.pdf | 3. DAEN > 6.1.7 Product Labeling
+25  0.0003  (orig 0.3271)  | D58308 HAL 4.0 Device Description Rev 1.0.docx.pdf | 1.0 Executive Summary > 1.2 Device Classification > 1.3.6 Operator Profiles (Continued)
+26  0.0003  (orig 0.3151)  | D70154 HAL 4.0 Machinery Directive Checklist Rev 01.pdf | 2. Detailed Instructions > 2.1 Detailed Instructions for Clause 1.2.2 Control devices (Continued)
+27  0.0002  (orig 0.3161)  | D56979 HAL 4.0 Risk Management Report rev07.pdf | 4.0 Review of Risk Management Activities > 4.2 Device’s overall residual risk > 4.2.1 Residual Risk of Main Use Cases (Continued)
+28  0.0002  (orig 0.3132)  | D101279 106485676MIN-004  IEC60601-1-3 Ed.2.2 HAL4.0_30_APR_2026 Rev 1.pdf | 40 51st Way NE, Suite 100 (Continued)
+29  0.0002  (orig 0.3218)  | D75414 HAL 4.0 Cybersecurity Summary Report China Submission Rev 01.pdf | 2. Implementation Process > 2.1 Risk Management (风险管理) (Continued)
+30  0.0001  (orig 0.3171)  | D68779 HAL 4.0 Risk Control Measures Trace Matrix rev01.pdf | 2. Risk Control Measures Verification Trace Matrix (Continued)
+
+================================================================================
+SUB-QUERY: Does the organization have documented design and development procedures compliant with applicable regulations?
+================================================================================
+ 1  0.7765  (orig 0.4717)  | D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | 8. General & Specific Regulatory Requirements
+ 2  0.7038  (orig 0.4823)  | D45070 Hal 4 Applicable Product Standards Rev 2.docx.pdf | 2. Standards Evaluation > 2.1.1  Applicable Standards (Continued)
+ 3  0.5991  (orig 0.4059)  | 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | 4 Supply voltage: (Continued)
+ 4  0.5878  (orig 0.3609)  | D70036 HAL 4.0 Software Description Report China Submission Rev 03 .docx.pdf | 4 on-board USB 3.0 ports > 2.4 Life Cycle (生存周期)(No change)
+ 5  0.4876  (orig 0.4108)  | D30786 Halcyon 2.0 Regulatory Plan Rev 1.0.doc.pdf | 6.5 Biocompatibility Information (Continued)
+ 6  0.4537  (orig 0.3154)  | D68985 HAL 4.0 IEC 62304+A1 2015 Software Lifecycle Assessment Rev 01.docx.pdf | Document_Header (Continued)
+ 7  0.3492  (orig 0.4344)  | D45070 Hal 4 Applicable Product Standards Rev 2.docx.pdf | 2. Standards Evaluation > 2.1.1  Applicable Standards (Continued)
+ 8  0.3291  (orig 0.3545)  | D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 6. The MSO shall only be used to power the console cabinet (Continued)
+ 9  0.2504  (orig 0.3127)  | D79691 HAL 4.0 IEC 81001-5-1 Compliance Checklist Review Report Rev 01.docx.pdf | Document_Header (Continued)
+10  0.2485  (orig 0.4025)  | D47457 HAL 4.0 APS Record Rev 04.docx.pdf | 1.0 Introduction > 1.2     Scope
+11  0.2445  (orig 0.3063)  | D79691 HAL 4.0 IEC 81001-5-1 Compliance Checklist Review Report Rev 01.docx.pdf | Document_Header (Continued)
+12  0.1767  (orig 0.4081)  | 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | 4 Supply voltage: (Continued)
+13  0.1672  (orig 0.3098)  | D68985 HAL 4.0 IEC 62304+A1 2015 Software Lifecycle Assessment Rev 01.docx.pdf | Document_Header (Continued)
+14  0.0930  (orig 0.2700)  | D98314 Attachment to D47457 Rev 04 APS Assessment Rev01(1).xlsx.pdf | Document_Header (Continued)
+15  0.0919  (orig 0.3641)  | D101278 106485676MIN-002 IEC60601-1-6 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 40 51st Way NE, Suite 100 (Continued)
+16  0.0788  (orig 0.4005)  | D47457 HAL 4.0 APS Record Rev 04.docx.pdf | 3.0 Summary of Applicable Standards and Guidance documents > 3.2 Relevant Guidance Documents
+17  0.0724  (orig 0.3422)  | D70036 HAL 4.0 Software Description Report China Submission Rev 03 .docx.pdf | 4 on-board USB 3.0 ports > 2.4 Life Cycle (生存周期)(No change) > 2.4.3 Software Maintenance Planning (Continued)
+18  0.0275  (orig 0.3628)  | D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 6. The MSO shall only be used to power the console cabinet (Continued)
+19  0.0158  (orig 0.3529)  | D60827-ENU-01_HAL4.0 Manufacturing Process Map.pdf | 5.0 References and Appendices > 5.3 Appendices – Not applicable (Continued)
+20  0.0074  (orig 0.3302)  | D53708 Marketing Claims Library HAL 4.0 Rev 4.0.docx.pdf | 1. Introduction > 1.3 Roles & Responsibilities
+21  0.0056  (orig 0.2718)  | D98314 Attachment to D47457 Rev 04 APS Assessment Rev01(1).xlsx.pdf | Document_Header (Continued)
+22  0.0055  (orig 0.3299)  | D70060 HAL 4.0-GSPR Checklist.pdf | 2. Canada Medical Device Regulations (CMDR) – 2019-06-21 (Continued)
+23  0.0054  (orig 0.3622)  | D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | 10. Responsibilities (Continued)
+24  0.0040  (orig 0.2744)  | D68681 HAL 4.0 MDS2 Form Rev 01.pdf | Document_Header (Continued)
+25  0.0034  (orig 0.3784)  | D30786 Halcyon 2.0 Regulatory Plan Rev 1.0.doc.pdf | 7.1 General Standards
+26  0.0025  (orig 0.3437)  | D77711 Halcyon and Ethos Radiotherapy System 4.0 IFU (P1039628-003-C) Checklist Rev 01.docx.pdf | 3.0 Checklist (Continued)
+27  0.0020  (orig 0.2724)  | D75417 IEC 25051-GB T25000 Compliance for HAL 4.0 Rev 01.pdf | Document_Header (Continued)
+28  0.0011  (orig 0.3535)  | D61200 HAL 4.0 DFMEA rev01.pdf | 2. Design FMEA Summary (Continued)
+29  0.0011  (orig 0.3405)  | D67731 HAL 4.0 Design History File Index Rev 05.docx.pdf | 1. Introduction > 1.1 Scope
+30  0.0007  (orig 0.3315)  | D95424 HAL 4.0 MR2 (HAL Evolve) Maintenance Release Document Rev 04.pdf | 5. Verification and Validation > 5.3 Validation Test Specification
+
+================================================================================
+SUB-QUERY: Are these procedures consistently applied to all identified devices?
+================================================================================
+ 1  0.1266  (orig 0.2530)  | D68599 Hal 4.0 Design Verification Trace Matrix Rev 02.pdf | 13. (Subsys) TXA - Treatment (Continued)
+ 2  0.0582  (orig 0.2880)  | D70060 HAL 4.0-GSPR Checklist.pdf | 2. Canada Medical Device Regulations (CMDR) – 2019-06-21 (Continued)
+ 3  0.0525  (orig 0.2613)  | D65886 HAL 4.0 Validation Scorecard Rev 02.docx.pdf | 1.8 Overall Quality Impression (Continued)
+ 4  0.0468  (orig 0.2664)  | D44094_HAL4.0_CER_Rev05.pdf | 3. DAEN > 7.1.4 Risk Management Analyses (Continued)
+ 5  0.0258  (orig 0.3505)  | D45070 Hal 4 Applicable Product Standards Rev 2.docx.pdf | 2. Standards Evaluation > 2.1.1  Applicable Standards (Continued)
+ 6  0.0254  (orig 0.3015)  | D47457 HAL 4.0 APS Record Rev 04.docx.pdf | 3.0 Summary of Applicable Standards and Guidance documents > 3.1 Applicable Standards (Continued)
+ 7  0.0242  (orig 0.2664)  | D68685 HAL 4.0 Cybersecurity Statement Rev 01.docx.pdf | 3.0 Definitions > 4.2 Integrity > 4.2.2 Software Integrity:
+ 8  0.0210  (orig 0.2837)  | D70060 HAL 4.0 GSPR Checklist Rev2.docx.pdf | 2. Canada Medical Device Regulations (CMDR) – 2024-12-14 (Continued)
+ 9  0.0174  (orig 0.3308)  | D45070 Hal 4 Applicable Product Standards Rev 2.docx.pdf | 2. Standards Evaluation > 2.1.1  Applicable Standards (Continued)
+10  0.0158  (orig 0.3055)  | D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 6. The MSO shall only be used to power the console cabinet (Continued)
+11  0.0138  (orig 0.2642)  | D65886 HAL 4.0 Validation Scorecard Rev 02.docx.pdf | 1.8 Overall Quality Impression (Continued)
+12  0.0132  (orig 0.3075)  | 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | 4 Supply voltage: (Continued)
+13  0.0105  (orig 0.3478)  | 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | 4 Supply voltage: (Continued)
+14  0.0099  (orig 0.3098)  | D47457 HAL 4.0 APS Record Rev 04.docx.pdf | 3.0 Summary of Applicable Standards and Guidance documents > 3.1 Applicable Standards (Continued)
+15  0.0092  (orig 0.2751)  | D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 6. The MSO shall only be used to power the console cabinet (Continued)
+16  0.0079  (orig 0.2541)  | D68686 HAL 4.0 Cybersecurity Summary Report Rev 03.pdf | 3. Product Architecture > 3.3 Assets > 4.2.1 Cybersecurity Risk Assessment (Continued)
+17  0.0075  (orig 0.2527)  | D70154 HAL 4.0 Machinery Directive Checklist Rev 01.pdf | 1. Checklist Form (Continued)
+18  0.0058  (orig 0.3079)  | D30786 Halcyon 2.0 Regulatory Plan Rev 1.0.doc.pdf | 7.2 Specific Medical Device Standards (Continued)
+19  0.0045  (orig 0.2542)  | D59555 HAL 4.0 Risk Management Plan rev03.pdf | 4.0 Requirements for Risk Management Activities and their Review
+20  0.0044  (orig 0.3041)  | D30786 Halcyon 2.0 Regulatory Plan Rev 1.0.doc.pdf | 7.2 Specific Medical Device Standards (Continued)
+21  0.0023  (orig 0.2683)  | D101280 106485676MIN-005  IEC60601-2-1 Ed.4.0 HAL4.0_30_APR_2026 Rev 1.pdf | 40 51st Way NE, Suite 100 (Continued)
+22  0.0022  (orig 0.2706)  | D70060 HAL 4.0 GSPR Checklist Rev2.docx.pdf | 2. Canada Medical Device Regulations (CMDR) – 2024-12-14 (Continued)
+23  0.0019  (orig 0.2567)  | D101279 106485676MIN-004  IEC60601-1-3 Ed.2.2 HAL4.0_30_APR_2026 Rev 1.pdf | 40 51st Way NE, Suite 100 (Continued)
+24  0.0018  (orig 0.2882)  | D68686 HAL 4.0 Cybersecurity Summary Report Rev 03.pdf | 2. Basic Information > 2.4 Applicable Regulations
+25  0.0014  (orig 0.2611)  | D44094_HAL4.0_CER_Rev05.pdf | 3. DAEN > 7.1.8 Conclusions of the Analysis of Manufacturer Data (Continued)
+26  0.0007  (orig 0.2598)  | D78333 Ethos 4.0 Description of interoperability Study Rev01.docx.pdf | 1. Basic Information > 2.1 Risk Analysis, Verification and Validation (Continued)
+27  0.0001  (orig 0.2549)  | D57043 HAL 4.0 User Needs and Detailed Workflows Rev 2.0.docx.pdf | 31. The Treater will repeat steps 22 - 27. (Continued)
+28  0.0001  (orig 0.2659)  | D60152 HAL 4.0 Imaging SyDD Rev 02.pdf | 2. IGRT image: ScheduledPlanUID > 2.3.10 MPC and System Calibration > 2.3.10.1 Shared Components > 2.3.10.1.1 Image Processing (Continued)
+29  0.0000  (orig 0.2570)  | D65932 HAL4.0 IEC 60601-2-1 (2020) 201.10.101.5.3 - Deviation of Beam Characteristics Between Control Points Report Rev 01.pdf | 8. Repeat 5-7 for all four possible symmetry deviations instead. > 6.5 Yield vs. Beam Quality Index. (Continued)
+30  0.0000  (orig 0.2572)  | D65932 HAL4.0 IEC 60601-2-1 (2020) 201.10.101.5.3 - Deviation of Beam Characteristics Between Control Points Report Rev 01.pdf | 8. Repeat 5-7 for all four possible symmetry deviations instead. > 6.5 Yield vs. Beam Quality Index. (Continued)
+
+================================================================================
+SUB-QUERY: How does the organization ensure design controls are applied across the lifecycle for new, modified, and legacy devices?
+================================================================================
+ 1  0.1758  (orig 0.3764)  | D70036 HAL 4.0 Software Description Report China Submission Rev 03 .docx.pdf | 4 on-board USB 3.0 ports > 2.4 Life Cycle (生存周期)(No change) > 2.4.2 Configuration Management Plan
+ 2  0.1465  (orig 0.3444)  | D68685 HAL 4.0 Cybersecurity Statement Rev 01.docx.pdf | 3.0 Definitions > 4.2 Integrity > 4.2.2 Software Integrity:
+ 3  0.0857  (orig 0.3178)  | D70060 HAL 4.0 GSPR Checklist Rev2.docx.pdf | 2. Canada Medical Device Regulations (CMDR) – 2024-12-14 (Continued)
+ 4  0.0506  (orig 0.3245)  | D73991 HAL 4.0 IEC 80001 Test Report Rev 01.pdf | 2. Remove the drives and give them to the customer. > 5.14 Third-party components in product lifecycle roadmaps – RDMP
+ 5  0.0419  (orig 0.3393)  | D68686 HAL 4.0 Cybersecurity Summary Report Rev 03.pdf | 2. Basic Information > 2.4 Applicable Regulations
+ 6  0.0311  (orig 0.3117)  | D70060 HAL 4.0-GSPR Checklist.pdf | 2. Canada Medical Device Regulations (CMDR) – 2019-06-21 (Continued)
+ 7  0.0265  (orig 0.3111)  | D101278 106485676MIN-002 IEC60601-1-6 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 40 51st Way NE, Suite 100 (Continued)
+ 8  0.0252  (orig 0.3356)  | D70036 HAL 4.0 Software Description Report China Submission Rev 03 .docx.pdf | 4 on-board USB 3.0 ports > 2.4 Life Cycle (生存周期)(No change) > 2.4.1 Lifecycle Summary (Continued)
+ 9  0.0234  (orig 0.3400)  | D70060 HAL 4.0-GSPR Checklist.pdf | 2. Canada Medical Device Regulations (CMDR) – 2019-06-21 (Continued)
+10  0.0217  (orig 0.3444)  | 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | 4 Supply voltage: (Continued)
+11  0.0206  (orig 0.3180)  | D101278 106485676MIN-002 IEC60601-1-6 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 40 51st Way NE, Suite 100 (Continued)
+12  0.0195  (orig 0.3331)  | D73991 HAL 4.0 IEC 80001 Test Report Rev 01.pdf | 5.5 Cyber security product upgrades – CSUP
+13  0.0190  (orig 0.3141)  | D75414 HAL 4.0 Cybersecurity Summary Report China Submission Rev 01.pdf | 4. Conclusion（结论）
+14  0.0155  (orig 0.3055)  | D78266 HAL 4.0 External Software Environment Assessment Report Rev01.docx.pdf | 5. Risk Management (Continued)
+15  0.0154  (orig 0.3108)  | D59555 HAL 4.0 Risk Management Plan rev03.pdf | 7.0 Verification Activities > 7.1 Risk control measures
+16  0.0139  (orig 0.3124)  | D68779 HAL 4.0 Risk Control Measures Trace Matrix rev01.pdf | 2. Risk Control Measures Verification Trace Matrix (Continued)
+17  0.0117  (orig 0.3330)  | D68492 HAL 4.0 Validation Test Results  Interim Rev 01.docx.pdf | 1. HAL 4.0 Validation Test Design Strategy – D64929 (Continued)
+18  0.0109  (orig 0.3391)  | D68779 HAL 4.0 Risk Control Measures Trace Matrix rev01.pdf | 2. Risk Control Measures Verification Trace Matrix (Continued)
+19  0.0087  (orig 0.3301)  | D59555 HAL 4.0 Risk Management Plan rev03.pdf | 8.0 Production and Post-production Information
+20  0.0071  (orig 0.3193)  | 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | 4 Supply voltage: (Continued)
+21  0.0063  (orig 0.3056)  | D68492 HAL 4.0 Validation Test Results  Interim Rev 01.docx.pdf | 1. HAL 4.0 Validation Test Design Strategy – D64929 (Continued)
+22  0.0060  (orig 0.3345)  | D70154 HAL 4.0 Machinery Directive Checklist Rev 01.pdf | 2. Detailed Instructions > 2.1 Detailed Instructions for Clause 1.2.2 Control devices (Continued)
+23  0.0051  (orig 0.3232)  | D70060 HAL 4.0 GSPR Checklist Rev2.docx.pdf | 2. Canada Medical Device Regulations (CMDR) – 2024-12-14 (Continued)
+24  0.0044  (orig 0.3121)  | D70154 HAL 4.0 Machinery Directive Checklist Rev 01.pdf | 1. Checklist Form (Continued)
+25  0.0044  (orig 0.3167)  | D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 6. The MSO shall only be used to power the console cabinet (Continued)
+26  0.0044  (orig 0.3150)  | D78333 Ethos 4.0 Description of interoperability Study Rev01.docx.pdf | 1. Basic Information > 2.2 Interoperation Maintenance (Continued)
+27  0.0037  (orig 0.3211)  | D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 6. The MSO shall only be used to power the console cabinet (Continued)
+28  0.0016  (orig 0.3092)  | D54550 HAL 4.0 Validation Plan Rev 05.docx.pdf | 2. Validation Overview > 2.2.5 Regression Testing (Continued)
+29  0.0014  (orig 0.3200)  | D95548 HAL 4.0MR2 (HAL Evolve) Product Versioning Memo Rev 01.pdf | 3.0 Version Consideration (Continued)
+30  0.0014  (orig 0.3076)  | D95548 HAL 4.0MR2 (HAL Evolve) Product Versioning Memo Rev 01.pdf | 3.0 Version Consideration (Continued)
+
+================================================================================
+SUB-QUERY: Are roles and responsibilities for design activities clearly defined?
+================================================================================
+ 1  0.4665  (orig 0.2766)  | D93257 Halcyon Evolve User Assistance Plan Rev02.docx.pdf | 4. Project Roles, Team, and Responsibilities
+ 2  0.1490  (orig 0.2341)  | D77160 HAL 4.0 Ethos with standard kV imager MRD Rev 05.docx.pdf | 4.0 Ethos with standard kV imager. (Continued)
+ 3  0.0937  (orig 0.2784)  | D96689 MIC HAL4.0 Evolve Validation Plan Rev 01.docx.pdf | 2.0 确认概述 > 2.7 确认活动表
+ 4  0.0882  (orig 0.2659)  | D84751 MIC Ethos Linac 4.0 Standard kV Imager Validation Plan Rev 01.docx.pdf | 2.0 验证概述 > 2.7 确认活动表
+ 5  0.0820  (orig 0.2773)  | D84751 MIC Ethos Linac 4.0 Standard kV Imager Validation Plan Rev 01.docx.pdf | 2.0 验证概述
+ 6  0.0805  (orig 0.2736)  | D96689 MIC HAL4.0 Evolve Validation Plan Rev 01.docx.pdf | 2.0 确认概述
+ 7  0.0621  (orig 0.2484)  | D53708 Marketing Claims Library HAL 4.0 Rev 4.0.docx.pdf | 1. Introduction > 1.3 Roles & Responsibilities
+ 8  0.0414  (orig 0.2531)  | D93257 Halcyon Evolve User Assistance Plan Rev02.docx.pdf | 4. Project Roles, Team, and Responsibilities (Continued)
+ 9  0.0339  (orig 0.2278)  | D79317-Tools Design and Development-4U WS Automation test software for HAL Rev02.pdf | 5. Verification and Validation > 5.1 Test Plan > 5.1.1 Verification and Validation Activities > 5.1.1.3 V&V Activities Table
+10  0.0225  (orig 0.3556)  | D60919-ENU-Rev 02-HAL4.0 Master Validation Plan MVP.pdf | 6.0 Responsibilities
+11  0.0221  (orig 0.2709)  | D54550 HAL 4.0 Validation Plan Rev 05.docx.pdf | 2. Validation Overview
+12  0.0188  (orig 0.2240)  | D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 6. The MSO shall only be used to power the console cabinet (Continued)
+13  0.0148  (orig 0.2709)  | D59555 HAL 4.0 Risk Management Plan rev03.pdf | 3.0 Responsibilities and Authorities
+14  0.0145  (orig 0.2273)  | D69533 HAL 4.0 MR1 Maintenance Release Document Rev09.docx.pdf | 1. Maintenance Release Plan > 1.1 Project Overview: (Continued)
+15  0.0144  (orig 0.2346)  | 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | 4 Supply voltage: (Continued)
+16  0.0142  (orig 0.2570)  | D19996 Halcyon 2.0 Manufacturing Plan - Rev04.pdf | 2. Project Organization > 2.3 Project Responsibilities
+17  0.0102  (orig 0.2294)  | D59555 HAL 4.0 Risk Management Plan rev03.pdf | 4.0 Requirements for Risk Management Activities and their Review (Continued)
+18  0.0099  (orig 0.2404)  | D23997 Halcyon v2 Design and Development Plan Rev 01.pdf | 2.1.2 Other Scrum Teams
+19  0.0097  (orig 0.2793)  | D70753 HAL 4.0 MR1 Validation Plan Rev 02.docx.pdf | 2.0 Validation Overview
+20  0.0086  (orig 0.2257)  | D86613 PPS Kits Packaging Validation Protocol Rev 01.pdf | 5. Test Setup Consideration > 5.8. Roles and Responsibilities (Continued)
+21  0.0066  (orig 0.2256)  | D64796 HAL4.0 Couch test tooling console TDD  Rev03.pdf | 1. Tool Development Plan > 1.1 Project Team and Roles
+22  0.0061  (orig 0.2245)  | D53809-Tools Design and Development-kV collimator assembly tooling Rev 01.docx.pdf | 1. Tool Development Plan > 1.1 Project Team and Roles
+23  0.0052  (orig 0.2346)  | D101278 106485676MIN-002 IEC60601-1-6 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 40 51st Way NE, Suite 100 (Continued)
+24  0.0050  (orig 0.2235)  | D70923 HAL 4.0 MR1 Test Case Selection Rationale Rev 02.docx.pdf | 2. Validation Test Execution Overview > 2.1 Validation Team Overview
+25  0.0043  (orig 0.2232)  | D61200 HAL 4.0 DFMEA rev01.pdf | 2. Design FMEA Summary (Continued)
+26  0.0037  (orig 0.2385)  | D56979 HAL 4.0 Risk Management Report rev07.pdf | 3.0 Responsibilities and Authorities (Continued)
+27  0.0035  (orig 0.2760)  | D23997 Halcyon v2 Design and Development Plan Rev 01.pdf | 3.4 Project Risk Management > 6.1.2 Languages to be released with Halcyon v2 (Continued)
+28  0.0026  (orig 0.2230)  | D61200 HAL 4.0 DFMEA rev01.pdf | 2. Design FMEA Summary (Continued)
+29  0.0021  (orig 0.2558)  | D70753 HAL 4.0 MR1 Validation Plan Rev 02.docx.pdf | 2.0 Validation Overview > 2.11 Validation Activities Table (Continued)
+30  0.0018  (orig 0.2495)  | D54550 HAL 4.0 Validation Plan Rev 05.docx.pdf | 2. Validation Overview (Continued)
+
+================================================================================
+SUB-QUERY: How is risk integrated into design and development activities?
+================================================================================
+ 1  0.5846  (orig 0.3906)  | D19996 Halcyon 2.0 Manufacturing Plan - Rev04.pdf | 2. Project Organization > 3.3 Project Risk
+ 2  0.4690  (orig 0.3619)  | D70036 HAL 4.0 Software Description Report China Submission Rev 03 .docx.pdf | 4 on-board USB 3.0 ports > 2.4 Life Cycle (生存周期)(No change) > 2.4.1 Lifecycle Summary (Continued)
+ 3  0.2943  (orig 0.3526)  | D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 6. The MSO shall only be used to power the console cabinet (Continued)
+ 4  0.2610  (orig 0.3598)  | D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 6. The MSO shall only be used to power the console cabinet (Continued)
+ 5  0.2587  (orig 0.3701)  | D70060 HAL 4.0 GSPR Checklist Rev2.docx.pdf | 2. Canada Medical Device Regulations (CMDR) – 2024-12-14 (Continued)
+ 6  0.2304  (orig 0.4189)  | D23997 Halcyon v2 Design and Development Plan Rev 01.pdf | 3.4 Project Risk Management > 5.2.4 SOUP
+ 7  0.1959  (orig 0.3704)  | 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | 4 Supply voltage: (Continued)
+ 8  0.1797  (orig 0.3642)  | D101278 106485676MIN-002 IEC60601-1-6 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 40 51st Way NE, Suite 100 (Continued)
+ 9  0.1132  (orig 0.3448)  | D54550 HAL 4.0 Validation Plan Rev 05.docx.pdf | 5. Risks and Contingencies
+10  0.1032  (orig 0.4087)  | D23997 Halcyon v2 Design and Development Plan Rev 01.pdf | 3.4 Project Risk Management > 6.1.2 Languages to be released with Halcyon v2 (Continued)
+11  0.0782  (orig 0.3577)  | D70036 HAL 4.0 Software Description Report China Submission Rev 03 .docx.pdf | 4 on-board USB 3.0 ports > 2.2 Risk Management (风险管理) (No change)
+12  0.0624  (orig 0.3824)  | D78333 Ethos 4.0 Description of interoperability Study Rev01.docx.pdf | 1. Basic Information > 2.2 Interoperation Maintenance (Continued)
+13  0.0599  (orig 0.3645)  | D70060 HAL 4.0 GSPR Checklist Rev2.docx.pdf | 2. Canada Medical Device Regulations (CMDR) – 2024-12-14 (Continued)
+14  0.0409  (orig 0.4170)  | D59555 HAL 4.0 Risk Management Plan rev03.pdf | 4.0 Requirements for Risk Management Activities and their Review (Continued)
+15  0.0406  (orig 0.4074)  | D59555 HAL 4.0 Risk Management Plan rev03.pdf | 4.0 Requirements for Risk Management Activities and their Review (Continued)
+16  0.0403  (orig 0.3692)  | D44094_HAL4.0_CER_Rev05.pdf | 3. DAEN > 7.1.4 Risk Management Analyses (Continued)
+17  0.0193  (orig 0.3593)  | D78266 HAL 4.0 External Software Environment Assessment Report Rev01.docx.pdf | 5. Risk Management (Continued)
+18  0.0125  (orig 0.3546)  | D53809-Tools Design and Development-kV collimator assembly tooling Rev 01.docx.pdf | 3. Risk Assessment
+19  0.0085  (orig 0.4052)  | D56979 HAL 4.0 Risk Management Report rev07.pdf | 4.0 Review of Risk Management Activities > 4.1 Implementation of the risk management plan
+20  0.0073  (orig 0.3877)  | D64796 HAL4.0 Couch test tooling console TDD  Rev03.pdf | 3. Risk Assessment
+21  0.0057  (orig 0.3472)  | D70060 HAL 4.0-GSPR Checklist.pdf | 2. Canada Medical Device Regulations (CMDR) – 2019-06-21 (Continued)
+22  0.0056  (orig 0.3651)  | D61200 HAL 4.0 DFMEA rev01.pdf | 2. Design FMEA Summary (Continued)
+23  0.0051  (orig 0.3849)  | D19996 Halcyon 2.0 Manufacturing Plan - Rev04.pdf | 2. Project Organization > 4.15 Hazard Risks > 4.15.7 Manufacturing Process Risk
+24  0.0040  (orig 0.3598)  | D56979 HAL 4.0 Risk Management Report rev07.pdf | 4.0 Review of Risk Management Activities > 4.2 Device’s overall residual risk > 4.2.1 Residual Risk of Main Use Cases (Continued)
+25  0.0039  (orig 0.3492)  | D67097 HAL 4.0 Summative Usability Evaluation Plan Rev01.docx.pdf | 9.0 List of Tasks > 9.1 Use-related Risk Analysis
+26  0.0031  (orig 0.3684)  | D75414 HAL 4.0 Cybersecurity Summary Report China Submission Rev 01.pdf | 2. Implementation Process > 2.1 Risk Management (风险管理) (Continued)
+27  0.0027  (orig 0.3527)  | D78266 HAL 4.0 External Software Environment Assessment Report Rev01.docx.pdf | 5. Risk Management
+28  0.0025  (orig 0.3437)  | D93257 Halcyon Evolve User Assistance Plan Rev02.docx.pdf | 6. Best Practices to Mitigate Risks and Impacts on UA Completion
+29  0.0017  (orig 0.3918)  | D79317-Tools Design and Development-4U WS Automation test software for HAL Rev02.pdf | 3. Risk Assessment
+30  0.0009  (orig 0.3524)  | D51185 HAL 4.0 Elaboration Phase RHA Review Report rev02.pdf | 1.6 Existing HAL RMR Entries from HAL 3.0 and Changes for HAL 4.0 (Continued)
+
+================================================================================
+SUB-QUERY: Is technical documentation established and maintained for each device?
+================================================================================
+ 1  0.1927  (orig 0.3088)  | D48516 HAL 4.0 Clinical Evaluation Plan Rev 01.pdf | 1.0 Introduction > 1.2 Scope
+ 2  0.1310  (orig 0.3141)  | D101278 106485676MIN-002 IEC60601-1-6 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 40 51st Way NE, Suite 100 (Continued)
+ 3  0.0831  (orig 0.3434)  | 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | 4 Supply voltage: (Continued)
+ 4  0.0448  (orig 0.3122)  | D47457 HAL 4.0 APS Record Rev 04.docx.pdf | 1.0 Introduction > 1.2     Scope
+ 5  0.0314  (orig 0.3288)  | D70060 HAL 4.0-GSPR Checklist.pdf | 2. Canada Medical Device Regulations (CMDR) – 2019-06-21 (Continued)
+ 6  0.0276  (orig 0.3057)  | D101280 106485676MIN-005  IEC60601-2-1 Ed.4.0 HAL4.0_30_APR_2026 Rev 1.pdf | 40 51st Way NE, Suite 100 (Continued)
+ 7  0.0217  (orig 0.3347)  | D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 6. The MSO shall only be used to power the console cabinet (Continued)
+ 8  0.0207  (orig 0.3353)  | D78333 Ethos 4.0 Description of interoperability Study Rev01.docx.pdf | 1. Basic Information (Continued)
+ 9  0.0197  (orig 0.3211)  | D101278 106485676MIN-002 IEC60601-1-6 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 40 51st Way NE, Suite 100 (Continued)
+10  0.0178  (orig 0.3273)  | D70060 HAL 4.0 GSPR Checklist Rev2.docx.pdf | 2. Canada Medical Device Regulations (CMDR) – 2024-12-14 (Continued)
+11  0.0167  (orig 0.3327)  | D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 6. The MSO shall only be used to power the console cabinet (Continued)
+12  0.0146  (orig 0.3534)  | 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | 4 Supply voltage: (Continued)
+13  0.0085  (orig 0.3327)  | D101280 106485676MIN-005  IEC60601-2-1 Ed.4.0 HAL4.0_30_APR_2026 Rev 1.pdf | 40 51st Way NE, Suite 100 (Continued)
+14  0.0082  (orig 0.3145)  | D70060 HAL 4.0 GSPR Checklist Rev2.docx.pdf | 2. Canada Medical Device Regulations (CMDR) – 2024-12-14 (Continued)
+15  0.0073  (orig 0.3165)  | D67423 HAL 4.0 Product Technical Requirements Rev 02.pdf | 2.  Technical Performance Requirements > 2.6 Imaging dose of X-ray image-guided devices > 2.6.2.2 Description of kV X-ray CTGuided Device  (CTGD) maging dose > 2.6.2.2.2 The CTDI100 dose instruction in ACCOMPANYING DOCUMENTS (Continued)
+16  0.0048  (orig 0.3218)  | D69032 HAL 4.0 Validation Test Log Rev 01.pdf | 2. Validation Test log (Continued)
+17  0.0047  (orig 0.3121)  | D70060 HAL 4.0-GSPR Checklist.pdf | 2. Canada Medical Device Regulations (CMDR) – 2019-06-21 (Continued)
+18  0.0043  (orig 0.3097)  | D54550 HAL 4.0 Validation Plan Rev 05.docx.pdf | 2. Validation Overview > 2.11 Validation Schedule). > 2.7.2 Instructions for Use
+19  0.0042  (orig 0.3065)  | D62523 HAL 4.0 Service User Needs and Detailed Workflows Rev 3.0.docx.pdf | 1. To avoid injuries to the Customer Support Representative:. > 2.3 Performing Routine Procedures > 2.3.1 System Maintenance
+20  0.0034  (orig 0.3166)  | D101279 106485676MIN-004  IEC60601-1-3 Ed.2.2 HAL4.0_30_APR_2026 Rev 1.pdf | 40 51st Way NE, Suite 100 (Continued)
+21  0.0033  (orig 0.3471)  | 102341812MIN-003a - HAL4.0 - IEC 60601-1-3.pdf | 40 51st Way NE, Suite 100 (Continued)
+22  0.0029  (orig 0.3063)  | D58308 HAL 4.0 Device Description Rev 1.0.docx.pdf | 1.0 Executive Summary > 1.2 Device Classification > 1.3.6 Operator Profiles (Continued)
+23  0.0027  (orig 0.3327)  | D58685-Rev04-HAL4.0 Traceability Plan.pdf | 2. Requirements 需求
+24  0.0022  (orig 0.3160)  | D70753 HAL 4.0 MR1 Validation Plan Rev 02.docx.pdf | 1.0 Introduction > 1.1 Purpose
+25  0.0022  (orig 0.3106)  | D54550 HAL 4.0 Validation Plan Rev 05.docx.pdf | 1. Introduction > 1.1 Purpose
+26  0.0021  (orig 0.3541)  | D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | 10. Responsibilities (Continued)
+27  0.0017  (orig 0.3071)  | D62523 HAL 4.0 Service User Needs and Detailed Workflows Rev 3.0.docx.pdf | 1. To avoid injuries to the Customer Support Representative:. > 2.3 Performing Routine Procedures > 2.5.1 Remote Diagnostics and Logging (Continued)
+28  0.0012  (orig 0.3171)  | D30786 Halcyon 2.0 Regulatory Plan Rev 1.0.doc.pdf | 8.8 Brazil Marketing Clearance Strategy > 8.8.1 Brazil documentation requirements (Continued)
+29  0.0010  (orig 0.3304)  | D67731 HAL 4.0 Design History File Index Rev 05.docx.pdf | 1. Introduction
+30  0.0007  (orig 0.3196)  | D69032 HAL 4.0 Validation Test Log Rev 01.pdf | 2. Validation Test log (Continued)
+
+================================================================================
+SUB-QUERY: Does the documentation meet regulatory requirements for applicable markets?
+================================================================================
+ 1  0.6285  (orig 0.4154)  | D47457 HAL 4.0 APS Record Rev 04.docx.pdf | 1.0 Introduction > 1.2     Scope
+ 2  0.5631  (orig 0.4107)  | D45070 Hal 4 Applicable Product Standards Rev 2.docx.pdf | 1. Introduction > 1.2 Scope
+ 3  0.3534  (orig 0.4523)  | D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | 2. “Ethos Radiotherapy System ” > 9.5 China Marketing Clearance Strategy > 9.5.1 China documentation requirements (Continued)
+ 4  0.1915  (orig 0.3544)  | D53708 Marketing Claims Library HAL 4.0 Rev 4.0.docx.pdf | 1. Introduction > 1.2 Scope
+ 5  0.1136  (orig 0.4384)  | D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | 2. “Ethos Radiotherapy System ” > 9.5 China Marketing Clearance Strategy > 9.5.1 China documentation requirements (Continued)
+ 6  0.1084  (orig 0.3768)  | D47457 HAL 4.0 APS Record Rev 04.docx.pdf | 3.0 Summary of Applicable Standards and Guidance documents > 3.1 Applicable Standards (Continued)
+ 7  0.0309  (orig 0.3438)  | D53708 Marketing Claims Library HAL 4.0 Rev 4.0.docx.pdf | 1. Introduction > 1.3 Roles & Responsibilities
+ 8  0.0296  (orig 0.4393)  | D30786 Halcyon 2.0 Regulatory Plan Rev 1.0.doc.pdf | 8.8 Brazil Marketing Clearance Strategy > 8.8.1 Brazil documentation requirements (Continued)
+ 9  0.0174  (orig 0.4196)  | D30786 Halcyon 2.0 Regulatory Plan Rev 1.0.doc.pdf | 8.8 Brazil Marketing Clearance Strategy > 8.8.1 Brazil documentation requirements (Continued)
+10  0.0110  (orig 0.3588)  | D59836 HAL-Market History-Revision 04.docx.pdf | 3.0 References
+11  0.0097  (orig 0.3320)  | D67423 HAL 4.0 Product Technical Requirements Rev 02.pdf | 3.  Testing Methods > 3.9 Safety > 3.10.2 Accompanying document
+12  0.0079  (orig 0.3663)  | D23997 Halcyon v2 Design and Development Plan Rev 01.pdf | 3.4 Project Risk Management > 6.1.2 Languages to be released with Halcyon v2 (Continued)
+13  0.0063  (orig 0.3531)  | D68779 HAL 4.0 Risk Control Measures Trace Matrix rev01.pdf | 2. Risk Control Measures Verification Trace Matrix (Continued)
+14  0.0062  (orig 0.3523)  | D45070 Hal 4 Applicable Product Standards Rev 2.docx.pdf | 1. Introduction > 1.1 Purpose
+15  0.0045  (orig 0.3497)  | D68782 HAL 4.0 Requirement Tracing rev 01.pdf | 2. Requirements Tracing (Continued)
+16  0.0037  (orig 0.3365)  | D70923 HAL 4.0 MR1 Test Case Selection Rationale Rev 02.docx.pdf | 4. HAL 4.0 Test Case Selection Rationale > 4.3 User Needs Validation > 4.3.5 Instructions for Use > 4.3.5.1 New or Modified User Documentation (Continued)
+17  0.0026  (orig 0.3494)  | D68779 HAL 4.0 Risk Control Measures Trace Matrix rev01.pdf | 2. Risk Control Measures Verification Trace Matrix (Continued)
+18  0.0023  (orig 0.3512)  | D68492 HAL 4.0 Validation Test Results  Interim Rev 01.docx.pdf | 1. HAL 4.0 Validation Test Design Strategy – D64929 (Continued)
+19  0.0023  (orig 0.3429)  | D68014 HAL 4.0 Validation Summary Report Rev 02.docx.pdf | 35. HAL 4.0 Validation Scorecard - D65886 – Rev 02 (Continued)
+20  0.0019  (orig 0.3333)  | D101280 106485676MIN-005  IEC60601-2-1 Ed.4.0 HAL4.0_30_APR_2026 Rev 1.pdf | 40 51st Way NE, Suite 100 (Continued)
+21  0.0019  (orig 0.3668)  | D68782 HAL 4.0 Requirement Tracing rev 01.pdf | 2. Requirements Tracing (Continued)
+22  0.0016  (orig 0.3419)  | 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | 4 Supply voltage: (Continued)
+23  0.0011  (orig 0.3377)  | D68014 HAL 4.0 Validation Summary Report Rev 02.docx.pdf | 35. HAL 4.0 Validation Scorecard - D65886 – Rev 02 (Continued)
+24  0.0011  (orig 0.3480)  | D68492 HAL 4.0 Validation Test Results  Interim Rev 01.docx.pdf | 1. HAL 4.0 Validation Test Design Strategy – D64929 (Continued)
+25  0.0010  (orig 0.3397)  | D65886 HAL 4.0 Validation Scorecard Rev 02.docx.pdf | 1.5 User Assistance (Continued)
+26  0.0008  (orig 0.3984)  | D67731 HAL 4.0 Design History File Index Rev 05.docx.pdf | 1. Introduction
+27  0.0008  (orig 0.3353)  | D67731 HAL 4.0 Design History File Index Rev 05.docx.pdf | 1. Introduction > 1.1 Scope
+28  0.0007  (orig 0.3401)  | D70923 HAL 4.0 MR1 Test Case Selection Rationale Rev 02.docx.pdf | 4. HAL 4.0 Test Case Selection Rationale > 4.3 User Needs Validation > 4.3.5 Instructions for Use > 4.3.5.1 New or Modified User Documentation (Continued)
+29  0.0003  (orig 0.3342)  | D47174 HAL 4.0 – Clinical Mode – UI Specification Document Rev 04.docx.pdf | 2 User Related > 2.2 Training
+30  0.0003  (orig 0.3573)  | D57043 HAL 4.0 User Needs and Detailed Workflows Rev 2.0.docx.pdf | 35. The Image Taker will close the Patient’s chart. (Continued)
+
+================================================================================
+SUB-QUERY: Is there a defined structure for technical documentation, such as DHF, STED, or Technical File?
+================================================================================
+ 1  0.0804  (orig 0.3128)  | D84239 HAL 4.0 CRN UA Checklist Rev02.docx.pdf | 4.0 Checklist (Continued)
+ 2  0.0547  (orig 0.4073)  | D67731 HAL 4.0 Design History File Index Rev 05.docx.pdf | 1. Introduction > 1.1 Scope
+ 3  0.0490  (orig 0.3402)  | D77711 Halcyon and Ethos Radiotherapy System 4.0 IFU (P1039628-003-C) Checklist Rev 01.docx.pdf | 3.0 Checklist (Continued)
+ 4  0.0476  (orig 0.3074)  | D65651 Halcyon-Ethos 4.0 IFU (P1058124-001-A) User Assistance Checklist Rev01.docx.pdf | 3.0 Checklist (Continued)
+ 5  0.0388  (orig 0.3059)  | D95424 HAL 4.0 MR2 (HAL Evolve) Maintenance Release Document Rev 04.pdf | 2. New Model License Part number - RDS900000026 (Continued)
+ 6  0.0351  (orig 0.2994)  | D49189 HAL4.0 Manufacturing Plan Rev 08.pdf | 2. Manufacture extra inventories for HAL4.0 > 4.1 Manufacturing Project Monitoring > 4.1.2 Manufacturing Project Reporting/Documentation
+ 7  0.0278  (orig 0.3123)  | D54550 HAL 4.0 Validation Plan Rev 05.docx.pdf | 4. Validation Processes > 4.4 Anomaly Management (Continued)
+ 8  0.0069  (orig 0.3024)  | D44094_HAL4.0_CER_Rev05.pdf | 3. DAEN > 7.1.8 Conclusions of the Analysis of Manufacturer Data (Continued)
+ 9  0.0042  (orig 0.3175)  | D30786 Halcyon 2.0 Regulatory Plan Rev 1.0.doc.pdf | 8.2 EU Marketing Clearance Strategy > 8.2.1 ISD documentation requirements (Continued)
+10  0.0040  (orig 0.3120)  | D96388 HAL 4.0 UA Legal Information (EU REP Change) UA Checklist Rev 01.docx.pdf | 3.0 Checklist (Continued)
+11  0.0039  (orig 0.3066)  | D69533 HAL 4.0 MR1 Maintenance Release Document Rev09.docx.pdf | 2. Requirements > 3.1 Risk Management Plan
+12  0.0035  (orig 0.3035)  | D65651 Halcyon-Ethos 4.0 IFU (P1058124-001-A) User Assistance Checklist Rev01.docx.pdf | 3.0 Checklist (Continued)
+13  0.0035  (orig 0.3265)  | D30786 Halcyon 2.0 Regulatory Plan Rev 1.0.doc.pdf | 8.2 EU Marketing Clearance Strategy > 8.2.1 ISD documentation requirements (Continued)
+14  0.0027  (orig 0.3041)  | D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 6. The MSO shall only be used to power the console cabinet (Continued)
+15  0.0027  (orig 0.3306)  | D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | 2. “Ethos Radiotherapy System ” (Continued)
+16  0.0026  (orig 0.3078)  | D63143-Rev 04-HAL4.0 MI Structure.pdf | 2. HAL4.0 MI structure > 2.2 For Field upgrade kits (Continued)
+17  0.0024  (orig 0.3070)  | D68599 Hal 4.0 Design Verification Trace Matrix Rev 02.pdf | 20. (Subsys) Tech Pubs (Continued)
+18  0.0021  (orig 0.3291)  | D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | 2. “Ethos Radiotherapy System ” > 9.5 China Marketing Clearance Strategy > 9.5.1 China documentation requirements (Continued)
+19  0.0018  (orig 0.3111)  | D68599 Hal 4.0 Design Verification Trace Matrix Rev 02.pdf | 20. (Subsys) Tech Pubs (Continued)
+20  0.0014  (orig 0.2986)  | D56791 HAL4.0 DFM Checklist Rev07.pdf | 1. HAL4.0 New Release drawing list (Continued)
+21  0.0011  (orig 0.3376)  | D67731 HAL 4.0 Design History File Index Rev 05.docx.pdf | 2. Design History File Index > 2.3 Design Output Specification (Continued)
+22  0.0009  (orig 0.3010)  | D72533 HAL 4.0 MR1 System Build ERM TRR1 Rev1.docx.pdf | 3 15_03_35.xml (Continued)
+23  0.0009  (orig 0.3060)  | D44094_HAL4.0_CER_Rev05.pdf | 3. DAEN > 7.1.8 Conclusions of the Analysis of Manufacturer Data (Continued)
+24  0.0008  (orig 0.3053)  | D61255 HAL4.0 BOM structure review report Rev 01.pdf | 3. Appendix C – Support materials: (Continued)
+25  0.0007  (orig 0.2992)  | D84759 MIC Ethos Linac 4.0 Standard kV Imager Validation Summary Report Rev 01.docx.pdf | 4. 问题/不符报告 (Continued)
+26  0.0006  (orig 0.3030)  | D97832 HAL PowerFactor Assy Protective Cover Test Protocol and Report Rev 01.docx.pdf | 3. Definitions (Continued)
+27  0.0006  (orig 0.3123)  | D68994 HAL 4.0 Usability Engineering File Index Rev01.docx.pdf | 2. File Index (Continued)
+28  0.0006  (orig 0.3136)  | D29012_Halcyon_2.0_User_Assistance_Plan-Rev03.docx.pdf | 0.5 cm resolution MLC (Titanium D and E models) (Continued)
+29  0.0006  (orig 0.3039)  | D29012_Halcyon_2.0_User_Assistance_Plan-Rev03.docx.pdf | 0.5 cm resolution MLC (Titanium D and E models) (Continued)
+30  0.0005  (orig 0.3137)  | D68492 HAL 4.0 Validation Test Results  Interim Rev 01.docx.pdf | 1. Introduction > 1.2 Scope (Continued)
+
+================================================================================
+SUB-QUERY: How is completeness and consistency of technical documentation ensured?
+================================================================================
+ 1  0.2625  (orig 0.3324)  | D75417 IEC 25051-GB T25000 Compliance for HAL 4.0 Rev 01.pdf | Document_Header (Continued)
+ 2  0.2205  (orig 0.3285)  | D75417 IEC 25051-GB T25000 Compliance for HAL 4.0 Rev 01.pdf | Document_Header (Continued)
+ 3  0.0761  (orig 0.3444)  | D77711 Halcyon and Ethos Radiotherapy System 4.0 IFU (P1039628-003-C) Checklist Rev 01.docx.pdf | 3.0 Checklist (Continued)
+ 4  0.0541  (orig 0.3615)  | D29012_Halcyon_2.0_User_Assistance_Plan-Rev03.docx.pdf | 0.5 cm resolution MLC (Titanium D and E models) (Continued)
+ 5  0.0363  (orig 0.3266)  | D96388 HAL 4.0 UA Legal Information (EU REP Change) UA Checklist Rev 01.docx.pdf | 3.0 Checklist (Continued)
+ 6  0.0310  (orig 0.3441)  | D69032 HAL 4.0 Validation Test Log Rev 01.pdf | 2. Validation Test log (Continued)
+ 7  0.0288  (orig 0.3591)  | D84872 HAL 4.0 CRN UA Checklist.docx.pdf | 3.0 Checklist (Continued)
+ 8  0.0207  (orig 0.3902)  | D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | 10. Responsibilities (Continued)
+ 9  0.0201  (orig 0.3208)  | D84239 HAL 4.0 CRN UA Checklist Rev02.docx.pdf | 4.0 Checklist (Continued)
+10  0.0153  (orig 0.3518)  | D30786 Halcyon 2.0 Regulatory Plan Rev 1.0.doc.pdf | 8.8 Brazil Marketing Clearance Strategy > 8.8.1 Brazil documentation requirements (Continued)
+11  0.0148  (orig 0.3128)  | D44918 Halcyon3 UA Checklist IFU Addendum P1038731-001-A Rev 01.pdf | 2.0 Deliverable Checklist (Continued)
+12  0.0134  (orig 0.3297)  | D63983 Halcyon 4.0 UA Checklist Rev 01.pdf | 3.0 Checklist (Continued)
+13  0.0121  (orig 0.3128)  | D63983 Halcyon 4.0 UA Checklist Rev 01.pdf | 3.0 Checklist (Continued)
+14  0.0099  (orig 0.3478)  | 102341812MIN-003a - HAL4.0 - IEC 60601-1-3.pdf | 40 51st Way NE, Suite 100 (Continued)
+15  0.0097  (orig 0.3019)  | D68492 HAL 4.0 Validation Test Results  Interim Rev 01.docx.pdf | 1. HAL 4.0 Validation Test Design Strategy – D64929 (Continued)
+16  0.0096  (orig 0.3702)  | D69032 HAL 4.0 Validation Test Log Rev 01.pdf | 2. Validation Test log (Continued)
+17  0.0093  (orig 0.3078)  | D68492 HAL 4.0 Validation Test Results  Interim Rev 01.docx.pdf | 1. HAL 4.0 Validation Test Design Strategy – D64929 (Continued)
+18  0.0071  (orig 0.3157)  | D77711 Halcyon and Ethos Radiotherapy System 4.0 IFU (P1039628-003-C) Checklist Rev 01.docx.pdf | 3.0 Checklist (Continued)
+19  0.0065  (orig 0.3330)  | D84239 HAL 4.0 CRN UA Checklist Rev02.docx.pdf | 4.0 Checklist (Continued)
+20  0.0057  (orig 0.3173)  | D68782 HAL 4.0 Requirement Tracing rev 01.pdf | 2. Requirements Tracing (Continued)
+21  0.0056  (orig 0.3159)  | D96388 HAL 4.0 UA Legal Information (EU REP Change) UA Checklist Rev 01.docx.pdf | 3.0 Checklist (Continued)
+22  0.0056  (orig 0.3042)  | 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | 4 Supply voltage: (Continued)
+23  0.0052  (orig 0.3167)  | D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | 2. “Ethos Radiotherapy System ” > 9.5 China Marketing Clearance Strategy > 9.5.1 China documentation requirements (Continued)
+24  0.0051  (orig 0.3187)  | D70923 HAL 4.0 MR1 Test Case Selection Rationale Rev 02.docx.pdf | 4. HAL 4.0 Test Case Selection Rationale > 4.3 User Needs Validation > 4.3.5 Instructions for Use > 4.3.5.1 New or Modified User Documentation (Continued)
+25  0.0050  (orig 0.3132)  | D68599 Hal 4.0 Design Verification Trace Matrix Rev 02.pdf | 20. (Subsys) Tech Pubs (Continued)
+26  0.0043  (orig 0.3201)  | D65651 Halcyon-Ethos 4.0 IFU (P1058124-001-A) User Assistance Checklist Rev01.docx.pdf | 3.0 Checklist (Continued)
+27  0.0033  (orig 0.3156)  | D68599 Hal 4.0 Design Verification Trace Matrix Rev 02.pdf | 20. (Subsys) Tech Pubs (Continued)
+28  0.0032  (orig 0.3068)  | 102341812MIN-003a - HAL4.0 - IEC 60601-1-3.pdf | 40 51st Way NE, Suite 100 (Continued)
+29  0.0026  (orig 0.3196)  | D44918 Halcyon3 UA Checklist IFU Addendum P1038731-001-A Rev 01.pdf | 2.0 Deliverable Checklist (Continued)
+30  0.0020  (orig 0.3221)  | 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | 4 Supply voltage: (Continued)
+
+================================================================================
+SUB-QUERY: How are updates and revisions to technical documentation controlled?
+================================================================================
+ 1  0.0494  (orig 0.3989)  | D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | 2. “Ethos Radiotherapy System ” > 9.12 Singapore > 8.12.1 Singapore documentation requirements
+ 2  0.0315  (orig 0.3600)  | D93257 Halcyon Evolve User Assistance Plan Rev02.docx.pdf | 2. User Assistance Deliverables > 2.3 Quality Control of UA
+ 3  0.0277  (orig 0.3697)  | D68685 HAL 4.0 Cybersecurity Statement Rev 01.docx.pdf | 3.0 Definitions > 4.2 Integrity > 4.2.2 Software Integrity:
+ 4  0.0215  (orig 0.3802)  | D93257 Halcyon Evolve User Assistance Plan Rev02.docx.pdf | 5. Detailed Project Scope > 5.1 Task and Effort Estimates
+ 5  0.0204  (orig 0.3616)  | D63983 Halcyon 4.0 UA Checklist Rev 01.pdf | 3.0 Checklist (Continued)
+ 6  0.0183  (orig 0.3593)  | D23997 Halcyon v2 Design and Development Plan Rev 01.pdf | 3.2.1 Scope, Schedule and Budget Control
+ 7  0.0157  (orig 0.3538)  | D79299 Ethos with small Imager Product Technical Requirements Rev 02.docx.pdf | 3. BB is not used (Continued)
+ 8  0.0138  (orig 0.3574)  | D67731 HAL 4.0 Design History File Index Rev 05.docx.pdf | 1. Introduction > 1.1 Scope
+ 9  0.0133  (orig 0.3777)  | D29012_Halcyon_2.0_User_Assistance_Plan-Rev03.docx.pdf | 0.5 cm resolution MLC (Titanium D and E models) (Continued)
+10  0.0125  (orig 0.3609)  | D77711 Halcyon and Ethos Radiotherapy System 4.0 IFU (P1039628-003-C) Checklist Rev 01.docx.pdf | 3.0 Checklist (Continued)
+11  0.0098  (orig 0.3485)  | D96388 HAL 4.0 UA Legal Information (EU REP Change) UA Checklist Rev 01.docx.pdf | 3.0 Checklist (Continued)
+12  0.0085  (orig 0.3857)  | D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | 10. Responsibilities (Continued)
+13  0.0083  (orig 0.3447)  | D54550 HAL 4.0 Validation Plan Rev 05.docx.pdf | 2. Validation Overview > 2.2.4 Installation/Upgrade Testing
+14  0.0083  (orig 0.3487)  | D65651 Halcyon-Ethos 4.0 IFU (P1058124-001-A) User Assistance Checklist Rev01.docx.pdf | 3.0 Checklist (Continued)
+15  0.0082  (orig 0.4136)  | D78333 Ethos 4.0 Description of interoperability Study Rev01.docx.pdf | 1. Basic Information > 2.2 Interoperation Maintenance (Continued)
+16  0.0072  (orig 0.3658)  | D70753 HAL 4.0 MR1 Validation Plan Rev 02.docx.pdf | 2.0 Validation Overview > 2.8 User Assistance > 2.8.1 Instructions for Use
+17  0.0067  (orig 0.3563)  | D84239 HAL 4.0 CRN UA Checklist Rev02.docx.pdf | 4.0 Checklist (Continued)
+18  0.0046  (orig 0.3474)  | D95163 Ethos Radiotherapy System version naming rule.pdf | 1. Introduction (Continued)
+19  0.0046  (orig 0.3452)  | D89591 HAL Evolve Product Technical Requirements Rev01.docx.pdf | 3. BB is not used (Continued)
+20  0.0045  (orig 0.3645)  | D77711 Halcyon and Ethos Radiotherapy System 4.0 IFU (P1039628-003-C) Checklist Rev 01.docx.pdf | 3.0 Checklist (Continued)
+21  0.0041  (orig 0.3417)  | D78333 Ethos 4.0 Description of interoperability Study Rev01.docx.pdf | 1. Basic Information > 2.2 Interoperation Maintenance
+22  0.0039  (orig 0.3502)  | D77160 HAL 4.0 Ethos with standard kV imager MRD Rev 05.docx.pdf | 4.0 Ethos with standard kV imager. > 1.3 Project Management Process > 1.3.1 Project Controls
+23  0.0039  (orig 0.3475)  | D65651 Halcyon-Ethos 4.0 IFU (P1058124-001-A) User Assistance Checklist Rev01.docx.pdf | 3.0 Checklist (Continued)
+24  0.0037  (orig 0.3582)  | D84872 HAL 4.0 CRN UA Checklist.docx.pdf | 3.0 Checklist (Continued)
+25  0.0031  (orig 0.3515)  | D95424 HAL 4.0 MR2 (HAL Evolve) Maintenance Release Document Rev 04.pdf | 5. Verification and Validation > 6.2 Traceability
+26  0.0028  (orig 0.3578)  | D96388 HAL 4.0 UA Legal Information (EU REP Change) UA Checklist Rev 01.docx.pdf | 3.0 Checklist (Continued)
+27  0.0019  (orig 0.3400)  | D95424 HAL 4.0 MR2 (HAL Evolve) Maintenance Release Document Rev 04.pdf | 1. Maintenance Release Plan > 1.1 Project Overview (Continued)
+28  0.0019  (orig 0.3616)  | D44918 Halcyon3 UA Checklist IFU Addendum P1038731-001-A Rev 01.pdf | 2.0 Deliverable Checklist (Continued)
+29  0.0015  (orig 0.3458)  | D65933 HAL 4.0 IEC 60601-2-1 (2020) 201.10.101.5.4 - Accuracy of mechanical movements between CONTROL POINTS Report Rev 01.pdf | 3. IEC 4th Edition Subclause Text
+30  0.0012  (orig 0.3896)  | D23997 Halcyon v2 Design and Development Plan Rev 01.pdf | 3.2.3 Project Controls (Continued)
+
+================================================================================
+SUB-QUERY: Is traceability established from requirements to design to verification and validation?
+================================================================================
+ 1  0.9321  (orig 0.3142)  | D68985 HAL 4.0 IEC 62304+A1 2015 Software Lifecycle Assessment Rev 01.docx.pdf | Document_Header (Continued)
+ 2  0.8316  (orig 0.3851)  | D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 6. The MSO shall only be used to power the console cabinet (Continued)
+ 3  0.7993  (orig 0.4174)  | D68599 Hal 4.0 Design Verification Trace Matrix Rev 02.pdf | 1. Introduction > 1.1 Purpose
+ 4  0.7827  (orig 0.3826)  | D69533 HAL 4.0 MR1 Maintenance Release Document Rev09.docx.pdf | 5. Verification and Validation > 6.2 Traceability
+ 5  0.7259  (orig 0.3325)  | D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | 2. “Ethos Radiotherapy System ” (Continued)
+ 6  0.7136  (orig 0.4194)  | 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | 4 Supply voltage: (Continued)
+ 7  0.7078  (orig 0.3707)  | D68779 HAL 4.0 Risk Control Measures Trace Matrix rev01.pdf | 1. Introduction > 1.1 Purpose
+ 8  0.6850  (orig 0.2961)  | D77160 HAL 4.0 Ethos with standard kV imager MRD Rev 05.docx.pdf | 5. Verification and Validation > 6.2 Traceability
+ 9  0.6362  (orig 0.3195)  | D75414 HAL 4.0 Cybersecurity Summary Report China Submission Rev 01.pdf | 2. Implementation Process > 2.2 System Requirements (需求规范)
+10  0.4019  (orig 0.4070)  | D78266 HAL 4.0 External Software Environment Assessment Report Rev01.docx.pdf | 5. Risk Management (Continued)
+11  0.3197  (orig 0.3466)  | D95424 HAL 4.0 MR2 (HAL Evolve) Maintenance Release Document Rev 04.pdf | 5. Verification and Validation > 6.2 Traceability
+12  0.2540  (orig 0.3996)  | 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | 4 Supply voltage: (Continued)
+13  0.1886  (orig 0.3170)  | D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 6. The MSO shall only be used to power the console cabinet (Continued)
+14  0.1663  (orig 0.3430)  | D70753 HAL 4.0 MR1 Validation Plan Rev 02.docx.pdf | 4.0 Validation Processes > 4.5 Traceability
+15  0.1399  (orig 0.2984)  | D59555 HAL 4.0 Risk Management Plan rev03.pdf | 4.0 Requirements for Risk Management Activities and their Review (Continued)
+16  0.1217  (orig 0.3817)  | D68014 HAL 4.0 Validation Summary Report Rev 02.docx.pdf | 3. Traceability
+17  0.1198  (orig 0.3889)  | D74887 HAL 4.0 MR1 Validation Summary Report Rev01.docx.pdf | 3. Traceability
+18  0.1170  (orig 0.3083)  | D54550 HAL 4.0 Validation Plan Rev 05.docx.pdf | 4. Validation Processes > 4.4 Anomaly Management
+19  0.1073  (orig 0.2985)  | D61200 HAL 4.0 DFMEA rev01.pdf | 2. Design FMEA Summary (Continued)
+20  0.0940  (orig 0.2933)  | D58685-Rev04-HAL4.0 Traceability Plan.pdf | 2. Requirements 需求
+21  0.0707  (orig 0.3863)  | D74366 HAL 4.0 MR1 Early Validation Summary Report Rev01.docx.pdf | 3. Traceability
+22  0.0667  (orig 0.3138)  | D65864 HAL 4.0 Early Validation Summary Report Rev 01.docx.pdf | 3. Traceability
+23  0.0649  (orig 0.2941)  | D70753 HAL 4.0 MR1 Validation Plan Rev 02.docx.pdf | 4.0 Validation Processes > 4.3 Test Case Management and Approvals
+24  0.0547  (orig 0.3003)  | D69533 HAL 4.0 MR1 Maintenance Release Document Rev09.docx.pdf | 5. Verification and Validation > 6.1 Test Results
+25  0.0448  (orig 0.3024)  | D75414 HAL 4.0 Cybersecurity Summary Report China Submission Rev 01.pdf | 2. Implementation Process > 2.2 System Requirements (需求规范) (Continued)
+26  0.0238  (orig 0.3000)  | D54550 HAL 4.0 Validation Plan Rev 05.docx.pdf | 2. Validation Overview > 2.11 Validation Schedule (Continued)
+27  0.0184  (orig 0.3188)  | D68782 HAL 4.0 Requirement Tracing rev 01.pdf | 1. Introduction > 1.1 Purpose
+28  0.0133  (orig 0.3020)  | D40348 HAL 4.0 TSCL for SN 4 Release 4.00.0122 Rev14.pdf | 4.0 verification and validation testing. (Continued)
+29  0.0096  (orig 0.3090)  | D68779 HAL 4.0 Risk Control Measures Trace Matrix rev01.pdf | 2. Risk Control Measures Verification Trace Matrix (Continued)
+30  0.0086  (orig 0.3429)  | D68782 HAL 4.0 Requirement Tracing rev 01.pdf | 2. Requirements Tracing (Continued)
+
+================================================================================
+SUB-QUERY: Does the technical documentation align with regulatory requirements of all applicable jurisdictions?
+================================================================================
+ 1  0.0596  (orig 0.4125)  | D30786 Halcyon 2.0 Regulatory Plan Rev 1.0.doc.pdf | 6.5 Biocompatibility Information (Continued)
+ 2  0.0497  (orig 0.4274)  | D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | 2. “Ethos Radiotherapy System ” > 9.5 China Marketing Clearance Strategy > 9.5.1 China documentation requirements (Continued)
+ 3  0.0211  (orig 0.3860)  | D47457 HAL 4.0 APS Record Rev 04.docx.pdf | 3.0 Summary of Applicable Standards and Guidance documents > 3.2 Relevant Guidance Documents
+ 4  0.0178  (orig 0.3703)  | 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | 4 Supply voltage: (Continued)
+ 5  0.0105  (orig 0.4344)  | D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | 10. Responsibilities (Continued)
+ 6  0.0105  (orig 0.3681)  | D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 6. The MSO shall only be used to power the console cabinet (Continued)
+ 7  0.0061  (orig 0.3922)  | D47457 HAL 4.0 APS Record Rev 04.docx.pdf | 1.0 Introduction > 1.2     Scope
+ 8  0.0043  (orig 0.3891)  | D68599 Hal 4.0 Design Verification Trace Matrix Rev 02.pdf | 20. (Subsys) Tech Pubs (Continued)
+ 9  0.0040  (orig 0.4203)  | D30786 Halcyon 2.0 Regulatory Plan Rev 1.0.doc.pdf | 8.8 Brazil Marketing Clearance Strategy > 8.8.1 Brazil documentation requirements (Continued)
+10  0.0036  (orig 0.3892)  | D68599 Hal 4.0 Design Verification Trace Matrix Rev 02.pdf | 2. (Top Level) Hal Delivery System (Continued)
+11  0.0025  (orig 0.3810)  | D45070 Hal 4 Applicable Product Standards Rev 2.docx.pdf | 1. Introduction > 1.2 Scope
+12  0.0017  (orig 0.3856)  | D68782 HAL 4.0 Requirement Tracing rev 01.pdf | 2. Requirements Tracing (Continued)
+13  0.0014  (orig 0.3804)  | D70060 HAL 4.0 GSPR Checklist Rev2.docx.pdf | 2. Canada Medical Device Regulations (CMDR) – 2024-12-14 (Continued)
+14  0.0013  (orig 0.3704)  | D70060 HAL 4.0 GSPR Checklist Rev2.docx.pdf | 2. Canada Medical Device Regulations (CMDR) – 2024-12-14 (Continued)
+15  0.0012  (orig 0.3779)  | D70060 HAL 4.0-GSPR Checklist.pdf | 2. Canada Medical Device Regulations (CMDR) – 2019-06-21 (Continued)
+16  0.0011  (orig 0.3773)  | 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | 4 Supply voltage: (Continued)
+17  0.0010  (orig 0.3660)  | D68782 HAL 4.0 Requirement Tracing rev 01.pdf | 2. Requirements Tracing (Continued)
+18  0.0009  (orig 0.3561)  | D70060 HAL 4.0-GSPR Checklist.pdf | 2. Canada Medical Device Regulations (CMDR) – 2019-06-21 (Continued)
+19  0.0008  (orig 0.3703)  | D101280 106485676MIN-005  IEC60601-2-1 Ed.4.0 HAL4.0_30_APR_2026 Rev 1.pdf | 40 51st Way NE, Suite 100 (Continued)
+20  0.0008  (orig 0.3632)  | D68779 HAL 4.0 Risk Control Measures Trace Matrix rev01.pdf | 2. Risk Control Measures Verification Trace Matrix (Continued)
+21  0.0007  (orig 0.3622)  | D68014 HAL 4.0 Validation Summary Report Rev 02.docx.pdf | 35. HAL 4.0 Validation Scorecard - D65886 – Rev 02 (Continued)
+22  0.0007  (orig 0.3787)  | D68492 HAL 4.0 Validation Test Results  Interim Rev 01.docx.pdf | 1. HAL 4.0 Validation Test Design Strategy – D64929 (Continued)
+23  0.0007  (orig 0.3756)  | D68014 HAL 4.0 Validation Summary Report Rev 02.docx.pdf | 35. HAL 4.0 Validation Scorecard - D65886 – Rev 02 (Continued)
+24  0.0007  (orig 0.3797)  | D69032 HAL 4.0 Validation Test Log Rev 01.pdf | 2. Validation Test log (Continued)
+25  0.0006  (orig 0.3699)  | D65864 HAL 4.0 Early Validation Summary Report Rev 01.docx.pdf | 8. D63337 HAL 4.0 Early Validation Testing Review Report (Continued)
+26  0.0006  (orig 0.3840)  | D68492 HAL 4.0 Validation Test Results  Interim Rev 01.docx.pdf | 1. HAL 4.0 Validation Test Design Strategy – D64929 (Continued)
+27  0.0005  (orig 0.3805)  | 102341812MIN-003a - HAL4.0 - IEC 60601-1-3.pdf | 40 51st Way NE, Suite 100 (Continued)
+28  0.0004  (orig 0.3650)  | D45070 Hal 4 Applicable Product Standards Rev 2.docx.pdf | 1. Introduction > 1.1 Purpose
+29  0.0004  (orig 0.3884)  | D69032 HAL 4.0 Validation Test Log Rev 01.pdf | 2. Validation Test log (Continued)
+30  0.0004  (orig 0.4007)  | D67731 HAL 4.0 Design History File Index Rev 05.docx.pdf | 1. Introduction
+
+================================================================================
+SUB-QUERY: Are country-specific requirements addressed, such as FDA DHF, EU Technical File, or Health Canada STED?
+================================================================================
+ 1  0.0891  (orig 0.4049)  | D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | 8. General & Specific Regulatory Requirements
+ 2  0.0883  (orig 0.4064)  | D30786 Halcyon 2.0 Regulatory Plan Rev 1.0.doc.pdf | 6.5 Biocompatibility Information (Continued)
+ 3  0.0570  (orig 0.4139)  | D45070 Hal 4 Applicable Product Standards Rev 2.docx.pdf | 2. Standards Evaluation > 2.1.1  Applicable Standards
+ 4  0.0448  (orig 0.3849)  | D58308 HAL 4.0 Device Description Rev 1.0.docx.pdf | 12 mm > 2.10 Principal Safety Features > 2.10.1 Compliance to International Safety Standards
+ 5  0.0207  (orig 0.4442)  | D70060 HAL 4.0 GSPR Checklist Rev2.docx.pdf | 2. Canada Medical Device Regulations (CMDR) – 2024-12-14 (Continued)
+ 6  0.0109  (orig 0.3477)  | D77160 HAL 4.0 Ethos with standard kV imager MRD Rev 05.docx.pdf | 4.  Regulatory Determination
+ 7  0.0106  (orig 0.4379)  | D47457 HAL 4.0 APS Record Rev 04.docx.pdf | 3.0 Summary of Applicable Standards and Guidance documents > 3.2 Relevant Guidance Documents (Continued)
+ 8  0.0052  (orig 0.2815)  | D98314 Attachment to D47457 Rev 04 APS Assessment Rev01(1).xlsx.pdf | Document_Header (Continued)
+ 9  0.0046  (orig 0.3481)  | 102341812MIN-005_CDR Halcyon 4.0 issued 30 Sep 2022.pdf | 7.0 Illustrations (Continued)
+10  0.0043  (orig 0.4122)  | D70060 HAL 4.0-GSPR Checklist.pdf | 2. Canada Medical Device Regulations (CMDR) – 2019-06-21 (Continued)
+11  0.0042  (orig 0.2803)  | D98314 Attachment to D47457 Rev 04 APS Assessment Rev01(1).xlsx.pdf | Document_Header (Continued)
+12  0.0039  (orig 0.3761)  | D58308 HAL 4.0 Device Description Rev 1.0.docx.pdf | 12 mm > 2.10 Principal Safety Features > 2.10.1 Compliance to International Safety Standards (Continued)
+13  0.0034  (orig 0.4068)  | D47457 HAL 4.0 APS Record Rev 04.docx.pdf | 3.0 Summary of Applicable Standards and Guidance documents > 3.1 Applicable Standards (Continued)
+14  0.0031  (orig 0.3479)  | D67731 HAL 4.0 Design History File Index Rev 05.docx.pdf | 2. Design History File Index > 2.11 Regulatory (Continued)
+15  0.0031  (orig 0.4029)  | D45070 Hal 4 Applicable Product Standards Rev 2.docx.pdf | 3. Summary of Identified Standards (Continued)
+16  0.0029  (orig 0.3461)  | D67017-Rev 02-HAL4.0 Golden Disk Build Instruction.pdf | 6.0 References and Appendices > 6.3 Appendices (Continued)
+17  0.0028  (orig 0.3714)  | D60827-ENU-01_HAL4.0 Manufacturing Process Map.pdf | 5.0 References and Appendices > 5.3 Appendices – Not applicable (Continued)
+18  0.0027  (orig 0.3586)  | D78595 Halcyon IFU 4.0 Report Rev 05.docx.docx.pdf | 1.0 Meeting Minutes (Continued)
+19  0.0026  (orig 0.3618)  | D68686 HAL 4.0 Cybersecurity Summary Report Rev 03.pdf | 2. Basic Information > 2.4 Applicable Regulations
+20  0.0024  (orig 0.4198)  | D30786 Halcyon 2.0 Regulatory Plan Rev 1.0.doc.pdf | 7.2 Specific Medical Device Standards (Continued)
+21  0.0019  (orig 0.4023)  | D70060 HAL 4.0-GSPR Checklist.pdf | 2. Canada Medical Device Regulations (CMDR) – 2019-06-21 (Continued)
+22  0.0019  (orig 0.2483)  | D68985 HAL 4.0 IEC 62304+A1 2015 Software Lifecycle Assessment Rev 01.docx.pdf | Document_Header (Continued)
+23  0.0015  (orig 0.3977)  | D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | 2. “Ethos Radiotherapy System ” > 9.2 EU Marketing Clearance Strategy > 9.2.1 ISD documentation requirements (Continued)
+24  0.0010  (orig 0.3507)  | D48516 HAL 4.0 Clinical Evaluation Plan Rev 01.pdf | 5.0 Clinical Evaluation Inputs and Data > 5.1 Sources of Inputs and Data > 5.1.3 Public Databases (Continued)
+25  0.0010  (orig 0.4067)  | D70060 HAL 4.0 GSPR Checklist Rev2.docx.pdf | 2. Canada Medical Device Regulations (CMDR) – 2024-12-14 (Continued)
+26  0.0005  (orig 0.2433)  | D63994 HAL 4.0 IEC Type Tests Review Report Rev 02.docx.pdf | Document_Header (Continued)
+27  0.0004  (orig 0.3533)  | D56979 HAL 4.0 Risk Management Report rev07.pdf | 2.0 Specific Risk Requirements from Standards > 2.1 Essential performance [IEC 60601] (Continued)
+
+================================================================================
+SUB-QUERY: How does the organization ensure updates to regulatory requirements are reflected in technical documentation?
+================================================================================
+ 1  0.3201  (orig 0.4210)  | D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | 8. General & Specific Regulatory Requirements
+ 2  0.0771  (orig 0.3688)  | D30786 Halcyon 2.0 Regulatory Plan Rev 1.0.doc.pdf | 6.5 Biocompatibility Information (Continued)
+ 3  0.0495  (orig 0.3855)  | D30786 Halcyon 2.0 Regulatory Plan Rev 1.0.doc.pdf | 8.8 Brazil Marketing Clearance Strategy > 8.8.1 Brazil documentation requirements (Continued)
+ 4  0.0236  (orig 0.3217)  | D53708 Marketing Claims Library HAL 4.0 Rev 4.0.docx.pdf | 1. Introduction > 1.3 Roles & Responsibilities
+ 5  0.0206  (orig 0.3273)  | D23997 Halcyon v2 Design and Development Plan Rev 01.pdf | 3.4 Project Risk Management > 6.1.2 Languages to be released with Halcyon v2 (Continued)
+ 6  0.0144  (orig 0.3335)  | D23997 Halcyon v2 Design and Development Plan Rev 01.pdf | 3.4 Project Risk Management > 6.1.2 Languages to be released with Halcyon v2 (Continued)
+ 7  0.0099  (orig 0.4565)  | D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | 10. Responsibilities (Continued)
+ 8  0.0092  (orig 0.3423)  | D77711 Halcyon and Ethos Radiotherapy System 4.0 IFU (P1039628-003-C) Checklist Rev 01.docx.pdf | 3.0 Checklist (Continued)
+ 9  0.0057  (orig 0.3190)  | D45070 Hal 4 Applicable Product Standards Rev 2.docx.pdf | 2. Standards Evaluation > 2.1.1  Applicable Standards (Continued)
+10  0.0052  (orig 0.3569)  | D47457 HAL 4.0 APS Record Rev 04.docx.pdf | 3.0 Summary of Applicable Standards and Guidance documents > 3.1 Applicable Standards (Continued)
+11  0.0027  (orig 0.3638)  | D47457 HAL 4.0 APS Record Rev 04.docx.pdf | 1.0 Introduction > 1.2     Scope
+12  0.0024  (orig 0.3379)  | D63983 Halcyon 4.0 UA Checklist Rev 01.pdf | 3.0 Checklist (Continued)
+13  0.0024  (orig 0.3186)  | 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | 4 Supply voltage: (Continued)
+14  0.0022  (orig 0.3109)  | D96388 HAL 4.0 UA Legal Information (EU REP Change) UA Checklist Rev 01.docx.pdf | 3.0 Checklist (Continued)
+15  0.0020  (orig 0.3115)  | D63983 Halcyon 4.0 UA Checklist Rev 01.pdf | 3.0 Checklist (Continued)
+16  0.0016  (orig 0.3383)  | D54550 HAL 4.0 Validation Plan Rev 05.docx.pdf | 2. Validation Overview > 2.2.4 Installation/Upgrade Testing
+17  0.0015  (orig 0.3312)  | D78333 Ethos 4.0 Description of interoperability Study Rev01.docx.pdf | 1. Basic Information > 2.2 Interoperation Maintenance (Continued)
+18  0.0012  (orig 0.3367)  | D69032 HAL 4.0 Validation Test Log Rev 01.pdf | 2. Validation Test log (Continued)
+19  0.0011  (orig 0.3395)  | D29012_Halcyon_2.0_User_Assistance_Plan-Rev03.docx.pdf | 0.5 cm resolution MLC (Titanium D and E models) (Continued)
+20  0.0009  (orig 0.3153)  | D65651 Halcyon-Ethos 4.0 IFU (P1058124-001-A) User Assistance Checklist Rev01.docx.pdf | 3.0 Checklist (Continued)
+21  0.0008  (orig 0.3198)  | D58685-Rev04-HAL4.0 Traceability Plan.pdf | 2. Requirements 需求
+22  0.0006  (orig 0.3141)  | D65617 HAL4 DCS Rev 02.docx.pdf | 3 of 73
+23  0.0006  (orig 0.3154)  | D96388 HAL 4.0 UA Legal Information (EU REP Change) UA Checklist Rev 01.docx.pdf | 3.0 Checklist (Continued)
+24  0.0006  (orig 0.3108)  | D54550 HAL 4.0 Validation Plan Rev 05.docx.pdf | 2. Validation Overview > 2.2.5 Regression Testing (Continued)
+25  0.0005  (orig 0.3223)  | 102341812MIN-003a - HAL4.0 - IEC 60601-1-3.pdf | 40 51st Way NE, Suite 100 (Continued)
+26  0.0005  (orig 0.3223)  | D70060 HAL 4.0-GSPR Checklist.pdf | 2. Canada Medical Device Regulations (CMDR) – 2019-06-21 (Continued)
+27  0.0004  (orig 0.3379)  | D69032 HAL 4.0 Validation Test Log Rev 01.pdf | 2. Validation Test log (Continued)
+28  0.0003  (orig 0.3106)  | D65922 HAL4.0 IEC 60601-2-1 (2020) 201.10.101.1.7 - Selection, VERIFICATION and DISPLAY of TREATMENT PARAMETERS that change during IRRADIATION Rev 01.docx.pdf | 2. Purpose
+29  0.0003  (orig 0.3119)  | D70753 HAL 4.0 MR1 Validation Plan Rev 02.docx.pdf | 2.0 Validation Overview > 2.2 User Needs Validation > 2.2.4 Installation/Upgrade Testing
+30  0.0003  (orig 0.3312)  | D65922 HAL4.0 IEC 60601-2-1 (2020) 201.10.101.1.7 - Selection, VERIFICATION and DISPLAY of TREATMENT PARAMETERS that change during IRRADIATION Rev 01.docx.pdf | 3. IEC 4th Edition Subclause Text (Continued)
+
+================================================================================
+SUB-QUERY: How is technical documentation controlled, including versioning, approvals, and access?
+================================================================================
+ 1  0.0792  (orig 0.3260)  | D101280 106485676MIN-005  IEC60601-2-1 Ed.4.0 HAL4.0_30_APR_2026 Rev 1.pdf | 40 51st Way NE, Suite 100 (Continued)
+ 2  0.0339  (orig 0.3077)  | D70060 HAL 4.0-GSPR Checklist.pdf | 2. Canada Medical Device Regulations (CMDR) – 2019-06-21 (Continued)
+ 3  0.0139  (orig 0.3128)  | D23997 Halcyon v2 Design and Development Plan Rev 01.pdf | 3.4 Project Risk Management > 6.1.2 Languages to be released with Halcyon v2 (Continued)
+ 4  0.0133  (orig 0.3422)  | D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | 2. “Ethos Radiotherapy System ” > 9.12 Singapore > 8.12.1 Singapore documentation requirements
+ 5  0.0117  (orig 0.3255)  | D68685 HAL 4.0 Cybersecurity Statement Rev 01.docx.pdf | 3.0 Definitions (Continued)
+ 6  0.0079  (orig 0.3080)  | D69966 HAL 4.0 Compliance Assessment of Product Technical Requirements Rev 02.pdf | 5.0 List (Continued)
+ 7  0.0078  (orig 0.3555)  | D67731 HAL 4.0 Design History File Index Rev 05.docx.pdf | 1. Introduction > 1.1 Scope
+ 8  0.0068  (orig 0.3049)  | D77711 Halcyon and Ethos Radiotherapy System 4.0 IFU (P1039628-003-C) Checklist Rev 01.docx.pdf | 3.0 Checklist (Continued)
+ 9  0.0060  (orig 0.3240)  | D96388 HAL 4.0 UA Legal Information (EU REP Change) UA Checklist Rev 01.docx.pdf | 3.0 Checklist (Continued)
+10  0.0059  (orig 0.3268)  | D65651 Halcyon-Ethos 4.0 IFU (P1058124-001-A) User Assistance Checklist Rev01.docx.pdf | 3.0 Checklist (Continued)
+11  0.0056  (orig 0.3466)  | D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | 10. Responsibilities (Continued)
+12  0.0055  (orig 0.3553)  | D67423 HAL 4.0 Product Technical Requirements Rev 02.pdf | 2 mm. > 2.12 Cyber security > 2.11.2 User access control: (Continued)
+13  0.0052  (orig 0.3051)  | D77711 Halcyon and Ethos Radiotherapy System 4.0 IFU (P1039628-003-C) Checklist Rev 01.docx.pdf | 3.0 Checklist (Continued)
+14  0.0051  (orig 0.3113)  | D23997 Halcyon v2 Design and Development Plan Rev 01.pdf | 3.4 Project Risk Management > 6.1.2 Languages to be released with Halcyon v2 (Continued)
+15  0.0038  (orig 0.3320)  | D93257 Halcyon Evolve User Assistance Plan Rev02.docx.pdf | 4. Project Roles, Team, and Responsibilities (Continued)
+16  0.0038  (orig 0.3272)  | D68782 HAL 4.0 Requirement Tracing rev 01.pdf | 2. Requirements Tracing (Continued)
+17  0.0035  (orig 0.3180)  | D65617 HAL4 DCS Rev 02.docx.pdf | 3 of 73
+18  0.0029  (orig 0.3042)  | D101280 106485676MIN-005  IEC60601-2-1 Ed.4.0 HAL4.0_30_APR_2026 Rev 1.pdf | 40 51st Way NE, Suite 100 (Continued)
+19  0.0025  (orig 0.3130)  | D68683 HAL 4.0 Cybersecurity Traceability Analysis Rev 01.pdf | 1. Requirements (Continued)
+20  0.0022  (orig 0.3135)  | D60827-ENU-01_HAL4.0 Manufacturing Process Map.pdf | 5.0 References and Appendices > 5.3 Appendices – Not applicable
+21  0.0022  (orig 0.3269)  | D60826-ENU-02_HAL4.0 Process Control Master Plan Rev 02.pdf | 5.0 References and Appendices > 5.2 Records – Not applicable
+22  0.0022  (orig 0.3119)  | D96388 HAL 4.0 UA Legal Information (EU REP Change) UA Checklist Rev 01.docx.pdf | 3.0 Checklist (Continued)
+23  0.0021  (orig 0.3163)  | D68599 Hal 4.0 Design Verification Trace Matrix Rev 02.pdf | 20. (Subsys) Tech Pubs (Continued)
+24  0.0019  (orig 0.3026)  | D68014 HAL 4.0 Validation Summary Report Rev 02.docx.pdf | 35. HAL 4.0 Validation Scorecard - D65886 – Rev 02 (Continued)
+25  0.0019  (orig 0.3129)  | D49189 HAL4.0 Manufacturing Plan Rev 08.pdf | 2. Manufacture extra inventories for HAL4.0 > 4.1 Manufacturing Project Monitoring > 4.1.2 Manufacturing Project Reporting/Documentation
+26  0.0017  (orig 0.3158)  | D68779 HAL 4.0 Risk Control Measures Trace Matrix rev01.pdf | 2. Risk Control Measures Verification Trace Matrix (Continued)
+27  0.0017  (orig 0.3247)  | D69032 HAL 4.0 Validation Test Log Rev 01.pdf | 2. Validation Test log (Continued)
+28  0.0014  (orig 0.3097)  | D68782 HAL 4.0 Requirement Tracing rev 01.pdf | 2. Requirements Tracing (Continued)
+29  0.0010  (orig 0.3289)  | D58685-Rev04-HAL4.0 Traceability Plan.pdf | 3. Responsibilities 职责 > 4.5 For HAL4.0 production we have below rating: (Continued)
+30  0.0009  (orig 0.3195)  | D37882 Halcyon SN9 TSCL Rev 20.pdf | 2. Test System Configuration > 2.3.3 Accessories (Continued)
+
+================================================================================
+SUB-QUERY: Who has responsibility for maintaining technical documentation?
+================================================================================
+ 1  0.0801  (orig 0.3352)  | D57043 HAL 4.0 User Needs and Detailed Workflows Rev 2.0.docx.pdf | 15. User defined CBCT modes can be exported, imported, or deleted. > 5.1 Actor
+ 2  0.0537  (orig 0.3195)  | D96740 HAL4.0MR2 Golden Disk .pdf | 4. Responsibilities
+ 3  0.0519  (orig 0.3157)  | D70931-HAL4.0 MR1 Golden Disk Build Instruction and Verification-Rev02.docx.pdf | 4. Responsibilities
+ 4  0.0468  (orig 0.3230)  | D62523 HAL 4.0 Service User Needs and Detailed Workflows Rev 3.0.docx.pdf | 1. To avoid injuries to the Customer Support Representative:. > 2.3 Performing Routine Procedures > 2.3.1 System Maintenance
+ 5  0.0391  (orig 0.2947)  | D67017-Rev 02-HAL4.0 Golden Disk Build Instruction.pdf | 4.0 Responsibilities
+ 6  0.0388  (orig 0.3664)  | D23997 Halcyon v2 Design and Development Plan Rev 01.pdf | 3.4 Project Risk Management > 6.1.2 Languages to be released with Halcyon v2 (Continued)
+ 7  0.0353  (orig 0.3069)  | D58308 HAL 4.0 Device Description Rev 1.0.docx.pdf | 1.0 Executive Summary > 1.2 Device Classification > 1.3.6 Operator Profiles (Continued)
+ 8  0.0270  (orig 0.3185)  | D23997 Halcyon v2 Design and Development Plan Rev 01.pdf | 3.4 Project Risk Management > 6.1.2 Languages to be released with Halcyon v2 (Continued)
+ 9  0.0264  (orig 0.3046)  | D57043 HAL 4.0 User Needs and Detailed Workflows Rev 2.0.docx.pdf | 15. User defined CBCT modes can be exported, imported, or deleted. > 5.2 Performing Procedures > 5.2.2 Maintaining Operation of the System
+10  0.0210  (orig 0.3013)  | D68586 IQOQPQ_VM_PABUILD33 Rev 1.0.docx.pdf | 1. Introduction > 1.3 Responsibility
+11  0.0206  (orig 0.3065)  | D68723 IQOQPQ_VM_PABUILDDIGSIG01 01.pdf | 1. Introduction > 1.3 Responsibility
+12  0.0191  (orig 0.3257)  | D93257 Halcyon Evolve User Assistance Plan Rev02.docx.pdf | 1. Introduction > 1.2 Purpose and Scope of the UAP
+13  0.0167  (orig 0.3531)  | D29012_Halcyon_2.0_User_Assistance_Plan-Rev03.docx.pdf | 0.5 cm resolution MLC (Titanium D and E models) (Continued)
+14  0.0155  (orig 0.3400)  | D93257 Halcyon Evolve User Assistance Plan Rev02.docx.pdf | 4. Project Roles, Team, and Responsibilities (Continued)
+15  0.0154  (orig 0.4288)  | D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | 10. Responsibilities (Continued)
+16  0.0150  (orig 0.3138)  | D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | 10. Responsibilities (Continued)
+17  0.0139  (orig 0.3417)  | D47174 HAL 4.0 – Clinical Mode – UI Specification Document Rev 04.docx.pdf | 2 User Related > 2.2 Training
+18  0.0127  (orig 0.3078)  | D53716 Rev0.3 HAL4.0 KV collimator motion test WI.pdf | 5.0 Responsibilities
+19  0.0125  (orig 0.3063)  | D53708 Marketing Claims Library HAL 4.0 Rev 4.0.docx.pdf | 1. Introduction > 1.3 Roles & Responsibilities
+20  0.0113  (orig 0.3312)  | D60919-ENU-Rev 02-HAL4.0 Master Validation Plan MVP.pdf | 6.0 Responsibilities (Continued)
+21  0.0112  (orig 0.3313)  | D51403 HAL 4.0 - Physics Mode - UI Specification Document Rev03.docx.pdf | 2 User Related > 2.2 Training
+22  0.0071  (orig 0.3647)  | D58685-Rev04-HAL4.0 Traceability Plan.pdf | 3. Responsibilities 职责 > 3.1 Engineering 工程部
+23  0.0066  (orig 0.3306)  | D30786 Halcyon 2.0 Regulatory Plan Rev 1.0.doc.pdf | 8.8 Brazil Marketing Clearance Strategy > 8.8.1 Brazil documentation requirements (Continued)
+24  0.0066  (orig 0.3192)  | D58308 HAL 4.0 Device Description Rev 1.0.docx.pdf | 1.0 Executive Summary > 1.2 Device Classification > 1.3.6 Operator Profiles (Continued)
+25  0.0054  (orig 0.3314)  | D58685-Rev04-HAL4.0 Traceability Plan.pdf | 3. Responsibilities 职责 > 3.3 Service 现场维护部
+26  0.0048  (orig 0.3003)  | D101280 106485676MIN-005  IEC60601-2-1 Ed.4.0 HAL4.0_30_APR_2026 Rev 1.pdf | 40 51st Way NE, Suite 100 (Continued)
+27  0.0044  (orig 0.3191)  | D60919-ENU-Rev 02-HAL4.0 Master Validation Plan MVP.pdf | 6.0 Responsibilities (Continued)
+28  0.0040  (orig 0.3138)  | D95424 HAL 4.0 MR2 (HAL Evolve) Maintenance Release Document Rev 04.pdf | 1. Maintenance Release Plan > 1.1 Project Overview (Continued)
+29  0.0033  (orig 0.3140)  | D95424 HAL 4.0 MR2 (HAL Evolve) Maintenance Release Document Rev 04.pdf | 1. Maintenance Release Plan > 1.1 Project Overview (Continued)
+30  0.0024  (orig 0.3043)  | D68456 Halcyon 4.0 RTSS Build Procedure Rev 01.docx.pdf | 8. The tool generates the following files. > 4.2.3 Release Build (Continued)
+
+================================================================================
+SUB-QUERY: Is documentation readily retrievable for audit and regulatory submission?
+================================================================================
+ 1  0.0179  (orig 0.2805)  | D30786 Halcyon 2.0 Regulatory Plan Rev 1.0.doc.pdf | 6.5 Biocompatibility Information (Continued)
+ 2  0.0149  (orig 0.2894)  | D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | 10. Responsibilities (Continued)
+ 3  0.0115  (orig 0.2928)  | D30786 Halcyon 2.0 Regulatory Plan Rev 1.0.doc.pdf | 8.2 EU Marketing Clearance Strategy > 8.2.1 ISD documentation requirements
+ 4  0.0049  (orig 0.2504)  | D101280 106485676MIN-005  IEC60601-2-1 Ed.4.0 HAL4.0_30_APR_2026 Rev 1.pdf | 40 51st Way NE, Suite 100 (Continued)
+ 5  0.0037  (orig 0.2507)  | D47457 HAL 4.0 APS Record Rev 04.docx.pdf | 1.0 Introduction > 1.2     Scope
+ 6  0.0036  (orig 0.2756)  | 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | 4 Supply voltage: (Continued)
+ 7  0.0022  (orig 0.2628)  | D68492 HAL 4.0 Validation Test Results  Interim Rev 01.docx.pdf | 1. HAL 4.0 Validation Test Design Strategy – D64929 (Continued)
+ 8  0.0021  (orig 0.2622)  | D68683 HAL 4.0 Cybersecurity Traceability Analysis Rev 01.pdf | 1. Requirements (Continued)
+ 9  0.0020  (orig 0.2573)  | D65886 HAL 4.0 Validation Scorecard Rev 02.docx.pdf | 1.5 User Assistance (Continued)
+10  0.0012  (orig 0.2579)  | D68599 Hal 4.0 Design Verification Trace Matrix Rev 02.pdf | 13. (Subsys) TXA - Treatment (Continued)
+11  0.0011  (orig 0.2717)  | D101280 106485676MIN-005  IEC60601-2-1 Ed.4.0 HAL4.0_30_APR_2026 Rev 1.pdf | 40 51st Way NE, Suite 100 (Continued)
+12  0.0009  (orig 0.2601)  | D68492 HAL 4.0 Validation Test Results  Interim Rev 01.docx.pdf | 1. HAL 4.0 Validation Test Design Strategy – D64929 (Continued)
+13  0.0009  (orig 0.2733)  | D69032 HAL 4.0 Validation Test Log Rev 01.pdf | 2. Validation Test log (Continued)
+14  0.0008  (orig 0.2743)  | D96388 HAL 4.0 UA Legal Information (EU REP Change) UA Checklist Rev 01.docx.pdf | 3.0 Checklist (Continued)
+15  0.0008  (orig 0.2456)  | D70753 HAL 4.0 MR1 Validation Plan Rev 02.docx.pdf | 4.0 Validation Processes > 4.5 Traceability
+16  0.0008  (orig 0.2551)  | D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 6. The MSO shall only be used to power the console cabinet (Continued)
+17  0.0007  (orig 0.2832)  | D68599 Hal 4.0 Design Verification Trace Matrix Rev 02.pdf | 2. (Top Level) Hal Delivery System (Continued)
+18  0.0006  (orig 0.2457)  | D65864 HAL 4.0 Early Validation Summary Report Rev 01.docx.pdf | 8. D63337 HAL 4.0 Early Validation Testing Review Report (Continued)
+19  0.0006  (orig 0.2810)  | D69032 HAL 4.0 Validation Test Log Rev 01.pdf | 2. Validation Test log (Continued)
+20  0.0006  (orig 0.2454)  | D44918 Halcyon3 UA Checklist IFU Addendum P1038731-001-A Rev 01.pdf | 2.0 Deliverable Checklist (Continued)
+21  0.0006  (orig 0.2910)  | D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | 2. “Ethos Radiotherapy System ” > 9.5 China Marketing Clearance Strategy > 9.5.1 China documentation requirements (Continued)
+22  0.0005  (orig 0.2706)  | D68782 HAL 4.0 Requirement Tracing rev 01.pdf | 2. Requirements Tracing (Continued)
+23  0.0005  (orig 0.2683)  | D68782 HAL 4.0 Requirement Tracing rev 01.pdf | 2. Requirements Tracing (Continued)
+24  0.0005  (orig 0.2607)  | D57043 HAL 4.0 User Needs and Detailed Workflows Rev 2.0.docx.pdf | 35. The Image Taker will close the Patient’s chart. (Continued)
+25  0.0004  (orig 0.2767)  | 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | 4 Supply voltage: (Continued)
+26  0.0004  (orig 0.2921)  | 102341812MIN-003a - HAL4.0 - IEC 60601-1-3.pdf | 40 51st Way NE, Suite 100 (Continued)
+27  0.0004  (orig 0.2484)  | D70923 HAL 4.0 MR1 Test Case Selection Rationale Rev 02.docx.pdf | 4. HAL 4.0 Test Case Selection Rationale > 4.3 User Needs Validation > 4.3.5 Instructions for Use > 4.3.5.1 New or Modified User Documentation (Continued)
+28  0.0002  (orig 0.2470)  | D57043 HAL 4.0 User Needs and Detailed Workflows Rev 2.0.docx.pdf | 1. Introduction > 2.2 IGRT or NON-Adaptive User Needs
+29  0.0000  (orig 0.2682)  | D58685-Rev04-HAL4.0 Traceability Plan.pdf | 2. Requirements 需求
+30  0.0000  (orig 0.2674)  | D68370 Halcyon Dispersant Suppression Efficacy Test Plan Rev 01.pdf | 2. Record the water pressure of the machine in kPa.
+
+================================================================================
+SUB-QUERY: Are document control processes followed?
+================================================================================
+ 1  0.1968  (orig 0.2980)  | D23997 Halcyon v2 Design and Development Plan Rev 01.pdf | 3.2.1 Scope, Schedule and Budget Control
+ 2  0.1240  (orig 0.3126)  | 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | 4 Supply voltage: (Continued)
+ 3  0.1140  (orig 0.2906)  | D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 6. The MSO shall only be used to power the console cabinet (Continued)
+ 4  0.0890  (orig 0.3332)  | D60826-ENU-02_HAL4.0 Process Control Master Plan Rev 02.pdf | 1.0 Purpose
+ 5  0.0422  (orig 0.2859)  | D60919-ENU-Rev 02-HAL4.0 Master Validation Plan MVP.pdf | 7.0 Project Management
+ 6  0.0206  (orig 0.2917)  | D95424 HAL 4.0 MR2 (HAL Evolve) Maintenance Release Document Rev 04.pdf | 1. Maintenance Release Plan > 1.3 Project Management Process > 1.3.1 Project Controls (Continued)
+ 7  0.0123  (orig 0.2848)  | D64929 HAL 4.0 Validation Test Design Strategy Rev 02.docx.pdf | 4. Validation Test Approach > 4.4 Test Case Selection Rationale > 4.4.3 Risk Control Measure Validation > 4.4.3.2 RCMs for Legacy Features (Continued)
+ 8  0.0122  (orig 0.2977)  | D68779 HAL 4.0 Risk Control Measures Trace Matrix rev01.pdf | 2. Risk Control Measures Verification Trace Matrix (Continued)
+ 9  0.0104  (orig 0.2951)  | D70036 HAL 4.0 Software Description Report China Submission Rev 03 .docx.pdf | 4 on-board USB 3.0 ports > 2.4 Life Cycle (生存周期)(No change)
+10  0.0062  (orig 0.3178)  | D70036 HAL 4.0 Software Description Report China Submission Rev 03 .docx.pdf | 3. Conclusion:
+11  0.0037  (orig 0.2907)  | D60826-CHS-02_HAL4.0 Process Control Master Plan.pdf | 5.0 参考文件和附录 > 5.2 记录—不适用
+12  0.0037  (orig 0.2893)  | D69032 HAL 4.0 Validation Test Log Rev 01.pdf | 2. Validation Test log (Continued)
+13  0.0035  (orig 0.2848)  | D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | 2. “Ethos Radiotherapy System ” > 9.5 China Marketing Clearance Strategy > 9.5.1 China documentation requirements (Continued)
+14  0.0033  (orig 0.3114)  | D60826-ENU-02_HAL4.0 Process Control Master Plan Rev 02.pdf | 5.0 References and Appendices > 5.2 Records – Not applicable
+15  0.0029  (orig 0.2952)  | D60826-CHS-02_HAL4.0 Process Control Master Plan.pdf | 1.0 目的
+16  0.0025  (orig 0.2998)  | D101278 106485676MIN-002 IEC60601-1-6 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 40 51st Way NE, Suite 100 (Continued)
+17  0.0021  (orig 0.2955)  | D95424 HAL 4.0 MR2 (HAL Evolve) Maintenance Release Document Rev 04.pdf | 1. Maintenance Release Plan > 1.3 Project Management Process > 1.3.1 Project Controls (Continued)
+18  0.0019  (orig 0.3154)  | D60827-ENU-01_HAL4.0 Manufacturing Process Map.pdf | 5.0 References and Appendices > 5.3 Appendices – Not applicable
+19  0.0018  (orig 0.3089)  | D23997 Halcyon v2 Design and Development Plan Rev 01.pdf | 3.2.3 Project Controls (Continued)
+20  0.0014  (orig 0.2879)  | D67731 HAL 4.0 Design History File Index Rev 05.docx.pdf | 1. Introduction > 1.1 Scope
+21  0.0011  (orig 0.2945)  | D60919-ENU-Rev 02-HAL4.0 Master Validation Plan MVP.pdf | 11.0 References > 11.9 D60826 HAL4.0 Process Control Master Plan (Continued)
+22  0.0010  (orig 0.3108)  | CD0534-A HAL 4.0 MR1 Rev05.pdf | 3. Safety: (Continued)
+23  0.0009  (orig 0.2948)  | D70154 HAL 4.0 Machinery Directive Checklist Rev 01.pdf | 2. Detailed Instructions > 2.1 Detailed Instructions for Clause 1.2.2 Control devices (Continued)
+24  0.0009  (orig 0.2950)  | D59555 HAL 4.0 Risk Management Plan rev03.pdf | 3.0 Responsibilities and Authorities (Continued)
+25  0.0007  (orig 0.3066)  | D68779 HAL 4.0 Risk Control Measures Trace Matrix rev01.pdf | 2. Risk Control Measures Verification Trace Matrix (Continued)
+26  0.0006  (orig 0.2940)  | D77711 Halcyon and Ethos Radiotherapy System 4.0 IFU (P1039628-003-C) Checklist Rev 01.docx.pdf | 3.0 Checklist (Continued)
+27  0.0005  (orig 0.3111)  | 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | 4 Supply voltage: (Continued)
+28  0.0005  (orig 0.2853)  | D93257 Halcyon Evolve User Assistance Plan Rev02.docx.pdf | 6. Best Practices to Mitigate Risks and Impacts on UA Completion (Continued)
+29  0.0003  (orig 0.3124)  | D54550 HAL 4.0 Validation Plan Rev 05.docx.pdf | 5. Risks and Contingencies (Continued)
+30  0.0003  (orig 0.2836)  | D70753 HAL 4.0 MR1 Validation Plan Rev 02.docx.pdf | 5.0 Risks and Contingencies (Continued)
+
+================================================================================
+SUB-QUERY: Is each device uniquely identified and linked to its technical documentation?
+================================================================================
+ 1  0.1410  (orig 0.3193)  | D47457 HAL 4.0 APS Record Rev 04.docx.pdf | 3.0 Summary of Applicable Standards and Guidance documents > 3.1 Applicable Standards (Continued)
+ 2  0.1262  (orig 0.3813)  | D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 6. The MSO shall only be used to power the console cabinet (Continued)
+ 3  0.0924  (orig 0.2859)  | D58308 HAL 4.0 Device Description Rev 1.0.docx.pdf | 1.0 Executive Summary > 1.2 Device Classification > 1.3.2 Unique Device Identifier
+ 4  0.0626  (orig 0.2972)  | D68599 Hal 4.0 Design Verification Trace Matrix Rev 02.pdf | 20. (Subsys) Tech Pubs (Continued)
+ 5  0.0595  (orig 0.2808)  | D61200 HAL 4.0 DFMEA rev01.pdf | 2. Design FMEA Summary
+ 6  0.0495  (orig 0.3011)  | 102341812MIN-003a - HAL4.0 - IEC 60601-1-3.pdf | 40 51st Way NE, Suite 100 (Continued)
+ 7  0.0444  (orig 0.2884)  | D101279 106485676MIN-004  IEC60601-1-3 Ed.2.2 HAL4.0_30_APR_2026 Rev 1.pdf | 40 51st Way NE, Suite 100 (Continued)
+ 8  0.0436  (orig 0.3492)  | D68372 Halcyon Pump Contamination Inspection Plan and Procedure Review Report - Rev 01.pdf | 6. Each sample must have a unique identifier. (Continued)
+ 9  0.0404  (orig 0.3551)  | 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | 4 Supply voltage: (Continued)
+10  0.0360  (orig 0.3436)  | D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 6. The MSO shall only be used to power the console cabinet (Continued)
+11  0.0310  (orig 0.3387)  | D70060 HAL 4.0 GSPR Checklist Rev2.docx.pdf | 2. Canada Medical Device Regulations (CMDR) – 2024-12-14 (Continued)
+12  0.0298  (orig 0.3059)  | D101280 106485676MIN-005  IEC60601-2-1 Ed.4.0 HAL4.0_30_APR_2026 Rev 1.pdf | 40 51st Way NE, Suite 100 (Continued)
+13  0.0190  (orig 0.2859)  | D44094_HAL4.0_CER_Rev05.pdf | 3. DAEN > 7.1.4 Risk Management Analyses (Continued)
+14  0.0164  (orig 0.3085)  | D70060 HAL 4.0-GSPR Checklist.pdf | 2. Canada Medical Device Regulations (CMDR) – 2019-06-21 (Continued)
+15  0.0154  (orig 0.2978)  | D68372 Halcyon Pump Contamination Inspection Plan and Procedure Review Report - Rev 01.pdf | 6. Each sample must have a unique identifier. (Continued)
+16  0.0113  (orig 0.3126)  | D70060 HAL 4.0 GSPR Checklist Rev2.docx.pdf | 2. Canada Medical Device Regulations (CMDR) – 2024-12-14 (Continued)
+17  0.0079  (orig 0.3483)  | 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | 4 Supply voltage: (Continued)
+18  0.0073  (orig 0.3031)  | D101280 106485676MIN-005  IEC60601-2-1 Ed.4.0 HAL4.0_30_APR_2026 Rev 1.pdf | 40 51st Way NE, Suite 100 (Continued)
+19  0.0048  (orig 0.2831)  | D58685-Rev04-HAL4.0 Traceability Plan.pdf | 3. Responsibilities 职责 > 3.4 RA/QA 法规部/质量部
+20  0.0045  (orig 0.3249)  | D62523 HAL 4.0 Service User Needs and Detailed Workflows Rev 3.0.docx.pdf | 1. To avoid injuries to the Customer Support Representative:. > 2.3 Performing Routine Procedures > 2.5.1 Remote Diagnostics and Logging (Continued)
+21  0.0034  (orig 0.2877)  | D101278 106485676MIN-002 IEC60601-1-6 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 40 51st Way NE, Suite 100 (Continued)
+22  0.0033  (orig 0.2907)  | D62090 HAL 4.0 Console Software RuntimeEnvSpec Rev1.docx.pdf | 2. System Definition > 2.4 System Parts > 2.4.2 Software Components
+23  0.0029  (orig 0.3062)  | 102341812MIN-003a - HAL4.0 - IEC 60601-1-3.pdf | 40 51st Way NE, Suite 100 (Continued)
+24  0.0025  (orig 0.3284)  | D70060 HAL 4.0-GSPR Checklist.pdf | 2. Canada Medical Device Regulations (CMDR) – 2019-06-21 (Continued)
+25  0.0021  (orig 0.3067)  | D68685 HAL 4.0 Cybersecurity Statement Rev 01.docx.pdf | 3.0 Definitions > 4.4 Accountability
+26  0.0017  (orig 0.2782)  | D68782 HAL 4.0 Requirement Tracing rev 01.pdf | 2. Requirements Tracing (Continued)
+27  0.0010  (orig 0.3050)  | D58685-Rev04-HAL4.0 Traceability Plan.pdf | 2. Requirements 需求
+28  0.0009  (orig 0.3079)  | D69032 HAL 4.0 Validation Test Log Rev 01.pdf | 2. Validation Test log (Continued)
+29  0.0009  (orig 0.2805)  | D58308 HAL 4.0 Device Description Rev 1.0.docx.pdf | 1.0 Executive Summary > 1.2 Device Classification > 1.3.6 Operator Profiles (Continued)
+30  0.0009  (orig 0.3011)  | D69032 HAL 4.0 Validation Test Log Rev 01.pdf | 2. Validation Test log (Continued)
+
+================================================================================
+SUB-QUERY: How are product variants and configurations managed within technical documentation?
+================================================================================
+ 1  0.0490  (orig 0.4267)  | 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | 4 Supply voltage: (Continued)
+ 2  0.0428  (orig 0.3611)  | D47457 HAL 4.0 APS Record Rev 04.docx.pdf | 1.0 Introduction > 1.2     Scope
+ 3  0.0405  (orig 0.3369)  | D27054 Halcyon 2.0 Market Introduction Plan Rev 5.0.docx.pdf | 6.0 section 3.1.4. > 5.2.4 Worldwide Distributor Training (Continued)
+ 4  0.0363  (orig 0.3590)  | D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | 6. The MSO shall only be used to power the console cabinet (Continued)
+ 5  0.0322  (orig 0.4106)  | D23997 Halcyon v2 Design and Development Plan Rev 01.pdf | 3.4 Project Risk Management > 6.1.2 Languages to be released with Halcyon v2 (Continued)
+ 6  0.0246  (orig 0.3495)  | D67424 Ethos 4.0 Product Technical Requirements Rev 02.pdf | 3. BB is not used
+ 7  0.0175  (orig 0.3550)  | D35851 Hal 2.0 CSP Plan V02.docx.pdf | 7. Feedback Collection and Management (Continued)
+ 8  0.0174  (orig 0.3572)  | D89591 HAL Evolve Product Technical Requirements Rev01.docx.pdf | 1.  Product Model > 1.3 Software > 1.3.2 Software release version number: 3.1; 4.0
+ 9  0.0172  (orig 0.3896)  | D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | 10. Responsibilities (Continued)
+10  0.0163  (orig 0.3699)  | D30786 Halcyon 2.0 Regulatory Plan Rev 1.0.doc.pdf | 8.2 EU Marketing Clearance Strategy > 8.2.1 ISD documentation requirements (Continued)
+11  0.0145  (orig 0.3637)  | D95424 HAL 4.0 MR2 (HAL Evolve) Maintenance Release Document Rev 04.pdf | 1. Maintenance Release Plan > 1.1 Project Overview (Continued)
+12  0.0132  (orig 0.3364)  | D68599 Hal 4.0 Design Verification Trace Matrix Rev 02.pdf | 20. (Subsys) Tech Pubs
+13  0.0111  (orig 0.3442)  | D48516 HAL 4.0 Clinical Evaluation Plan Rev 01.pdf | 1.0 Introduction > 1.1 Purpose
+14  0.0107  (orig 0.3670)  | D89591 HAL Evolve Product Technical Requirements Rev01.docx.pdf | 4. Adjust the default value of this mode > 2.13 Imaging System performance requirement > 2.13.1 Accompanying documents > 2.13.2.3 Image quality of X-IGRT equipment
+15  0.0100  (orig 0.3373)  | D79299 Ethos with small Imager Product Technical Requirements Rev 02.docx.pdf | 3. BB is not used
+16  0.0087  (orig 0.3911)  | 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | 4 Supply voltage: (Continued)
+17  0.0086  (orig 0.3511)  | D95424 HAL 4.0 MR2 (HAL Evolve) Maintenance Release Document Rev 04.pdf | 1. Maintenance Release Plan > 1.5 Software Configuration Management > 1.5.4 SOUP (Continued)
+18  0.0078  (orig 0.3414)  | D77160 HAL 4.0 Ethos with standard kV imager MRD Rev 05.docx.pdf | 4.0 Ethos with standard kV imager. > 1.5 Software Configuration Management > 1.5.4 SOUP
+19  0.0072  (orig 0.3524)  | D64796 HAL4.0 Couch test tooling console TDD  Rev03.pdf | 3. CCH configuration > 2.4.11 Not in scope
+20  0.0067  (orig 0.3553)  | D67423 HAL 4.0 Product Technical Requirements Rev 02.pdf | 2 mm. > 2.13 Imaging System performance requirement > 13.2.2 Target guiding range of X-IGRT equipment > 2.13.3.3 Image quality of X-IGRT equipment
+21  0.0060  (orig 0.4213)  | D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | 2. “Ethos Radiotherapy System ” > 9.2 EU Marketing Clearance Strategy > 9.2.1 ISD documentation requirements (Continued)
+22  0.0059  (orig 0.3471)  | D96388 HAL 4.0 UA Legal Information (EU REP Change) UA Checklist Rev 01.docx.pdf | 3.0 Checklist (Continued)
+23  0.0039  (orig 0.3517)  | D77711 Halcyon and Ethos Radiotherapy System 4.0 IFU (P1039628-003-C) Checklist Rev 01.docx.pdf | 3.0 Checklist (Continued)
+24  0.0038  (orig 0.3679)  | D30786 Halcyon 2.0 Regulatory Plan Rev 1.0.doc.pdf | 8.2 EU Marketing Clearance Strategy > 8.2.1 ISD documentation requirements (Continued)
+25  0.0036  (orig 0.3361)  | D69966 HAL 4.0 Compliance Assessment of Product Technical Requirements Rev 02.pdf | 5.0 List (Continued)
+26  0.0034  (orig 0.3445)  | D59288-0.1 LATE STAGE CONFIGURATION KV INSTALLATION_CRATE.pdf | 4. Reference manufacturing drawings to identify BOM item numbers.
+27  0.0031  (orig 0.3599)  | D78333 Ethos 4.0 Description of interoperability Study Rev01.docx.pdf | 1. Basic Information > 2.2 Interoperation Maintenance (Continued)
+28  0.0030  (orig 0.3803)  | D48516 HAL 4.0 Clinical Evaluation Plan Rev 01.pdf | 1.0 Introduction > 1.2 Scope (Continued)
+29  0.0017  (orig 0.3548)  | D67731 HAL 4.0 Design History File Index Rev 05.docx.pdf | 1. Introduction > 1.1 Scope
+30  0.0011  (orig 0.3398)  | D69032 HAL 4.0 Validation Test Log Rev 01.pdf | 2. Validation Test log (Continued)
+
+================================================================================
+SUB-QUERY: Is traceability maintained across product families and versions?
+================================================================================
+ 1  0.0685  (orig 0.3268)  | D95424 HAL 4.0 MR2 (HAL Evolve) Maintenance Release Document Rev 04.pdf | 5. Verification and Validation > 6.2 Traceability
+ 2  0.0469  (orig 0.2989)  | D19996 Halcyon 2.0 Manufacturing Plan - Rev04.pdf | 2. Project Organization > 4.3 Production Planning > 4.3.6 Batch and Serial Control
+ 3  0.0419  (orig 0.3217)  | D58685-Rev04-HAL4.0 Traceability Plan.pdf | 1. Introduction 介绍 > 1.2  Scope 范围
+ 4  0.0251  (orig 0.2832)  | D70036 HAL 4.0 Software Description Report China Submission Rev 03 .docx.pdf | 3. Conclusion:
+ 5  0.0235  (orig 0.2746)  | D68686 HAL 4.0 Cybersecurity Summary Report Rev 03.pdf | 3. Product Architecture > 3.3 Assets > 4.2.2 Traceability (Continued)
+ 6  0.0198  (orig 0.3129)  | 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | 4 Supply voltage: (Continued)
+ 7  0.0196  (orig 0.2755)  | D58685-Rev04-HAL4.0 Traceability Plan.pdf | 1. Introduction 介绍 > 1.1 Purpose 目的
+ 8  0.0115  (orig 0.2673)  | D65886 HAL 4.0 Validation Scorecard Rev 02.docx.pdf | 1.8 Overall Quality Impression (Continued)
+ 9  0.0108  (orig 0.2999)  | 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | 4 Supply voltage: (Continued)
+10  0.0108  (orig 0.2712)  | D84239 HAL 4.0 CRN UA Checklist Rev02.docx.pdf | 4.0 Checklist (Continued)
+11  0.0022  (orig 0.2671)  | D69533 HAL 4.0 MR1 Maintenance Release Document Rev09.docx.pdf | 5. Verification and Validation > 6.2 Traceability
+12  0.0020  (orig 0.2801)  | D68779 HAL 4.0 Risk Control Measures Trace Matrix rev01.pdf | 2. Risk Control Measures Verification Trace Matrix (Continued)
+13  0.0019  (orig 0.2665)  | D53708 Marketing Claims Library HAL 4.0 Rev 4.0.docx.pdf | 3. Marketing Claims
+14  0.0014  (orig 0.2637)  | D95548 HAL 4.0MR2 (HAL Evolve) Product Versioning Memo Rev 01.pdf | 3.0 Version Consideration
+15  0.0014  (orig 0.2779)  | D68779 HAL 4.0 Risk Control Measures Trace Matrix rev01.pdf | 2. Risk Control Measures Verification Trace Matrix (Continued)
+16  0.0013  (orig 0.2764)  | D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | 2. Proposed Product  Platform & Model Name (Continued)
+17  0.0012  (orig 0.2799)  | D67595 Halcyon 4.0 System Build Procedure Rev 02.pdf | 2. Build Versioning
+18  0.0010  (orig 0.2973)  | D78333 Ethos 4.0 Description of interoperability Study Rev01.docx.pdf | 1. Basic Information > 2.2 Interoperation Maintenance (Continued)
+19  0.0008  (orig 0.2805)  | D68599 Hal 4.0 Design Verification Trace Matrix Rev 02.pdf | 7. (Subsys) EI – Embedded Installer (Continued)
+20  0.0007  (orig 0.2715)  | D68782 HAL 4.0 Requirement Tracing rev 01.pdf | 2. Requirements Tracing (Continued)
+21  0.0007  (orig 0.2778)  | D68599 Hal 4.0 Design Verification Trace Matrix Rev 02.pdf | 6. (Subsys) IMG – Imaging (Continued)
+22  0.0006  (orig 0.2698)  | D81648 HAL 4.0 Product Versioning Memo_Ethos Small Imager Rev 01.docx.pdf | 3.0  Version Consideration
+23  0.0003  (orig 0.2718)  | D64910 HAL 4.0 System Design Description Rev 01.pdf | 9. The patient is unloaded. > 2.5.3.1 Control System Safety Infrastructure > 2.5.3.1.3 Version Reporting and Compatibility Check > 2.5.3.1.3.2 Compatibility Check among Software and Hardware
+24  0.0003  (orig 0.2639)  | D69533 HAL 4.0 MR1 Maintenance Release Document Rev09.docx.pdf | 1. Maintenance Release Plan > 1.3 Project Management Process > 1.3.1 Project Controls
+25  0.0002  (orig 0.2764)  | D61143 HAL 4.0 System Build ERM TRR1 Rev1.pdf | 1.1 Delivered Items > 1.1.3 From EE > 1.1.3.2 PCB versions
+26  0.0002  (orig 0.2764)  | D73524 HAL 4.0 MR1 System Build ERM TRR2 Rev2.pdf | 1.1 Delivered Items > 1.1.3 From EE > 1.1.3.2 PCB versions
+27  0.0002  (orig 0.2776)  | D66858 HAL 4.0 System Build ERM TRR3 Rev2.docx.pdf | 1.1 Delivered Items > 1.1.3 From EE > 1.1.3.2 PCB versions
+28  0.0002  (orig 0.2776)  | D72533 HAL 4.0 MR1 System Build ERM TRR1 Rev1.docx.pdf | 1.1 Delivered Items > 1.1.3 From EE > 1.1.3.2 PCB versions
+29  0.0002  (orig 0.2764)  | D63524 HAL 4.0 System Build ERM TRR1.1 Rev1.docx.pdf | 1.1 Delivered Items > 1.1.3 From EE > 1.1.3.2 PCB versions
+30  0.0001  (orig 0.2661)  | D95163 Ethos Radiotherapy System version naming rule.pdf | 1. Introduction
+
+================================================================================
+Final set for synthesis agent: 556 unique chunks (top 30 per sub-query, deduped) -> saved to retrieved_documents.csv

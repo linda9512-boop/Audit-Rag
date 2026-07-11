@@ -1,0 +1,31 @@
+Audit question: Does the technical documentation align with regulatory requirements of all applicable jurisdictions?
+Chunks used: 37
+================================================================================
+The excerpts provided do contain some evidence regarding the alignment of the HAL 4.0 technical documentation with regulatory requirements in various jurisdictions, though not comprehensively.
+
+1. Compliance with Applicable Standards:
+   - HAL 4.0 is documented to comply with product-specific standards, laws, and/or directives necessary for market access [Regulatory / Applicable Standards / D47457 HAL 4.0 APS Record Rev 04.docx.pdf | Page: 4].
+
+2. Compliance Procedures and Responsibilities:
+   - The regulatory plan outlines procedures to ensure compliance with applicable standards and includes responsibilities for individuals coordinating regulatory submissions [Regulatory / Regulatory Plans / D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | Pages: 73-74].
+   - Relevant guidance documents and standards identified for HAL 4.0 indicate compliance efforts, though these guidance documents do not impose mandatory requirements [Regulatory / Applicable Standards / D47457 HAL 4.0 APS Record Rev 04.docx.pdf | Page: 35].
+
+3. Documentation and Localization:
+   - The documentation is expected to be provided in a language suitable for the country where the system is used, which is a responsibility outlined in the validation test report [Regulatory / Test Reports - Regulatory Compliance / D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | Page: 15].
+   - Local language requirements and documentation dependencies are considered in the regulatory plan to ensure translations and localization where needed [Regulatory / Regulatory Plans / D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | Pages: 73-74].
+
+4. Testing and Verification:
+   - HAL 4.0 has passed verification and testing in accordance with relevant standards (EN IEC 60601-1) which are essential requirements for various jurisdictions including Canada and Australia, demonstrating compliance with clauses related to maintenance and calibration [Regulatory / Essential Requirements Checklist / D70060 HAL 4.0-GSPR Checklist.pdf | Page: 15].
+   
+5. Clinical Evaluation and Ongoing Compliance:
+   - A Clinical Evaluation Plan is in place as part of meeting regulatory requirements and ensuring compliance with ongoing safety and performance standards. This involves post-marketing surveillance and risk analysis [Regulatory / International Submission Dossier / D48516 HAL 4.0 Clinical Evaluation Plan Rev 01.pdf | Page: 3].
+
+However, the documents do not provide comprehensive information on specific regulatory requirements for all applicable jurisdictions or a complete confirmation of alignment with such requirements. Information on specific jurisdictional compliance, such as FDA, CE Marking, or other international regulatory body clearances, is missing from the provided excerpts. Additionally, detailed test reports and conformity assessments specific to HAL 4.0 are only partially addressed.
+
+Documents cited:
+- Regulatory / Applicable Standards / D47457 HAL 4.0 APS Record Rev 04.docx.pdf | Page: 4
+- Regulatory / Regulatory Plans / D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | Pages: 73-74
+- Regulatory / Applicable Standards / D47457 HAL 4.0 APS Record Rev 04.docx.pdf | Page: 35
+- Regulatory / Test Reports - Regulatory Compliance / D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf | Page: 15
+- Regulatory / Essential Requirements Checklist / D70060 HAL 4.0-GSPR Checklist.pdf | Page: 15
+- Regulatory / International Submission Dossier / D48516 HAL 4.0 Clinical Evaluation Plan Rev 01.pdf | Page: 3

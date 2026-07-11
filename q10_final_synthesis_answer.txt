@@ -1,0 +1,24 @@
+Audit question: Are roles and responsibilities for design activities clearly defined?
+Sub-queries used: ['Documentation of roles in design process', 'List of responsibilities in design activities', 'Organizational chart for design department']
+Chunks used: 291 (230 matched from 3 facet sub-queries + augmented context)
+================================================================================
+Roles and responsibilities for design activities of the Halcyon 4.0 (HAL 4.0) radiotherapy system are clearly defined across multiple documents. These roles and responsibilities are detailed in various reports and plans, ensuring that project team members have clearly assigned duties in the design, development, and implementation processes.
+
+1. **Regulatory Plan**: The Regulatory Plan for HAL 4.0 outlines responsibilities regarding product submissions and registrations. Specific roles such as Product Security, Product Verification, Product Validation, and Product Marketing Manager are assigned to team members (e.g., Mitko Katsev, Bernard Zee/Daniel Newman, Britt Buchner, Jimmy Hernandez Bello) to handle respective documentation and marketing strategies [Regulatory / Regulatory Plans / D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | Page: 73].
+
+2. **Design and Development Plan**: This document provides a comprehensive project organization chart that defines roles such as Scrum Master, Product Management, and various engineering responsibilities for hardware and software teams, including roles in agile development environments [01. Design and Development Planning / 01. System / D23997 Halcyon v2 Design and Development Plan Rev 01.pdf | Page: 12-13].
+
+3. **Risk Management Plan**: The plan assigns responsibilities for oversight, process execution, review, and control verification among team members from Quality Assurance, Regulatory Affairs, Product Management, and others. Specific duties are stated for ensuring compliance with risk management processes during the product development lifecycle [Risk Management / Risk Management Plans / D59555 HAL 4.0 Risk Management Plan rev03.pdf | Page: 5-6].
+
+4. **Design Validation Plan**: The Validation Plan specifies roles such as Validation Lead and Validation Tester, detailing their responsibilities in the validation process, including plan updates and participation in design reviews. It also emphasizes the need for designated team members to have appropriate qualifications and training for their validation tasks [Design Validation / Verification and Validation Plans / D54550 HAL 4.0 Validation Plan Rev 05.docx.pdf | Page: 8, 9].
+
+5. **Traceability Plan**: This document refers to roles involved in ensuring traceability and evaluation aligned with requirements from regulatory authorities, laying out processes executed by manufacturing and engineering teams [Design Transfer / Manufacturing Documentation / D58685-Rev04-HAL4.0 Traceability Plan.pdf | Page: 5].
+
+These excerpts indicate that roles and responsibilities across various design activities are systematically organized and conveyed, ensuring clear delegation and management of tasks in the development of HAL 4.0 and its components.
+
+Documents cited:
+- Regulatory / Regulatory Plans / D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf | Page: 73
+- 01. Design and Development Planning / 01. System / D23997 Halcyon v2 Design and Development Plan Rev 01.pdf | Page: 12-13
+- Risk Management / Risk Management Plans / D59555 HAL 4.0 Risk Management Plan rev03.pdf | Page: 5-6
+- Design Validation / Verification and Validation Plans / D54550 HAL 4.0 Validation Plan Rev 05.docx.pdf | Page: 8, 9
+- Design Transfer / Manufacturing Documentation / D58685-Rev04-HAL4.0 Traceability Plan.pdf | Page: 5

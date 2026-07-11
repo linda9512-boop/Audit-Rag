@@ -1,0 +1,27 @@
+Audit question: Are document control processes followed?
+Sub-queries used: ['document version control procedures', 'document approval and distribution processes', 'procedures for document review and update']
+Chunks used: 200 (82 matched from 3 facet sub-queries + augmented context)
+================================================================================
+The document control processes for Halcyon 4.0 are generally being followed, based on the evidence provided in the excerpts:
+
+1. **Software Configuration Management and Change Control:** 
+   - The Halcyon 4.0 project follows a structured software configuration management process. Unique identification of configuration items and their versions is mandated by the DND19 Software Configuration Management Procedure, documented in the DND04T01 Design and Development Plan Rev 04 [Regulatory / Applicable Standards / D68985 HAL 4.0 IEC 62304+A1 2015 Software Lifecycle Assessment Rev 01.docx.pdf, page 75].
+   - Changes to configuration items are controlled through an approved Change Request process mentioned in LL00000016 Change Request Rev 05, and implementation follows the established procedures in the Design and Development Procedure Rev 02 [Regulatory / Test Reports - Regulatory Compliance / 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf, page 299].
+
+2. **Approval Processes and Verification:**
+   - Various documents related to Halcyon 4.0 have been reviewed and electronically signed by relevant participants, ensuring that document controls, such as versioning and approval, are in place. For instance, the "Process Control Plan for Packaging" document includes electronic signatures, indicating following of proper issuance and control processes [Design Transfer / Manufacturing Documentation / 70002131, Rev.0.1 - Process Control Plan for Packaging-HAL4.0 BASIC KV IMAGING KIT (Beijing) .pdf, page 4-6].
+
+3. **Archiving and Retention:**
+   - The records retention policy is specified in DOC0203 Quality Records Retention Schedule Rev 07. This policy is referenced within the development procedure documents to ensure that documentation, testing, and other records are maintained as per regulatory requirements [Regulatory / Applicable Standards / D68985 HAL 4.0 IEC 62304+A1 2015 Software Lifecycle Assessment Rev 01.docx.pdf, page 51].
+
+4. **Documentation of Changes and Results:**
+   - Processes are established for reviewing and approving documents, which includes electronic signatures and maintaining this documentation in controlled versions, as exemplified by the risk management documentation [Risk Management / Risk Analyses / D60083 HAL 4.0 CTR Review Report rev01.pdf, page 10].
+
+However, the provided excerpts do not include explicit evidence of a comprehensive audit process to confirm if all document control processes are followed across all areas, missing specific checks or audits of compliance beyond configuration and change management. 
+
+Documents cited:
+- Regulatory / Applicable Standards / D68985 HAL 4.0 IEC 62304+A1 2015 Software Lifecycle Assessment Rev 01.docx.pdf, page 75
+- Regulatory / Test Reports - Regulatory Compliance / 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf, page 299
+- Design Transfer / Manufacturing Documentation / 70002131, Rev.0.1 - Process Control Plan for Packaging-HAL4.0 BASIC KV IMAGING KIT (Beijing) .pdf, page 4-6
+- Regulatory / Applicable Standards / D68985 HAL 4.0 IEC 62304+A1 2015 Software Lifecycle Assessment Rev 01.docx.pdf, page 51
+- Risk Management / Risk Analyses / D60083 HAL 4.0 CTR Review Report rev01.pdf, page 10

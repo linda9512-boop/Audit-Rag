@@ -1,0 +1,23 @@
+Audit question: Does the organization have documented design and development procedures compliant with applicable regulations?
+Chunks used: 37
+================================================================================
+The organization has documented design and development procedures compliant with applicable regulations as evidenced by the following documents:
+
+1. The "DND01 Design and Development" procedure defines project phases and documentation requirements for each phase. It also specifies management oversight through Phase Gates, and aims to comply with global regulatory requirements, particularly US FDA 21 CFR 820 and ISO 13485 [Regulatory / D70036 HAL 4.0 Software Description Report China Submission Rev 03 .docx.pdf | Page: 23].
+
+2. The "DND04T01 Design and Development Plan (DDP)" documents the configuration management, and the responsibilities linked to tasks are managed according to the "DND19 Software Configuration Management Procedure" [Regulatory / Test Reports - Regulatory Compliance / 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | Page: 240].
+
+3. The "DND01 Design and Development Procedure" is also mentioned in relation to the Usability Engineering Process, which is part of the Product Life Cycle process, indicating a comprehensive approach to design controls [Design Validation / Test Reports / D69193 HAL 4.0 IEC 62366-1 2015 Usability Assessment Form Rev01.docx.pdf | Page: 4].
+
+4. Compliance with applicable standards is verified following Standard Operating Procedures (SOPs) which ensure compliance with regulations, as seen in the design and development procedures documented [Regulatory / Applicable Standards / D45070 Hal 4 Applicable Product Standards Rev 2.docx.pdf | Pages: 6-7].
+
+5. The "Design and Development Procedure" and "Risk Management Procedure" cater to compliance with ISO 14971 for risk management, which aligns with regulatory demands such as the FDA requirements [Regulatory / Test Reports - Regulatory Compliance / D75417 IEC 25051-GB T25000 Compliance for HAL 4.0 Rev 01.pdf | Page: 24-25].
+
+Hence, the documentation of design and development procedures is aligned with applicable regulations and standards compliance.
+
+Documents cited:
+- Regulatory / D70036 HAL 4.0 Software Description Report China Submission Rev 03 .docx.pdf | Page: 23
+- Regulatory / Test Reports - Regulatory Compliance / 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf | Page: 240
+- Design Validation / Test Reports / D69193 HAL 4.0 IEC 62366-1 2015 Usability Assessment Form Rev01.docx.pdf | Page: 4
+- Regulatory / Applicable Standards / D45070 Hal 4 Applicable Product Standards Rev 2.docx.pdf | Pages: 6-7
+- Regulatory / Test Reports - Regulatory Compliance / D75417 IEC 25051-GB T25000 Compliance for HAL 4.0 Rev 01.pdf | Page: 24-25

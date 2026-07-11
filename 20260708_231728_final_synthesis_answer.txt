@@ -1,0 +1,21 @@
+Audit question: Who has responsibility for maintaining technical documentation?
+Sub-queries used: ['roles and responsibilities for maintaining technical documentation', 'department in charge of technical documentation updates', 'staff assigned to oversee technical document management']
+Chunks used: 200 (74 matched from 3 facet sub-queries + augmented context)
+================================================================================
+The responsibility for maintaining technical documentation for the Halcyon 4.0 (HAL 4.0) radiotherapy system is distributed among several roles, with specific responsibilities detailed in various documents:
+
+1. **User Assistance Developers (UADs)**: The User Assistance Plan (UAP) states that User Assistance Developers are part of the project team, attend project meetings, and report status regularly to the project team. They are responsible for ensuring the documentation is kept up-to-date throughout the project. The Project Roles, Team, and Responsibilities section further details that Technical Reviewers and Approvers are identified based on the project team defined in the DDP/SDP, and individuals are designated who are best suited to represent the required roles and responsibilities for any given publication [Design Output Specification / Labeling / D93257 Halcyon Evolve User Assistance Plan Rev02.docx.pdf, Page: 3; Page: 7-8].
+
+2. **Product Marketing Manager**: Responsibilities of the Product Marketing Manager include providing product documentation for product submissions and registrations, as detailed in the responsibilities section of the regulatory plan [Regulatory / Regulatory Plans / D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf, Page: 73].
+
+3. **Quality Assurance Oversight**: The Regulatory Plan document specifies that the Quality Assurance Lead provides oversight for maintaining quality within documentation related to registration and submissions [Design Output Specification / D84239 HAL 4.0 CRN UA Checklist Rev02.docx.pdf, Page: 6]. 
+
+4. **Manufacturing Engineer**: For manufacturing documentation, the Manufacturing Engineer is tasked with performing the tasks described every time new versions of product software are released to manufacturing [Design Transfer / Manufacturing Documentation / D67017-Rev 02-HAL4.0 Golden Disk Build Instruction.pdf, Page: 2].
+
+These excerpts indicate a decentralized approach where different roles within the organization are responsible for maintaining specific segments of the technical documentation, under a structured collaborative effort. However, it is not entirely clear who coordinates these responsibilities or how changes are managed across different segments of technical documentation in practice, indicating a potential gap in centralized oversight across all types of technical documentation for the HAL 4.0.
+
+Documents cited:
+- Design Output Specification / Labeling / D93257 Halcyon Evolve User Assistance Plan Rev02.docx.pdf, Page: 3; Page: 7-8
+- Regulatory / Regulatory Plans / D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf, Page: 73
+- Design Output Specification / D84239 HAL 4.0 CRN UA Checklist Rev02.docx.pdf, Page: 6
+- Design Transfer / Manufacturing Documentation / D67017-Rev 02-HAL4.0 Golden Disk Build Instruction.pdf, Page: 2

@@ -1,0 +1,25 @@
+Audit question: Is each device uniquely identified and linked to its technical documentation?
+Sub-queries used: ['unique identifier and serial number system for each device', 'technical documentation linkage and reference guide', 'device identification and documentation cross-reference matrix']
+Chunks used: 200 (80 matched from 3 facet sub-queries + augmented context)
+================================================================================
+The retrieved excerpts provide several pieces of evidence confirming that each device of the Halcyon 4.0 radiotherapy system is uniquely identified and linked to its technical documentation:
+
+1. **Unique Device Identifier (UDI)**:
+   - The Halcyon 4.0 is assigned a Basic UDI-DI for EU MDR compliance and specific Model UDIs. The UDI for Halcyon 4.0 is '4.000857235006075' [Design Output Specification / Design Descriptions / D58308 HAL 4.0 Device Description Rev 1.0.docx.pdf, Page: 4].
+
+2. **Identification through Serial Numbers**:
+   - Device Serial Numbers are used and encoded as ASCII code representations for identification. An example provided is SN1004, encoded as '083078049048048052' [Design Output Specification / Design Trace Matrices / D68599 Hal 4.0 Design Verification Trace Matrix Rev 02.pdf, Pages: 293-294; Design Input Specification / System Requirement Specifications / D63662 HAL 4.0 System Requirements Specification rev 02.pdf, Page: 377].
+   - The labeling of devices includes essential information such as the serial number, which is present on the main device label along with compliance to ISO 15223-1:2016 standards [Regulatory / Essential Requirements Checklist / D70060 HAL 4.0-GSPR Checklist.pdf, Page: 28].
+
+3. **Configuration and Version Identification**:
+   - The Halcyon 4.0 system uses a configuration management process that establishes a scheme for unique identification of configuration items and their versions, ensuring traceability to technical documents [Regulatory / Test Reports - Regulatory Compliance / 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf, Pages: 296-297; Regulatory / Test Reports - Regulatory Compliance / D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf, Page: 284-285].
+
+The excerpts demonstrate comprehensive documentation practices that uniquely identify each Halcyon 4.0 device through UDIs and serial numbers, linking these to technical specifications and compliance documents. Each device's UDI and serial number provide a direct link to its technical documentation, ensuring traceability throughout its documentation lifecycle.
+
+Documents cited:
+- Design Output Specification / Design Descriptions / D58308 HAL 4.0 Device Description Rev 1.0.docx.pdf, Page: 4.
+- Design Output Specification / Design Trace Matrices / D68599 Hal 4.0 Design Verification Trace Matrix Rev 02.pdf, Pages: 293-294, 722.
+- Design Input Specification / System Requirement Specifications / D63662 HAL 4.0 System Requirements Specification rev 02.pdf, Page: 377.
+- Regulatory / Essential Requirements Checklist / D70060 HAL 4.0-GSPR Checklist.pdf, Page: 28.
+- Regulatory / Test Reports - Regulatory Compliance / 104993953MIN-001 - HAL4.0 - IEC 60601-1.pdf, Pages: 296-297.
+- Regulatory / Test Reports - Regulatory Compliance / D101277 106485676MIN-001 IEC60601-1 Ed.3.2 HAL4.0_30_APR_2026 Rev 1.pdf, Page: 284-285.

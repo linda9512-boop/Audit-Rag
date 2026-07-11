@@ -5,16 +5,23 @@ import csv
 
 def detect_numbering_level(text):
     """Depth of the numbering prefix, e.g. "3.1.2.1 Title" -> 4. "X.0 Title" counts as level 1.
-    Trailing "." after the last digit group is optional, so "2. Title" (top-level) matches too."""
+    Trailing "." after the last digit group is optional, so "2. Title" (top-level) matches too.
+    "Appendix D" / "Annex 1" style headings (no numeric prefix) also count as level 1 --
+    these were previously missed entirely, silently absorbed into whatever section came
+    before them (or Document_Header, if before the first real heading)."""
     text = text.strip()
     match = re.match(r"^(\d+(?:\.\d+)*)\.?\s+", text)
-    if not match:
-        return None
-    parts = match.group(1).split(".")
-    if len(parts) == 2 and parts[1] == "0":
+    if match:
+        parts = match.group(1).split(".")
+        if len(parts) == 2 and parts[1] == "0":
+            return 1
+        return len(parts)
+    if APPENDIX_ANNEX_RE.match(text):
         return 1
-    return len(parts)
+    return None
 
+
+APPENDIX_ANNEX_RE = re.compile(r"^(?:Appendix|Annex)\b", re.IGNORECASE)
 
 TOC_DOT_LEADER_RE = re.compile(r"\.{5,}\s*\d+\s*$")  # e.g. "Introduction .......... 13"
 
@@ -35,7 +42,8 @@ def is_plausible_section_number(numbering_prefix):
 
 def is_heading(text, trailing_space):
     """A line is a heading if it starts with a plausible section-numbering prefix
-    and sits on a short standalone line (see HEADING_MIN_TRAILING_SPACE).
+    (or an "Appendix"/"Annex" label) and sits on a short standalone line (see
+    HEADING_MIN_TRAILING_SPACE).
 
     Font size can't be used as the signal here: only the first few headings in this
     doc (docx export) got the Heading style applied and render large (18-24pt) --
@@ -47,7 +55,10 @@ def is_heading(text, trailing_space):
     """
     text = text.strip()
     match = re.match(r"^(\d+(?:\.\d+)*)\.?\s+", text)
-    if not match or not is_plausible_section_number(match.group(1)):
+    if match:
+        if not is_plausible_section_number(match.group(1)):
+            return False
+    elif not APPENDIX_ANNEX_RE.match(text):
         return False
     return trailing_space is not None and trailing_space >= HEADING_MIN_TRAILING_SPACE
 
@@ -106,6 +117,16 @@ def format_page_range(page_start, page_end):
     return f"{page_start}-{page_end}"
 
 
+def _finalize_chunk(chunk: dict) -> dict:
+    """Collapse a chunk's accumulated text_content list into one string, and its
+    page_start/page_end into a single "page" range string. page_start/page_end
+    are only needed as working state while parsing -- popping them here means
+    callers never see them, instead of every caller having to filter them out."""
+    chunk["text_content"] = " ".join(chunk["text_content"])
+    chunk["page"] = format_page_range(chunk.pop("page_start"), chunk.pop("page_end"))
+    return chunk
+
+
 def parse_pdf_to_section_chunks(pdf_path):
     doc = fitz.open(pdf_path)
 
@@ -155,9 +176,7 @@ def parse_pdf_to_section_chunks(pdf_path):
                 if is_heading(page_text, trailing_space) and not _line_in_any_table(line_bbox, table_bboxes):
                     # Save current chunk and start a new one
                     if current_chunk["text_content"]:
-                        current_chunk["text_content"] = " ".join(current_chunk["text_content"])
-                        current_chunk["page"] = format_page_range(current_chunk["page_start"], current_chunk["page_end"])
-                        all_chunks.append(current_chunk)
+                        all_chunks.append(_finalize_chunk(current_chunk))
 
                     # Drop stale deeper/equal-level headings, then record this one
                     heading_stack = {lvl: h for lvl, h in heading_stack.items() if lvl < heading_level}
@@ -175,9 +194,7 @@ def parse_pdf_to_section_chunks(pdf_path):
                     # Overflow protection: split at 1000 chars
                     current_text_len = len(" ".join(current_chunk["text_content"]))
                     if current_text_len + len(page_text) > 1000:
-                        current_chunk["text_content"] = " ".join(current_chunk["text_content"])
-                        current_chunk["page"] = format_page_range(current_chunk["page_start"], current_chunk["page_end"])
-                        all_chunks.append(current_chunk)
+                        all_chunks.append(_finalize_chunk(current_chunk))
                         base_title = current_chunk["title"]
                         if not base_title.endswith(" (Continued)"):
                             base_title += " (Continued)"
@@ -196,9 +213,7 @@ def parse_pdf_to_section_chunks(pdf_path):
 
     # Save the last chunk
     if current_chunk["text_content"]:
-        current_chunk["text_content"] = " ".join(current_chunk["text_content"])
-        current_chunk["page"] = format_page_range(current_chunk["page_start"], current_chunk["page_end"])
-        all_chunks.append(current_chunk)
+        all_chunks.append(_finalize_chunk(current_chunk))
 
     return all_chunks
 

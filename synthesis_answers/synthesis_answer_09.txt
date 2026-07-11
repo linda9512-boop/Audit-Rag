@@ -1,0 +1,22 @@
+Audit question: How does the organization ensure design controls are applied across the lifecycle for new, modified, and legacy devices?
+Chunks used: 200
+================================================================================
+The organization ensures design controls are applied across the lifecycle for new, modified, and legacy devices, including the Halcyon 4.0 radiotherapy system, through several integrated processes and adherence to international standards. 
+
+1. **Lifecycle Processes and Documentation**: The design and development process for HAL 4.0 follows a structured lifecycle approach similar to the Rational Unified Process, which includes specific phases such as Inception, Elaboration, Construction, and Transition [Regulatory / D70036 HAL 4.0 Software Description Report China Submission Rev 03 .docx.pdf, pages 23-25]. This process involves phase-specific deliverables, reviews, and management oversight to ensure compliance with design control requirements of FDA 21 CFR 820 and ISO 13485 [Regulatory / D70036 HAL 4.0 Software Description Report China Submission Rev 03 .docx.pdf, page 23].
+
+2. **Risk Management**: The risk management process is comprehensive, extending from design through post-market. It involves the HAL 4.0 Risk Management Plan and Report, following ISO 14971, to document and manage risks throughout the product's lifecycle. The organization continuously evaluates risk, utilizing a detailed verification and validation process to control residual risks as far as possible [Risk Management / Risk Management Reports / D56979 HAL 4.0 Risk Management Report rev07.pdf, pages 4-5].
+
+3. **Configuration Management**: Configuration management is critical for controlling design changes, especially in software, which is deemed Class C due to the potential for serious injury if performance fails. This management follows guidelines set by IEC 62304:2006, ensuring software integrity and traceability through controlled versioning and documentation [Regulatory / D70036 HAL 4.0 Software Description Report China Submission Rev 03 .docx.pdf, pages 25-26].
+
+4. **Software Integrity**: During the design and development phases, software integrity is ensured through regular code reviews and controlled editing processes. This is supplemented by secure manufacturing procedures to prevent the distribution of improper software versions [Risk Management / Risk Management Plans / D68685 HAL 4.0 Cybersecurity Statement Rev 01.docx.pdf, page 5].
+
+5. **Post-Market Surveillance and Cybersecurity**: The organization employs a robust cybersecurity framework that incorporates the Secure by Design principles and extends into post-market cybersecurity risk management. Continuous risk assessments are conducted to react to new vulnerabilities and ensure ongoing safety and effectiveness [Regulatory / Design Output Specification / Labeling / D73991 HAL 4.0 IEC 80001 Test Report Rev 01.pdf, page 3].
+
+In conclusion, through adherence to international standards such as IEC 62304, ISO 14971, and ISO 13485, along with structured lifecycle processes and robust risk and configuration management strategies, the organization ensures that design controls are effectively applied across the lifecycle of new, modified, and legacy devices like the HAL 4.0.
+
+Documents cited:
+- Regulatory / D70036 HAL 4.0 Software Description Report China Submission Rev 03 .docx.pdf, pages 23-25
+- Risk Management / Risk Management Reports / D56979 HAL 4.0 Risk Management Report rev07.pdf, pages 4-5
+- Risk Management / Risk Management Plans / D68685 HAL 4.0 Cybersecurity Statement Rev 01.docx.pdf, page 5
+- Regulatory / Design Output Specification / Labeling / D73991 HAL 4.0 IEC 80001 Test Report Rev 01.pdf, page 3

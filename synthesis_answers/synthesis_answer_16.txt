@@ -1,0 +1,26 @@
+Audit question: How are updates and revisions to technical documentation controlled?
+Chunks used: 37
+================================================================================
+The audit question on how updates and revisions to technical documentation are controlled can be partially answered using the provided excerpts. Specifically, the following controls and processes are applied:
+
+1. **Revisions and Reviews:**
+   - There is a formal process in place for revising technical documentation after reviews, including a second peer (editorial review) of major content revisions made after the formal review. The updated Review Report includes the resolution of findings, and any content updates or issues to be deferred to the next release are recorded and justified [Design Output Specification / D84872 HAL 4.0 CRN UA Checklist.docx.pdf, Page 4-5; Design Output Specification / Labeling / D63983 Halcyon 4.0 UA Checklist Rev 01.pdf, Page 3-4; Design Output Specification / Labeling / D93257 Halcyon Evolve User Assistance Plan Rev02.docx.pdf, Page 5].
+
+2. **Quality Control Mechanisms:**
+   - Quality control is achieved through structured internal and formal reviews to ensure content accuracy, completeness, and quality. Internal reviews aim to capture changes before the formal review, with longer review periods allowing for broad project team input [Design Output Specification / Labeling / D93257 Halcyon Evolve User Assistance Plan Rev02.docx.pdf, Page 5].
+
+3. **Configuration Management:**
+   - Software configuration management activities and tasks, such as managing updates, are conducted in alignment with IEC 62304:2006 standards. Classifications and management of software items are defined, ensuring full risk management and V&V coverage is maintained [Regulatory / D70036 HAL 4.0 Software Description Report China Submission Rev 03 .docx.pdf, Page 25].
+
+4. **Documentation Filing and Archiving:**
+   - Finalized User Assistance Plans (UAP) noting any significant changes to scope or content are approved and filed in the Design History File (DHF). The publication practices include archiving supporting project development materials according to local and VMS quality system requirements, ensuring systematic documentation management [Design Output Specification / D84872 HAL 4.0 CRN UA Checklist.docx.pdf, Page 6-7; Design Output Specification / Labeling / D65651 Halcyon-Ethos 4.0 IFU (P1058124-001-A) User Assistance Checklist Rev01.pdf, Page 6].
+
+The excerpts provide insights into the mechanisms for managing updates and revisions through reviews, quality controls, configuration management, and systematic documentation processes. However, details on specific tools or electronic systems used for version control, such as databases or software applications used for document revisions, are not addressed in the provided documentation.
+
+Documents cited:
+- Design Output Specification / D84872 HAL 4.0 CRN UA Checklist.docx.pdf, Page 4-5
+- Design Output Specification / Labeling / D63983 Halcyon 4.0 UA Checklist Rev 01.pdf, Page 3-4
+- Design Output Specification / Labeling / D93257 Halcyon Evolve User Assistance Plan Rev02.docx.pdf, Page 5
+- Regulatory / D70036 HAL 4.0 Software Description Report China Submission Rev 03 .docx.pdf, Page 25
+- Design Output Specification / D84872 HAL 4.0 CRN UA Checklist.docx.pdf, Page 6-7
+- Design Output Specification / Labeling / D65651 Halcyon-Ethos 4.0 IFU (P1058124-001-A) User Assistance Checklist Rev01.pdf, Page 6

@@ -1,0 +1,8 @@
+Audit question: How does the organization determine which products/devices are subject to design and development controls?
+Sub-queries used: ['criteria for applying design and development controls to products', 'process for identifying devices subject to design control requirements', 'procedure for determining development control applicability to products/devices']
+Chunks used: 200 (69 matched from 3 facet sub-queries + augmented context)
+================================================================================
+The excerpts provided do not contain any explicit information about how the organization specifically determines which products/devices are subject to design and development controls. The documents refer generally to design and development procedures and compliance standards applied to the HAL 4.0 device, but they do not detail a process or criteria used by the organization to determine the applicability of design and development controls.
+
+Documents cited:
+None, as no relevant evidence was found in the excerpts.
