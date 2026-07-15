@@ -6,6 +6,7 @@ Usage: python app.py
 Then open http://127.0.0.1:5000 in a browser.
 """
 import json
+import time
 
 from flask import Flask, Response, jsonify, render_template, request
 
@@ -17,12 +18,13 @@ from utils import describe_error
 app = Flask(__name__)
 
 print("[app] Building RetrievalAgent (connecting to Pinecone)...")
+_t0 = time.perf_counter()
 try:
     agent = RetrievalAgent(docs_folder="docs", csv_path=LATEST_REVISIONS_CSV)
 except Exception as e:
     print(f"[app] STARTUP FAILED: {describe_error(e)}")
     raise
-print("[app] Ready.")
+print(f"[app] Ready. [timing] startup: {time.perf_counter() - _t0:.2f}s")
 
 
 @app.route("/")
@@ -37,8 +39,12 @@ def ask():
         return jsonify({"error": "Question cannot be empty."}), 400
 
     def generate():
+        t_req = time.perf_counter()
+        print(f"[/ask] question: {question!r}")
         try:
             for event in run_question_stream(agent, question):
+                if event.get("type") == "done":
+                    print(f"[/ask] [timing] total request: {time.perf_counter() - t_req:.2f}s")
                 yield f"data: {json.dumps(event)}\n\n"
         except Exception as e:
             error_msg = describe_error(e)
@@ -49,4 +55,4 @@ def ask():
 
 
 if __name__ == "__main__":
-    app.run(debug=False, port=5000)
+    app.run(debug=False, port=5001)

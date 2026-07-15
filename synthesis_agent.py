@@ -1,12 +1,14 @@
 import csv
 import os
 import sys
+import time
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 from dotenv import load_dotenv
 
 from config import OPENAI_MODEL, OUTPUT_DIR
+from timing_log import tlog
 from utils import call_llm, call_llm_stream, get_openai_client, write_answer_file
 
 load_dotenv()
@@ -99,16 +101,21 @@ def build_context(chunks: list[dict]) -> str:
 
 def synthesize(question: str, chunks: list[dict], model: str = OPENAI_MODEL) -> str:
     client = get_openai_client()
+    t0 = time.perf_counter()
     context = build_context(chunks)
+    tlog(f"  [synthesis] build_context ({len(chunks)} chunks, {len(context)} chars): {time.perf_counter() - t0:.3f}s")
 
     user_prompt = (
         f"Audit question: {question}\n\n"
         f"Retrieved document excerpts:\n\n{context}\n\n"
         "Answer the audit question using only the excerpts above, citing sources."
     )
+    tlog(f"  [synthesis] user_prompt length: {len(user_prompt)} chars")
 
+    t0 = time.perf_counter()
     response = call_llm(client, model, SYSTEM_PROMPT, user_prompt, label="synthesis LLM error",
                          max_tokens=MAX_ANSWER_TOKENS)
+    tlog(f"  [synthesis] LLM call: {time.perf_counter() - t0:.2f}s")
     return response.choices[0].message.content
 
 
@@ -116,16 +123,25 @@ def synthesize_stream(question: str, chunks: list[dict], model: str = OPENAI_MOD
     """Like synthesize(), but yields the answer text as it's generated instead of
     returning the full string once complete."""
     client = get_openai_client()
+    t0 = time.perf_counter()
     context = build_context(chunks)
+    tlog(f"  [synthesis] build_context ({len(chunks)} chunks, {len(context)} chars): {time.perf_counter() - t0:.3f}s")
 
     user_prompt = (
         f"Audit question: {question}\n\n"
         f"Retrieved document excerpts:\n\n{context}\n\n"
         "Answer the audit question using only the excerpts above, citing sources."
     )
+    tlog(f"  [synthesis] user_prompt length: {len(user_prompt)} chars")
 
-    yield from call_llm_stream(client, model, SYSTEM_PROMPT, user_prompt, label="synthesis LLM error",
-                                max_tokens=MAX_ANSWER_TOKENS)
+    t0 = time.perf_counter()
+    first_token = True
+    for delta in call_llm_stream(client, model, SYSTEM_PROMPT, user_prompt, label="synthesis LLM error",
+                                  max_tokens=MAX_ANSWER_TOKENS):
+        if first_token:
+            tlog(f"  [synthesis] time to first token: {time.perf_counter() - t0:.2f}s")
+            first_token = False
+        yield delta
 
 
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, "synthesis_answer.txt")

@@ -19,9 +19,11 @@ from config import ANSWER_CANDIDATE_POOL, ANSWER_TOP_N_PER_SUBQUERY, LATEST_REVI
 from retrieval_agent import RetrievalAgent, augment_chunks
 from synthesis_agent import synthesize, synthesize_stream
 from subquery_agent import generate_subqueries
+from timing_log import reset_timing, save_timing, tlog
 from utils import CHUNK_CSV_FIELDNAMES as FIELDNAMES, chunk_key as _key, write_answer_file, write_dicts_to_csv
 
 QUESTION_RUNS_DIR = os.path.join(OUTPUT_DIR, "question_runs")
+TIMING_LOG_PATH = os.path.join(QUESTION_RUNS_DIR, "timing.log")
 
 
 def _parse_documents_cited(answer: str) -> list[str]:
@@ -61,11 +63,12 @@ def _prepare_context(agent: RetrievalAgent, question: str) -> dict:
     synthesis step."""
     tag = datetime.now().strftime("%Y%m%d_%H%M%S")
     t_start = time.perf_counter()
+    reset_timing()
 
-    print(f"[{tag}] {question}")
+    tlog(f"[{tag}] {question}")
     t0 = time.perf_counter()
     subqueries = generate_subqueries(question)
-    print(f"  [timing] generate_subqueries: {time.perf_counter() - t0:.2f}s")
+    tlog(f"  [timing] generate_subqueries: {time.perf_counter() - t0:.2f}s")
     per_subquery_n = ANSWER_TOP_N_PER_SUBQUERY
     print(f"  {len(subqueries)} sub-queries -> {per_subquery_n} chunks each")
     for sq in subqueries:
@@ -80,13 +83,13 @@ def _prepare_context(agent: RetrievalAgent, question: str) -> dict:
         sq_results = list(executor.map(
             lambda sq: _retrieve_and_rerank(agent, sq, per_subquery_n), subqueries
         ))
-    print(f"  [timing] retrieve+rerank loop total ({len(subqueries)} sub-queries, concurrent): "
-          f"{time.perf_counter() - t0:.2f}s")
+    tlog(f"  [timing] retrieve+rerank loop total ({len(subqueries)} sub-queries, concurrent): "
+         f"{time.perf_counter() - t0:.2f}s")
 
     for res in sq_results:
         sq, candidates, reranked = res["sq"], res["candidates"], res["reranked"]
-        print(f"  [{sq}] raw={len(candidates)} selected={len(reranked)} "
-              f"[timing] retrieve={res['retrieve_time']:.2f}s rerank={res['rerank_time']:.2f}s")
+        tlog(f"  [{sq}] raw={len(candidates)} selected={len(reranked)} "
+             f"[timing] retrieve={res['retrieve_time']:.2f}s rerank={res['rerank_time']:.2f}s")
         for i, r in enumerate(reranked[:5], start=1):
             print(f"    {i}  {r['rerank_score']:.4f}  {r['document_id']}  {r['title']}")
 
@@ -120,9 +123,9 @@ def _prepare_context(agent: RetrievalAgent, question: str) -> dict:
 
     t0 = time.perf_counter()
     final_chunks = augment_chunks(agent, matched_chunks)
-    print(f"  {len(matched_chunks)} deduped matched chunks -> "
-          f"{len(final_chunks)} after page-based augmentation "
-          f"[timing] augment_chunks: {time.perf_counter() - t0:.2f}s")
+    tlog(f"  {len(matched_chunks)} deduped matched chunks -> "
+         f"{len(final_chunks)} after page-based augmentation "
+         f"[timing] augment_chunks: {time.perf_counter() - t0:.2f}s")
 
     return {
         "tag": tag,
@@ -154,10 +157,11 @@ def run_question(agent: RetrievalAgent, question: str) -> dict:
 
     t0 = time.perf_counter()
     answer = synthesize(question, final_chunks)
-    print(f"  [timing] synthesize (LLM call): {time.perf_counter() - t0:.2f}s")
-    print(f"  [timing] TOTAL run_question: {time.perf_counter() - ctx['t_start']:.2f}s")
+    tlog(f"  [timing] synthesize (LLM call): {time.perf_counter() - t0:.2f}s")
+    tlog(f"  [timing] TOTAL run_question: {time.perf_counter() - ctx['t_start']:.2f}s")
 
     _write_final_answer(tag, question, answer, subqueries, matched_chunks, final_chunks)
+    save_timing(TIMING_LOG_PATH)
     return {
         "answer": answer,
         "subqueries": subqueries,
@@ -182,10 +186,11 @@ def run_question_stream(agent: RetrievalAgent, question: str):
         answer_parts.append(delta)
         yield {"type": "delta", "text": delta}
     answer = "".join(answer_parts)
-    print(f"  [timing] synthesize (LLM call, streamed): {time.perf_counter() - t0:.2f}s")
-    print(f"  [timing] TOTAL run_question_stream: {time.perf_counter() - ctx['t_start']:.2f}s")
+    tlog(f"  [timing] synthesize (LLM call, streamed): {time.perf_counter() - t0:.2f}s")
+    tlog(f"  [timing] TOTAL run_question_stream: {time.perf_counter() - ctx['t_start']:.2f}s")
 
     _write_final_answer(tag, question, answer, subqueries, matched_chunks, final_chunks)
+    save_timing(TIMING_LOG_PATH)
     yield {
         "type": "done",
         "subqueries": subqueries,

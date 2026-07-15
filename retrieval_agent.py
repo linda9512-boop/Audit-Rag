@@ -10,6 +10,7 @@ from pinecone.errors.exceptions import ApiError, RateLimitError
 from config import MAX_TOTAL_CHUNKS, PINECONE_INDEX_NAME
 from pdf_chunking import parse_pdf_to_section_chunks
 from extracting_latest import get_latest_revisions
+from timing_log import tlog
 from utils import chunk_from_metadata, chunk_key, retry_with_backoff
 
 load_dotenv()
@@ -255,7 +256,9 @@ class RetrievalAgent:
             rank, score, source, document_id, revision, chunk_index, title,
             heading_level, page, text_content
         """
+        t0 = time.perf_counter()
         query_vec = self._embed_batch([query], input_type="query")[0]
+        t_embed = time.perf_counter()
         # Pull a much larger candidate pool than top_k -- diversification below discards
         # anything past max_per_source for a given document, so enough headroom is needed
         # for other documents to surface.
@@ -269,6 +272,8 @@ class RetrievalAgent:
             retries=PINECONE_RETRIES, base_wait=PINECONE_RETRY_BASE_WAIT,
             exceptions=ApiError, label="query error",
         )
+        t_query = time.perf_counter()
+        tlog(f"    [retrieve] embed={t_embed - t0:.2f}s  pinecone_query={t_query - t_embed:.2f}s")
 
         if not response.matches:
             print("[RetrievalAgent] No indexed documents available.")
@@ -471,6 +476,7 @@ class RetrievalAgent:
             return []
 
         documents = [{"text": f"{c['title']} {c['text_content']}"} for c in chunks]
+        t0 = time.perf_counter()
         result = retry_with_backoff(
             lambda: self.pc.inference.rerank(
                 model=RERANK_MODEL,
@@ -483,6 +489,7 @@ class RetrievalAgent:
             retries=PINECONE_RETRIES, base_wait=PINECONE_RETRY_BASE_WAIT,
             exceptions=ApiError, label="rerank error",
         )
+        tlog(f"    [rerank] {len(chunks)} chunks -> top {top_n}: {time.perf_counter() - t0:.2f}s")
 
         reranked = []
         for ranked_doc in result.data:
@@ -490,6 +497,85 @@ class RetrievalAgent:
             chunk["rerank_score"] = ranked_doc.score
             reranked.append(chunk)
         return reranked
+
+
+def _batch_get_section_contexts(agent: RetrievalAgent, chunks: list[dict]) -> list[list[dict]]:
+    """
+    Batch version of get_section_context() for a whole list of chunks.
+
+    Instead of one Pinecone fetch() per neighbor candidate (sequential within each
+    chunk, even with 45 parallel workers), this pre-fetches every plausible neighbor
+    ID for every chunk in a single bulk fetch, then applies the same page-boundary
+    logic locally -- reducing O(chunks × steps) round trips to O(1).
+
+    LOOKAHEAD controls how many chunk indices to speculatively fetch in each
+    direction.  A page typically holds 1-4 chunks, so 6 is a safe ceiling that
+    will cover the neighboring page in virtually all real documents.
+    """
+    LOOKAHEAD = 6
+    FETCH_BATCH = 100   # IDs per parallel fetch call — smaller batches are faster
+    FETCH_WORKERS = 20  # concurrent fetch calls
+
+    # Collect every candidate ID we might need across all chunks.
+    candidate_ids: list[str] = []
+    seen_ids: set[str] = set()
+    for chunk in chunks:
+        file_key = agent._file_key(chunk.get("document_id"), chunk.get("revision"), chunk["source"])
+        idx = chunk["chunk_index"]
+        for i in range(max(0, idx - LOOKAHEAD), idx + LOOKAHEAD + 1):
+            if i == idx:
+                continue
+            cid = f"{file_key}-c{i}"
+            if cid not in seen_ids:
+                seen_ids.add(cid)
+                candidate_ids.append(cid)
+
+    # Split into small batches and fetch them in parallel -- Pinecone responds
+    # faster to many small concurrent calls than one large serial call.
+    batches = [candidate_ids[i : i + FETCH_BATCH] for i in range(0, len(candidate_ids), FETCH_BATCH)]
+    fetched: dict = {}
+    with ThreadPoolExecutor(max_workers=FETCH_WORKERS) as ex:
+        for result in ex.map(agent._fetch_ids, batches):
+            fetched.update(result)
+
+    # Apply the same page-boundary logic as get_section_context(), but using the
+    # locally cached fetched dict instead of making network calls.
+    def get_cached(file_key: str, i: int) -> dict | None:
+        vec = fetched.get(f"{file_key}-c{i}")
+        if vec is None:
+            return None
+        return chunk_from_metadata(vec.metadata or {})
+
+    def collect_by_page_cached(file_key: str, start_idx: int, step: int, boundary_page: int) -> list[dict]:
+        results = []
+        i = start_idx
+        for _ in range(LOOKAHEAD):
+            if i < 0:
+                break
+            c = get_cached(file_key, i)
+            if c is None:
+                break
+            p_start, p_end = agent._parse_page_range(c["page"])
+            if step < 0:
+                if p_end < boundary_page - 1:
+                    break
+            else:
+                if p_start > boundary_page + 1:
+                    break
+            results.append(c)
+            i += step
+        return results
+
+    context_lists = []
+    for chunk in chunks:
+        file_key = agent._file_key(chunk.get("document_id"), chunk.get("revision"), chunk["source"])
+        idx = chunk["chunk_index"]
+        own_start, own_end = agent._parse_page_range(chunk["page"])
+        before = collect_by_page_cached(file_key, idx - 1, -1, own_start)
+        after = collect_by_page_cached(file_key, idx + 1, 1, own_end)
+        context_lists.append(before + after)
+
+    return context_lists
 
 
 def augment_chunks(agent: RetrievalAgent, chunks: list[dict]) -> list[dict]:
@@ -526,8 +612,10 @@ def augment_chunks(agent: RetrievalAgent, chunks: list[dict]) -> list[dict]:
             seen_docs.add(doc_key)
             unique_docs.append(c)
 
+    t0 = time.perf_counter()
     with ThreadPoolExecutor(max_workers=AUGMENT_MAX_WORKERS) as executor:
         headers = list(executor.map(agent.get_document_header, unique_docs))
+    tlog(f"  [augment] get_document_header ({len(unique_docs)} docs): {time.perf_counter() - t0:.2f}s")
 
     for header in headers:
         if header is not None and chunk_key(header) not in seen:
@@ -536,11 +624,12 @@ def augment_chunks(agent: RetrievalAgent, chunks: list[dict]) -> list[dict]:
             header["context_role"] = "header"
             augmented.append(header)
 
-    # Each chunk's get_section_context() is its own independent chain of sequential
-    # Pinecone fetch() calls -- independent across chunks, so run the 30 chains
-    # concurrently rather than one full chain at a time.
-    with ThreadPoolExecutor(max_workers=AUGMENT_MAX_WORKERS) as executor:
-        context_lists = list(executor.map(agent.get_section_context, chunks))
+    # Batch-fetch all candidate neighbor IDs for every chunk in one Pinecone call,
+    # then apply page-boundary logic locally -- replaces O(chunks × fetches) round
+    # trips with O(1) bulk fetch.
+    t0 = time.perf_counter()
+    context_lists = _batch_get_section_contexts(agent, chunks)
+    tlog(f"  [augment] get_section_context ({len(chunks)} chunks): {time.perf_counter() - t0:.2f}s")
 
     # Neighbors get whatever budget remains, filled in rerank-priority order (chunks
     # is already sorted best-first, and executor.map preserves input order), so if
