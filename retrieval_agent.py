@@ -7,8 +7,10 @@ from pathlib import Path
 from dotenv import load_dotenv
 from pinecone import Pinecone
 from pinecone.errors.exceptions import ApiError, RateLimitError
+from config import MAX_TOTAL_CHUNKS, PINECONE_INDEX_NAME
 from pdf_chunking import parse_pdf_to_section_chunks
 from extracting_latest import get_latest_revisions
+from utils import chunk_from_metadata, chunk_key, retry_with_backoff
 
 load_dotenv()
 
@@ -40,7 +42,6 @@ def _chunk_file(meta: dict) -> tuple[list[dict], str | None]:
     return entries, None
 
 
-PINECONE_INDEX_NAME = "audit"
 EMBED_MODEL = "llama-text-embed-v2"  # Pinecone-hosted model backing the "audit" index
 EMBED_BATCH_SIZE = 96  # Pinecone inference API batch limit for text embedding models
 EMBED_RATE_LIMIT_RETRIES = 6  # retries on 429 before giving up on a batch
@@ -50,6 +51,15 @@ RERANK_MODEL = "bge-reranker-v2-m3"  # Pinecone-hosted cross-encoder reranker
 PINECONE_RETRIES = 2  # attempts on transient Pinecone API errors (e.g. network/proxy
                       # redirects) before giving up on a query/fetch call
 PINECONE_RETRY_BASE_WAIT = 2  # seconds; doubles each retry (exponential backoff)
+
+AUGMENT_MAX_WORKERS = 45  # each matched chunk's get_section_context()/get_document_header()
+                          # is an independent chain of Pinecone fetch() calls -- run them
+                          # concurrently instead of one chunk's whole chain at a time. Measured:
+                          # 10 workers -> 10.8s, 30 workers -> 4.9-5.9s, 100 workers -> 9.0-9.2s
+                          # (100 measured slower than 30, consistently, with Zscaler both on and
+                          # off -- root cause unconfirmed). Testing 45 as the untested middle
+                          # ground: with ~90 typical matched chunks, 45 workers needs only 2
+                          # waves vs 30's 3 waves, without 100's apparent regression.
 
 
 class RetrievalAgent:
@@ -124,7 +134,11 @@ class RetrievalAgent:
             metadata = {k: v for k, v in chunk.items() if v is not None}
             vectors.append({"id": vector_id, "values": vec, "metadata": metadata})
 
-        self.index.upsert(vectors=vectors)
+        retry_with_backoff(
+            lambda: self.index.upsert(vectors=vectors),
+            retries=PINECONE_RETRIES, base_wait=PINECONE_RETRY_BASE_WAIT,
+            exceptions=ApiError, label="upsert error",
+        )
 
     # ------------------------------------------------------------------
     # Indexing
@@ -209,7 +223,11 @@ class RetrievalAgent:
 
     def clear_index(self):
         """Delete all vectors from the Pinecone index so it is rebuilt on next run."""
-        self.index.delete(delete_all=True)
+        retry_with_backoff(
+            lambda: self.index.delete(delete_all=True),
+            retries=PINECONE_RETRIES, base_wait=PINECONE_RETRY_BASE_WAIT,
+            exceptions=ApiError, label="delete error",
+        )
         print(f"[RetrievalAgent] Cleared all vectors from index '{PINECONE_INDEX_NAME}'.")
 
     # ------------------------------------------------------------------
@@ -242,21 +260,15 @@ class RetrievalAgent:
         # anything past max_per_source for a given document, so enough headroom is needed
         # for other documents to surface.
         candidate_pool = max(top_k * 30, 100)
-        for attempt in range(1, PINECONE_RETRIES + 1):
-            try:
-                response = self.index.query(
-                    vector=query_vec,
-                    top_k=candidate_pool,
-                    include_metadata=True,
-                )
-                break
-            except ApiError:
-                if attempt == PINECONE_RETRIES:
-                    raise
-                wait_s = PINECONE_RETRY_BASE_WAIT * (2 ** (attempt - 1))
-                print(f"  [query error] retrying in {wait_s}s "
-                      f"(attempt {attempt}/{PINECONE_RETRIES})...")
-                time.sleep(wait_s)
+        response = retry_with_backoff(
+            lambda: self.index.query(
+                vector=query_vec,
+                top_k=candidate_pool,
+                include_metadata=True,
+            ),
+            retries=PINECONE_RETRIES, base_wait=PINECONE_RETRY_BASE_WAIT,
+            exceptions=ApiError, label="query error",
+        )
 
         if not response.matches:
             print("[RetrievalAgent] No indexed documents available.")
@@ -289,16 +301,7 @@ class RetrievalAgent:
             results.append({
                 "rank": len(results) + 1,
                 "score": _adjusted_score(match),
-                "source": source,
-                "document_id": md.get("document_id"),
-                "revision": md.get("revision"),
-                "chunk_index": md.get("chunk_index"),
-                "title": md.get("title"),
-                "heading_level": md.get("heading_level"),
-                "page": md.get("page"),
-                "text_content": md.get("text_content"),
-                "folder_type": md.get("folder_type"),
-                "subfolder": md.get("subfolder"),
+                **chunk_from_metadata(md),
             })
             if len(results) == result_limit:
                 break
@@ -310,16 +313,11 @@ class RetrievalAgent:
         behavior as retrieve()'s query call -- shared by get_neighbors(),
         get_section_context(), and get_document_header(), which all fetch chunks
         directly by ID rather than by similarity search."""
-        for attempt in range(1, PINECONE_RETRIES + 1):
-            try:
-                return self.index.fetch(ids=ids).vectors
-            except ApiError:
-                if attempt == PINECONE_RETRIES:
-                    raise
-                wait_s = PINECONE_RETRY_BASE_WAIT * (2 ** (attempt - 1))
-                print(f"  [fetch error] retrying in {wait_s}s "
-                      f"(attempt {attempt}/{PINECONE_RETRIES})...")
-                time.sleep(wait_s)
+        return retry_with_backoff(
+            lambda: self.index.fetch(ids=ids).vectors,
+            retries=PINECONE_RETRIES, base_wait=PINECONE_RETRY_BASE_WAIT,
+            exceptions=ApiError, label="fetch error",
+        )
 
     def get_neighbors(self, chunk: dict, before: int = 1, after: int = 1) -> dict:
         """
@@ -352,19 +350,7 @@ class RetrievalAgent:
             vec = fetched.get(f"{file_key}-c{i}")
             if vec is None:
                 return None
-            md = vec.metadata or {}
-            return {
-                "source": md.get("source"),
-                "document_id": md.get("document_id"),
-                "revision": md.get("revision"),
-                "chunk_index": md.get("chunk_index"),
-                "title": md.get("title"),
-                "heading_level": md.get("heading_level"),
-                "page": md.get("page"),
-                "text_content": md.get("text_content"),
-                "folder_type": md.get("folder_type"),
-                "subfolder": md.get("subfolder"),
-            }
+            return chunk_from_metadata(vec.metadata or {})
 
         return {
             "before": [r for i in before_indices if (r := _to_result(i)) is not None],
@@ -401,19 +387,7 @@ class RetrievalAgent:
             vec = fetched.get(f"{file_key}-c{i}")
             if vec is None:
                 return None
-            md = vec.metadata or {}
-            return {
-                "source": md.get("source"),
-                "document_id": md.get("document_id"),
-                "revision": md.get("revision"),
-                "chunk_index": md.get("chunk_index"),
-                "title": md.get("title"),
-                "heading_level": md.get("heading_level"),
-                "page": md.get("page"),
-                "text_content": md.get("text_content"),
-                "folder_type": md.get("folder_type"),
-                "subfolder": md.get("subfolder"),
-            }
+            return chunk_from_metadata(vec.metadata or {})
 
         def collect_by_page(start_idx: int, step: int, boundary_page: int) -> list[dict]:
             """Walk chunk_index by `step` (-1 or +1) from start_idx, collecting
@@ -467,19 +441,7 @@ class RetrievalAgent:
         if vec is None:
             return None
 
-        md = vec.metadata or {}
-        return {
-            "source": md.get("source"),
-            "document_id": md.get("document_id"),
-            "revision": md.get("revision"),
-            "chunk_index": md.get("chunk_index"),
-            "title": md.get("title"),
-            "heading_level": md.get("heading_level"),
-            "page": md.get("page"),
-            "text_content": md.get("text_content"),
-            "folder_type": md.get("folder_type"),
-            "subfolder": md.get("subfolder"),
-        }
+        return chunk_from_metadata(vec.metadata or {})
 
     def rerank(self, query: str, chunks: list[dict], top_n: int | None = None) -> list[dict]:
         """
@@ -509,13 +471,17 @@ class RetrievalAgent:
             return []
 
         documents = [{"text": f"{c['title']} {c['text_content']}"} for c in chunks]
-        result = self.pc.inference.rerank(
-            model=RERANK_MODEL,
-            query=query,
-            documents=documents,
-            rank_fields=["text"],
-            top_n=top_n or len(chunks),
-            return_documents=False,
+        result = retry_with_backoff(
+            lambda: self.pc.inference.rerank(
+                model=RERANK_MODEL,
+                query=query,
+                documents=documents,
+                rank_fields=["text"],
+                top_n=top_n or len(chunks),
+                return_documents=False,
+            ),
+            retries=PINECONE_RETRIES, base_wait=PINECONE_RETRY_BASE_WAIT,
+            exceptions=ApiError, label="rerank error",
         )
 
         reranked = []
@@ -524,3 +490,74 @@ class RetrievalAgent:
             chunk["rerank_score"] = ranked_doc.score
             reranked.append(chunk)
         return reranked
+
+
+def augment_chunks(agent: RetrievalAgent, chunks: list[dict]) -> list[dict]:
+    """
+    Add two kinds of extra context around a reranked top-N, without changing
+    which chunks were judged most relevant:
+      - section context for every chunk: whatever chunk(s) sit on the page before
+        and the page after its own (see get_section_context() for why this is
+        page-based, not a fixed +/-1 chunk_index step)
+      - each unique document's own chunk_index 0 (title page, approval/revision
+        history, scope -- usually "Document_Header"), so the model knows what the
+        document actually is (e.g. initial release vs. a later revision) even when
+        the matched chunk is from deep inside it
+
+    Bounded by a hard chunk-count cap (MAX_TOTAL_CHUNKS).
+    """
+    augmented = []
+    seen = set()
+
+    for c in chunks:
+        c = dict(c)
+        c["context_role"] = "matched"
+        augmented.append(c)
+        seen.add(chunk_key(c))
+
+    # Headers first (bounded by unique document count, typically well under 30,
+    # and important for citation/identity accuracy), so they're never squeezed
+    # out by the neighbor budget below.
+    unique_docs = []
+    seen_docs = set()
+    for c in chunks:
+        doc_key = (c.get("document_id"), c.get("revision"))
+        if doc_key not in seen_docs:
+            seen_docs.add(doc_key)
+            unique_docs.append(c)
+
+    with ThreadPoolExecutor(max_workers=AUGMENT_MAX_WORKERS) as executor:
+        headers = list(executor.map(agent.get_document_header, unique_docs))
+
+    for header in headers:
+        if header is not None and chunk_key(header) not in seen:
+            seen.add(chunk_key(header))
+            header = dict(header)
+            header["context_role"] = "header"
+            augmented.append(header)
+
+    # Each chunk's get_section_context() is its own independent chain of sequential
+    # Pinecone fetch() calls -- independent across chunks, so run the 30 chains
+    # concurrently rather than one full chain at a time.
+    with ThreadPoolExecutor(max_workers=AUGMENT_MAX_WORKERS) as executor:
+        context_lists = list(executor.map(agent.get_section_context, chunks))
+
+    # Neighbors get whatever budget remains, filled in rerank-priority order (chunks
+    # is already sorted best-first, and executor.map preserves input order), so if
+    # the hard cap forces a cutoff, it's the lowest-ranked matched chunks' context
+    # that gets dropped first, not the highest-ranked ones'.
+    neighbor_budget = MAX_TOTAL_CHUNKS - len(augmented)
+    for context in context_lists:
+        if neighbor_budget <= 0:
+            break
+        for n in context:
+            if neighbor_budget <= 0:
+                break
+            if chunk_key(n) not in seen:
+                seen.add(chunk_key(n))
+                n = dict(n)
+                n["context_role"] = "neighbor"
+                augmented.append(n)
+                neighbor_budget -= 1
+
+    return augmented

@@ -1,6 +1,8 @@
-import csv
 import re
 from pathlib import Path
+
+from config import LATEST_REVISIONS_CSV
+from utils import write_dicts_to_csv
 
 
 MIN_ID_DIGITS = 3  # digit runs shorter than this (e.g. "CH2.2") aren't treated as a doc ID
@@ -175,12 +177,7 @@ def save_latest_revisions_csv(docs_folder: str, output_path: str):
     latest.sort(key=lambda m: m["filename"].lower())
 
     fieldnames = ["filename", "document_id", "revision", "folder_type", "subfolder", "local_path"]
-    with open(output_path, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
-        writer.writeheader()
-        for meta in latest:
-            writer.writerow({k: meta.get(k, "") for k in fieldnames})
-
+    write_dicts_to_csv(output_path, latest, fieldnames)
     print(f"Saved {len(latest)} latest-revision file entries to {output_path}")
 
 
@@ -188,5 +185,5 @@ if __name__ == "__main__":
    
 
     _docs_folder = Path(__file__).parent / "docs"
-    _output_path = Path(__file__).parent / "latest_revisions.csv"
+    _output_path = Path(__file__).parent / LATEST_REVISIONS_CSV
     save_latest_revisions_csv(str(_docs_folder), str(_output_path))

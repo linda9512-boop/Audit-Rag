@@ -3,3 +3,8 @@
 __pycache__/
 *.pyc
 docs/
+
+# Generated run-output artifacts (not source) -- all scripts now write here
+# (see config.OUTPUT_DIR). Safe to delete/regenerate at any time.
+outputs/
+*.xlsx

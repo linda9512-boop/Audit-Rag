@@ -1,0 +1,31 @@
+●
+trying to reduce false negative=> including mroe is better than excluding 
+
+ 1. Finding the document ID (extract_document_id)
+  - Strip out any " and ' characters from the filename.
+  - Look only at the very beginning of the filename (no searching elsewhere).
+  - Try to match: optional letters, then a run of digits that's at least 3 digits long.
+  - If that matches → ID = whatever was matched (e.g. D72001, CD0534, 70001791).
+  - If nothing matches at the very front → no ID, period. (We removed the earlier "search the rest of the
+  filename" fallback per your last instruction — so CH2.2 D96379...pdf now gets no ID, since "CH2.2" at the
+  front doesn't have 3+ digits and we don't look past it anymore.)
+  - Why front-only, not "search anywhere in the filename": take D68145 HAL4.0 IEC 60601-2-1 (2020) 201.3.245
+  REFERENCE ABSORBED DOSE Rev 01.pdf. Besides the real ID D68145 at the front, this name is full of other
+  3+ digit numbers — 60601 (from the IEC standard 60601-2-1), 2020 (a year), 201 and 245 (from clause
+  201.3.245). If we searched the whole filename instead of just the front, any of those decoy numbers could
+  get mistakenly grabbed as "the document ID" instead of the real one. Restricting to the very beginning
+  avoids that risk entirely.
+
+  
+  2. Finding the revision number (extract_revision)
+  - Look anywhere in the filename for "Rev"/"Revision" (or just "R") followed by digits.
+  - If found → that's the revision number.
+  - If not found anywhere → returns "no revision info" (not 0 — we now distinguish "revision 0" from "no
+  revision marker at all").
+
+  3. Deciding what to keep (get_latest_revisions)
+  - No ID found → always keep the file (nothing to compare it against).
+  - ID found, but no revision info found → always keep the file (can't safely compare against siblings, so
+  don't risk dropping it).
+  - ID found and revision found → group all files sharing that ID, keep only the one with the highest
+  revision number.

@@ -1,0 +1,10 @@
+Audit question: How does the organization determine which products/devices are subject to design and development controls?
+Chunks used: 29
+================================================================================
+The information provided in the document excerpts does not directly answer the audit question of how the organization determines which products/devices are subject to design and development controls. The excerpts reference various plans, procedures, and control mechanisms related to the development and configuration management of the HAL 4.0 device, but none explicitly state the criteria or process used by Varian to decide if a product like HAL 4.0 falls under design and development controls.
+
+Notable excerpts that are somewhat related include:
+- The mention of the HAL 4.0 Design and Development Plan (D45739), which includes tools and configuration management, indicates that design and development controls are applied to this specific product, but does not provide criteria for how it was chosen for these controls [104993953MIN-001, page 243].
+- The document D59555 HAL 4.0 Risk Management Plan mentions the use of a comprehensive development and validation controls system for the HAL 4.0, implying the existence of established procedures for applying design controls [D59555, page 9].
+
+However, without specific excerpts detailing the criteria or process used to determine which products are subject to these controls, a complete answer cannot be provided. Additional information or documents would be needed to fully answer the audit question.

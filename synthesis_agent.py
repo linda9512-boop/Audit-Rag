@@ -5,12 +5,15 @@ import sys
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 from dotenv import load_dotenv
-from openai import OpenAI
+
+from config import OPENAI_MODEL, OUTPUT_DIR
+from utils import call_llm, call_llm_stream, get_openai_client, write_answer_file
 
 load_dotenv()
 
-OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
-OPENAI_MODEL = "openai/gpt-4o"  # OpenRouter model id (provider/model)
+MAX_ANSWER_TOKENS = 3000  # generous safety backstop, not the primary length control --
+                          # SYSTEM_PROMPT rule 11 (conciseness) is what actually shapes
+                          # typical answer length; this only guards against runaway output
 
 SYSTEM_PROMPT = """You are an audit assistant for a medical device Design History File.
 
@@ -37,8 +40,8 @@ Using only the excerpts provided:
    evidence for this audit question -- the explanation below exists to justify
    that list, not the other way around.
 2. Cite which document(s) support each part of your answer, as [source, page],
-   using the full source exactly as given in each excerpt's tag (including its
-   folder path) -- do not shorten it to just the document ID.
+   using the filename exactly as given in each excerpt's tag -- do not shorten
+   it to just the document ID.
 3. When an excerpt contains a device-specific determination -- a classification
    outcome, a rule-by-rule justification, a test result, a decision made for
    Halcyon 4.0 itself -- state that concrete determination. Do not stop at
@@ -64,8 +67,19 @@ Using only the excerpts provided:
    isn't yet resolved -- do not report these as an established, existing process
    or outcome. Only present something as in place if the excerpt describes it as
    already implemented, approved, or completed.
-10. End your answer with a "Documents cited:" list -- every source you actually
-    cited above, deduplicated, one per line.
+10. End your answer with a "Documents cited:" list -- every [source, page] you
+    actually cited above, in the same [source, page] format used inline, one per
+    line, deduplicated (the same source+page pair listed once even if referenced
+    more than once in the body above). If a source was cited at more than one
+    page, list each distinct page separately.
+11. Be concise. For each document (or point) you cite, keep the description of
+    what it shows to under 100 words -- state the determination plainly with its
+    citation and move on, rather than elaborating at length. This applies per
+    citation, not to the answer as a whole, so a question needing many citations
+    still gets a complete answer -- it's each individual explanation that stays
+    tight, not the total count of documents covered. Do not restate the question,
+    re-explain what a Role label means, or pad the answer with summary/recap
+    sections.
 """
 
 
@@ -77,18 +91,14 @@ def load_chunks(csv_path: str) -> list[dict]:
 def build_context(chunks: list[dict]) -> str:
     parts = []
     for c in chunks:
-        folder = c.get("folder_type") or ""
-        subfolder = c.get("subfolder") or ""
-        folder_path = " / ".join(p for p in (folder, subfolder) if p)
-        source = f"{folder_path} / {c['source']}" if folder_path else c["source"]
         role = c.get("context_role") or "matched"
-        tag = f"[Role: {role} | Source: {source} | Page: {c['page']} | Section: {c['title']}]"
+        tag = f"[Role: {role} | Source: {c['source']} | Page: {c['page']} | Section: {c['title']}]"
         parts.append(f"{tag}\n{c['text_content']}")
     return "\n\n---\n\n".join(parts)
 
 
 def synthesize(question: str, chunks: list[dict], model: str = OPENAI_MODEL) -> str:
-    client = OpenAI(api_key=os.environ["OPENAI_API_KEY"], base_url=OPENROUTER_BASE_URL)
+    client = get_openai_client()
     context = build_context(chunks)
 
     user_prompt = (
@@ -97,17 +107,28 @@ def synthesize(question: str, chunks: list[dict], model: str = OPENAI_MODEL) -> 
         "Answer the audit question using only the excerpts above, citing sources."
     )
 
-    response = client.chat.completions.create(
-        model=model,
-        messages=[
-            {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": user_prompt},
-        ],
-    )
+    response = call_llm(client, model, SYSTEM_PROMPT, user_prompt, label="synthesis LLM error",
+                         max_tokens=MAX_ANSWER_TOKENS)
     return response.choices[0].message.content
 
 
-OUTPUT_FILE = "synthesis_answer.txt"
+def synthesize_stream(question: str, chunks: list[dict], model: str = OPENAI_MODEL):
+    """Like synthesize(), but yields the answer text as it's generated instead of
+    returning the full string once complete."""
+    client = get_openai_client()
+    context = build_context(chunks)
+
+    user_prompt = (
+        f"Audit question: {question}\n\n"
+        f"Retrieved document excerpts:\n\n{context}\n\n"
+        "Answer the audit question using only the excerpts above, citing sources."
+    )
+
+    yield from call_llm_stream(client, model, SYSTEM_PROMPT, user_prompt, label="synthesis LLM error",
+                                max_tokens=MAX_ANSWER_TOKENS)
+
+
+OUTPUT_FILE = os.path.join(OUTPUT_DIR, "synthesis_answer.txt")
 
 if __name__ == "__main__":
     MAIN_QUERY = (
@@ -115,17 +136,12 @@ if __name__ == "__main__":
         "development procedures have been identified. (See Annex 1)"
     )
 
-    chunks = load_chunks("retrieved_documents.csv")
+    chunks = load_chunks(os.path.join(OUTPUT_DIR, "retrieved_documents.csv"))
     print(f"Synthesizing answer from {len(chunks)} retrieved chunks...\n")
 
     answer = synthesize(MAIN_QUERY, chunks)
     print("=" * 80)
     print(answer)
 
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-        f.write(f"Audit question: {MAIN_QUERY}\n")
-        f.write(f"Chunks used: {len(chunks)}\n")
-        f.write("=" * 80 + "\n")
-        f.write(answer + "\n")
-
+    write_answer_file(OUTPUT_FILE, MAIN_QUERY, answer, len(chunks))
     print(f"\nSaved answer to {OUTPUT_FILE}")

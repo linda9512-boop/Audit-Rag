@@ -3,19 +3,13 @@ Generates facet-specific sub-queries for a broad audit question using an LLM, to
 
 """
 import json
-import os
-import time
 
 from dotenv import load_dotenv
-from openai import APIError, OpenAI
 
-from synthesis_agent import OPENROUTER_BASE_URL, OPENAI_MODEL
+from config import OPENAI_MODEL
+from utils import call_llm, get_openai_client
 
 load_dotenv()
-
-LLM_RETRIES = 2  # attempts on transient OpenRouter/OpenAI errors (connection, rate
-                 # limit, timeout -- all subclasses of openai.APIError) before giving up
-LLM_RETRY_BASE_WAIT = 2  # seconds; doubles each retry (exponential backoff)
 
 SYSTEM_PROMPT = """You are helping decompose a broad medical device audit question into
 narrower search queries for a semantic search + reranking retrieval system.
@@ -26,7 +20,7 @@ variants, and families") will match generic compliance-checklist language far mo
 strongly than a document that's actually just a bare accessory list or a product
 variant spec, because the checklist repeats more of the question's own vocabulary.
 
-Given an audit question, produce 1-4 sub-queries that each target ONE distinct
+Given an audit question, produce 1-3 sub-queries that each target ONE distinct
 facet or concrete evidence type the question is really asking about. 
 if the question is already very narrow, you may return just one sub-query that is a rephrasing of the original question.1
 Each sub-query should:
@@ -50,9 +44,9 @@ No other text.
 """
 
 
-def generate_subqueries(question: str, max_n: int = 4, model: str = OPENAI_MODEL) -> list[str]:
+def generate_subqueries(question: str, max_n: int = 3, model: str = OPENAI_MODEL) -> list[str]:
     """Lets the LLM decide freely how many sub-queries a question actually needs
-    (1-4, per SYSTEM_PROMPT) rather than being told to hit a specific target.
+    (1-3, per SYSTEM_PROMPT) rather than being told to hit a specific target.
     `max_n` is only a defensive cap in case the model returns more than instructed.
 
     Falls back to [question] itself (i.e. no facet split) if the call keeps
@@ -62,28 +56,11 @@ def generate_subqueries(question: str, max_n: int = 4, model: str = OPENAI_MODEL
     the API at all (after retries) still raises, since there's no way to fall
     back on real API access being unavailable.
     """
-    client = OpenAI(api_key=os.environ["OPENAI_API_KEY"], base_url=OPENROUTER_BASE_URL)
+    client = get_openai_client()
 
     user_prompt = f"Audit question: {question}"
 
-    response = None
-    for attempt in range(1, LLM_RETRIES + 1):
-        try:
-            response = client.chat.completions.create(
-                model=model,
-                messages=[
-                    {"role": "system", "content": SYSTEM_PROMPT},
-                    {"role": "user", "content": user_prompt},
-                ],
-            )
-            break
-        except APIError:
-            if attempt == LLM_RETRIES:
-                raise
-            wait_s = LLM_RETRY_BASE_WAIT * (2 ** (attempt - 1))
-            print(f"  [subquery LLM error] retrying in {wait_s}s "
-                  f"(attempt {attempt}/{LLM_RETRIES})...")
-            time.sleep(wait_s)
+    response = call_llm(client, model, SYSTEM_PROMPT, user_prompt, label="subquery LLM error")
 
     content = response.choices[0].message.content.strip()
     # Strip markdown code fences if the model wrapped the JSON in ```...```

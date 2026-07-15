@@ -1,6 +1,9 @@
+import os
 import fitz  # PyMuPDF
 import re
-import csv
+
+from config import OUTPUT_DIR
+from utils import write_dicts_to_csv
 
 
 def detect_numbering_level(text):
@@ -283,12 +286,7 @@ def save_all_spans_csv(pdf_path, output_path):
     spans = dump_all_spans(pdf_path)
 
     fieldnames = ["page", "text", "font", "flags", "is_bold", "size"]
-    with open(output_path, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
-        writer.writeheader()
-        for row in spans:
-            writer.writerow(row)
-
+    write_dicts_to_csv(output_path, spans, fieldnames)
     print(f"Saved {len(spans)} spans to {output_path}")
 
 
@@ -297,12 +295,7 @@ def save_bold_text_csv(pdf_path, output_path):
     bold_lines = extract_bold_text(pdf_path)
 
     fieldnames = ["page", "text", "font", "size"]
-    with open(output_path, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
-        writer.writeheader()
-        for row in bold_lines:
-            writer.writerow(row)
-
+    write_dicts_to_csv(output_path, bold_lines, fieldnames)
     print(f"Saved {len(bold_lines)} bold lines to {output_path}")
 
 
@@ -311,18 +304,17 @@ def save_chunks_csv(pdf_path, output_path, sample_length=1000):
     chunks = parse_pdf_to_section_chunks(pdf_path)
 
     fieldnames = ["chunk_number", "heading", "heading_level", "page", "content_sample"]
-    with open(output_path, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
-        writer.writeheader()
-        for i, chunk in enumerate(chunks, start=1):
-            writer.writerow({
-                "chunk_number": i,
-                "heading": chunk["title"],
-                "heading_level": chunk["heading_level"],
-                "page": chunk["page"],
-                "content_sample": chunk["text_content"][:sample_length],
-            })
-
+    rows = [
+        {
+            "chunk_number": i,
+            "heading": chunk["title"],
+            "heading_level": chunk["heading_level"],
+            "page": chunk["page"],
+            "content_sample": chunk["text_content"][:sample_length],
+        }
+        for i, chunk in enumerate(chunks, start=1)
+    ]
+    write_dicts_to_csv(output_path, rows, fieldnames)
     print(f"Saved {len(chunks)} chunks to {output_path}")
 
 
@@ -331,7 +323,7 @@ def save_chunks_csv(pdf_path, output_path, sample_length=1000):
 # ==========================================
 if __name__ == "__main__":
     sample_pdf = r"C:/Users/z005a2sy/AppData/Local/Temp/ce404d7b-f745-4351-b634-b6f60e365b51_Design Changes.zip.Design Changes.zip/Maintenance Releases/D69533 HAL 4.0 MR1 Maintenance Release Document Rev05.docx.pdf"
-    output_csv = r"C:\Users\z005a2sy\Audit-Rag\Audit-Rag\chunks_sample.csv"
+    output_csv = os.path.join(OUTPUT_DIR, "debug", "chunks_sample.csv")
 
     try:
         save_chunks_csv(sample_pdf, output_csv)

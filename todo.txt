@@ -1,0 +1,25 @@
+how to create the chunk? just based on subsection?
+1. 143 run-output files are committed to git — every timestamped *_final_synthesis_answer.txt, *_subquery_raw_candidates.csv, etc. from answer_question.py runs is tracked in the repo. These are generated artifacts, not source — they bloat history, cause noisy diffs, and will conflict constantly. Add a pattern like [0-9]*_*.csv, [0-9]*_*.txt, synthesis_answers/, *.xlsx to .gitignore and git rm --cached the existing ones.
+
+2. Hardcoded personal path in pdf_chunking.py's __main__ — sample_pdf = r"C:/Users/z005a2sy/AppData/Local/Temp/..." only works on your machine. Debug/example entry points like this should read from sys.argv or a relative path in the repo, not a machine-specific temp path.
+
+3. requirements.txt has no version pins — openai, pinecone, anthropic with no version means a pip install next month can silently pull a breaking major version. Should be openai==1.x.x etc. (run pip freeze against your working venv).
+
+4. print() everywhere instead of logging — fine for a script, but you have ~10 files doing user-facing progress reporting ([RetrievalAgent] ..., [query error] retrying...) via bare print. A senior codebase would use the logging module so verbosity is controllable (--quiet/--verbose) and output can be redirected/leveled (INFO vs WARNING vs ERROR) instead of everything going to stdout unconditionally.
+
+5. No tests at all — none of the 11 root .py files have a corresponding test. Given how much of this pipeline is pure logic (extract_document_id, extract_revision, _chunk_from_metadata, chunk_key, page-range parsing), those are cheap to unit test and would catch regressions like the ones the docstrings mention were manually verified ("confirmed via direct score inspection...").
+
+6. Config/constants scattered across call sites — CANDIDATE_POOL/TOP_N_PER_SUBQUERY in answer_question.py vs CANDIDATE_POOL_PER_QUERY/TOP_N_PER_QUERY in synthesize_per_query.py are separate near-duplicate tuning knobs for the same concept (retrieve-then-rerank sizing). Same for OPENAI_MODEL living in synthesis_agent.py and being imported sideways by subquery_agent.py — a config.py (or expanding utils.py) centralizing model name, pool sizes, and top-n values would remove that cross-file reaching-in.
+
+7. Bare os.environ["OPENAI_API_KEY"] in utils.get_openai_client() — if unset, this throws a raw KeyError: 'OPENAI_API_KEY' with no guidance. retrieval_agent.py already does this right (if not api_key: raise RuntimeError("PINECONE_API_KEY not set. Add it to your .env file.")) — worth matching that pattern for the OpenAI key too.
+
+8.
+So the fix isn't "replace the CSV" — it's making the pipeline diff-aware: compare the new file scan against what's already indexed (by document_id+revision, which is already your dedup key), and only embed/upsert the new-or-changed ones, deleting only the stale-revision vectors for docs that got superseded.
+
+네, AWS 안에서 Postgres 쓸 수 있어요. 두 가지 방식이 있어요:
+
+- Amazon RDS for PostgreSQL: 일반 Postgres를 AWS가 완전관리형으로 제공하는 서비스예요. 백업, 패치, 장애조치(failover) 같은 걸 AWS가 알아서 해줘요. 가장 흔하게 쓰는 방식.
+
+9. to synthesis agent, tell that we are attaching header, main page, +-1 page if not exceeding the token limit
+
+10. why is 100 workers slower than 30

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audit Assistant</title>
+<style>
+  :root {
+    --petrol: #00819A;
+    --petrol-dark: #00617A;
+    --ink: #1B2A33;
+    --muted: #5B6B73;
+    --border: #DDE4E7;
+    --bg: #F4F7F8;
+    --card: #FFFFFF;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+  }
+  header {
+    background: var(--petrol);
+    color: #fff;
+    padding: 20px 32px;
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+  }
+  .wordmark {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .wordmark span { font-weight: 300; }
+  .tagline {
+    font-size: 14px;
+    opacity: 0.85;
+  }
+  main {
+    max-width: 820px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+  h1 {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0 0 6px;
+  }
+  .subtitle {
+    color: var(--muted);
+    font-size: 14px;
+    margin: 0 0 24px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  }
+  textarea {
+    width: 100%;
+    min-height: 90px;
+    padding: 12px 14px;
+    font-size: 15px;
+    font-family: inherit;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    resize: vertical;
+    color: var(--ink);
+  }
+  textarea:focus {
+    outline: none;
+    border-color: var(--petrol);
+    box-shadow: 0 0 0 3px rgba(0, 129, 154, 0.12);
+  }
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 14px;
+  }
+  button {
+    background: var(--petrol);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 11px 22px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  button:hover:not(:disabled) { background: var(--petrol-dark); }
+  button:disabled { opacity: 0.55; cursor: not-allowed; }
+
+  #result-wrap { margin-top: 28px; display: none; }
+
+  .status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+  .spinner {
+    width: 16px; height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--petrol);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .answer-box {
+    white-space: pre-wrap;
+    line-height: 1.6;
+    font-size: 15px;
+  }
+  .meta {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    display: grid;
+    gap: 14px;
+  }
+  .meta-block h3 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--muted);
+    margin: 0 0 8px;
+    font-weight: 600;
+  }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    background: #EAF4F6;
+    color: var(--petrol-dark);
+    border-radius: 20px;
+    padding: 5px 12px;
+    font-size: 13px;
+  }
+  .doc-list { margin: 0; padding-left: 18px; font-size: 14px; color: var(--ink); }
+  .doc-list li { margin-bottom: 4px; }
+  .stat { font-size: 14px; color: var(--muted); }
+  .error-box {
+    background: #FDEDEC;
+    color: #9B2C2C;
+    border: 1px solid #F5C6CB;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wordmark">SIEMENS <span>Healthineers</span></div>
+  <div class="tagline">Audit Assistant</div>
+</header>
+
+<main>
+  <h1>Ask an audit question</h1>
+  <p class="subtitle">Answers are synthesized from the indexed Design History File documents, with citations.</p>
+
+  <div class="card">
+    <textarea id="question" placeholder="e.g. Are all devices, including accessories, software, variants, and families, appropriately identified and included?"></textarea>
+    <div class="actions">
+      <button id="ask-btn" onclick="askQuestion()">Ask</button>
+    </div>
+  </div>
+
+  <div id="result-wrap">
+    <div id="status" class="status" style="display:none;">
+      <div class="spinner"></div>
+      <span>Retrieving and synthesizing an answer&hellip; this can take a moment.</span>
+    </div>
+    <div id="error" class="error-box" style="display:none;"></div>
+    <div id="result" class="card" style="display:none;">
+      <div id="answer" class="answer-box"></div>
+      <div class="meta">
+        <div class="meta-block">
+          <h3>Sub-queries used</h3>
+          <div id="subqueries" class="chips"></div>
+        </div>
+        <div class="meta-block">
+          <h3>Documents cited</h3>
+          <ul id="documents" class="doc-list"></ul>
+        </div>
+        <div class="stat" id="chunks-used"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+async function askQuestion() {
+  const question = document.getElementById("question").value.trim();
+  if (!question) return;
+
+  const btn = document.getElementById("ask-btn");
+  const resultWrap = document.getElementById("result-wrap");
+  const status = document.getElementById("status");
+  const errorBox = document.getElementById("error");
+  const result = document.getElementById("result");
+
+  btn.disabled = true;
+  resultWrap.style.display = "block";
+  status.style.display = "flex";
+  errorBox.style.display = "none";
+  result.style.display = "none";
+
+  const answerEl = document.getElementById("answer");
+  answerEl.textContent = "";
+  let firstDeltaSeen = false;
+
+  try {
+    const res = await fetch("/ask", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ question }),
+    });
+
+    if (!res.ok) {
+      // Non-streaming error response (e.g. empty question) -- plain JSON.
+      const data = await res.json();
+      errorBox.textContent = data.error || "Something went wrong.";
+      errorBox.style.display = "block";
+      return;
+    }
+
+    const reader = res.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = "";
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+
+      const events = buffer.split("\n\n");
+      buffer = events.pop(); // last item may be incomplete -- keep for next read
+
+      for (const raw of events) {
+        if (!raw.startsWith("data: ")) continue;
+        const event = JSON.parse(raw.slice(6));
+
+        if (event.type === "delta") {
+          if (!firstDeltaSeen) {
+            firstDeltaSeen = true;
+            status.style.display = "none";
+            result.style.display = "block";
+          }
+          answerEl.textContent += event.text;
+        } else if (event.type === "done") {
+          const subqueriesEl = document.getElementById("subqueries");
+          subqueriesEl.innerHTML = "";
+          (event.subqueries || []).forEach((sq) => {
+            const chip = document.createElement("span");
+            chip.className = "chip";
+            chip.textContent = sq;
+            subqueriesEl.appendChild(chip);
+          });
+
+          const docsEl = document.getElementById("documents");
+          docsEl.innerHTML = "";
+          if ((event.documents_cited || []).length === 0) {
+            docsEl.innerHTML = "<li>None cited</li>";
+          } else {
+            event.documents_cited.forEach((doc) => {
+              const li = document.createElement("li");
+              li.textContent = doc;
+              docsEl.appendChild(li);
+            });
+          }
+
+          document.getElementById("chunks-used").textContent = `${event.chunks_used} chunks used`;
+        } else if (event.type === "error") {
+          errorBox.textContent = event.error;
+          errorBox.style.display = "block";
+        }
+      }
+    }
+  } catch (err) {
+    errorBox.textContent = "Request failed: " + err;
+    errorBox.style.display = "block";
+  } finally {
+    status.style.display = "none";
+    result.style.display = "block";
+    btn.disabled = false;
+  }
+}
+
+document.getElementById("question").addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) askQuestion();
+});
+</script>
+
+</body>
+</html>

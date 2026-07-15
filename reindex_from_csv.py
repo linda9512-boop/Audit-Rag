@@ -5,12 +5,13 @@ from dotenv import load_dotenv
 from pinecone import Pinecone
 from pinecone.errors.exceptions import NotFoundError
 
-from retrieval_agent import RetrievalAgent, PINECONE_INDEX_NAME
+from config import LATEST_REVISIONS_CSV, PINECONE_INDEX_NAME
+from retrieval_agent import RetrievalAgent
 
 load_dotenv()
 
 DOCS_FOLDER = os.path.join(os.path.dirname(__file__), "docs")
-CSV_PATH = os.path.join(os.path.dirname(__file__), "latest_revisions.csv")
+CSV_PATH = os.path.join(os.path.dirname(__file__), LATEST_REVISIONS_CSV)
 
 if __name__ == "__main__":
     api_key = os.environ["PINECONE_API_KEY"]

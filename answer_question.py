@@ -4,29 +4,24 @@ retrieving+reranking per facet, then synthesizing one final answer.
 
 Usage: python answer_question.py "<audit question>"
 Writes <tag>_subquery_raw_candidates.csv, <tag>_subquery_selected_top15.csv, and
-<tag>_final_synthesis_answer.txt, where <tag> is a run timestamp (each output
-file also has the question text written inside it).
+<tag>_final_synthesis_answer.txt into outputs/question_runs/, where <tag> is a
+run timestamp (each output file also has the question text written inside it).
 """
-import csv
+import os
 import sys
+import time
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-from retrieval_agent import RetrievalAgent
-from synthesis_agent import synthesize
-from synthesize_per_query import augment_chunks
+from config import ANSWER_CANDIDATE_POOL, ANSWER_TOP_N_PER_SUBQUERY, LATEST_REVISIONS_CSV, OUTPUT_DIR
+from retrieval_agent import RetrievalAgent, augment_chunks
+from synthesis_agent import synthesize, synthesize_stream
 from subquery_agent import generate_subqueries
+from utils import CHUNK_CSV_FIELDNAMES as FIELDNAMES, chunk_key as _key, write_answer_file, write_dicts_to_csv
 
-CANDIDATE_POOL = 100  # raw candidates fetched by embedding search, before reranking
-TOP_N_PER_SUBQUERY = 30  # kept after reranking, per sub-query (fixed, not a shared total)
-
-FIELDNAMES = ["sub_query", "rerank_score", "score", "source", "document_id",
-              "revision", "chunk_index", "title", "page", "text_content"]
-
-
-def _key(c: dict) -> tuple:
-    return (c.get("document_id"), c.get("revision"), c.get("chunk_index"))
+QUESTION_RUNS_DIR = os.path.join(OUTPUT_DIR, "question_runs")
 
 
 def _parse_documents_cited(answer: str) -> list[str]:
@@ -40,14 +35,38 @@ def _parse_documents_cited(answer: str) -> list[str]:
     return [line.strip().lstrip("-").strip() for line in tail.splitlines() if line.strip()]
 
 
-def run_question(agent: RetrievalAgent, question: str) -> dict:
-    """Returns {"answer", "subqueries", "documents_cited", "chunks_used"} for a
-    single arbitrary audit question."""
+def _retrieve_and_rerank(agent: RetrievalAgent, sq: str, per_subquery_n: int) -> dict:
+    """One sub-query's retrieve+rerank, timed independently -- run concurrently
+    across sub-queries by run_question() since they're fully independent of
+    each other (each hits Pinecone with its own query vector)."""
+    t_sq = time.perf_counter()
+    candidates = agent.retrieve(sq, top_k=10, result_limit=ANSWER_CANDIDATE_POOL)
+    t_retrieve = time.perf_counter()
+    reranked = agent.rerank(sq, candidates, top_n=per_subquery_n)
+    t_rerank = time.perf_counter()
+    return {
+        "sq": sq,
+        "candidates": candidates,
+        "reranked": reranked,
+        "retrieve_time": t_retrieve - t_sq,
+        "rerank_time": t_rerank - t_retrieve,
+    }
+
+
+def _prepare_context(agent: RetrievalAgent, question: str) -> dict:
+    """Everything before synthesis: sub-query generation, retrieve+rerank per
+    sub-query (concurrent), dedup, and page-based augmentation. Shared by
+    run_question() (returns the full answer at once) and run_question_stream()
+    (streams the answer as it's generated) -- they differ only in the final
+    synthesis step."""
     tag = datetime.now().strftime("%Y%m%d_%H%M%S")
+    t_start = time.perf_counter()
 
     print(f"[{tag}] {question}")
+    t0 = time.perf_counter()
     subqueries = generate_subqueries(question)
-    per_subquery_n = TOP_N_PER_SUBQUERY
+    print(f"  [timing] generate_subqueries: {time.perf_counter() - t0:.2f}s")
+    per_subquery_n = ANSWER_TOP_N_PER_SUBQUERY
     print(f"  {len(subqueries)} sub-queries -> {per_subquery_n} chunks each")
     for sq in subqueries:
         print(f"  sub-query: {sq}")
@@ -56,11 +75,18 @@ def run_question(agent: RetrievalAgent, question: str) -> dict:
     all_selected_rows = []
     selected_chunks = []
 
-    for sq in subqueries:
-        candidates = agent.retrieve(sq, top_k=10, result_limit=CANDIDATE_POOL)
-        reranked = agent.rerank(sq, candidates, top_n=per_subquery_n)
+    t0 = time.perf_counter()
+    with ThreadPoolExecutor(max_workers=len(subqueries)) as executor:
+        sq_results = list(executor.map(
+            lambda sq: _retrieve_and_rerank(agent, sq, per_subquery_n), subqueries
+        ))
+    print(f"  [timing] retrieve+rerank loop total ({len(subqueries)} sub-queries, concurrent): "
+          f"{time.perf_counter() - t0:.2f}s")
 
-        print(f"  [{sq}] raw={len(candidates)} selected={len(reranked)}")
+    for res in sq_results:
+        sq, candidates, reranked = res["sq"], res["candidates"], res["reranked"]
+        print(f"  [{sq}] raw={len(candidates)} selected={len(reranked)} "
+              f"[timing] retrieve={res['retrieve_time']:.2f}s rerank={res['rerank_time']:.2f}s")
         for i, r in enumerate(reranked[:5], start=1):
             print(f"    {i}  {r['rerank_score']:.4f}  {r['document_id']}  {r['title']}")
 
@@ -76,20 +102,11 @@ def run_question(agent: RetrievalAgent, question: str) -> dict:
             all_selected_rows.append(row)
             selected_chunks.append(c)
 
-    raw_csv = f"{tag}_subquery_raw_candidates.csv"
-    selected_csv = f"{tag}_subquery_selected_top15.csv"
+    raw_csv = os.path.join(QUESTION_RUNS_DIR, f"{tag}_subquery_raw_candidates.csv")
+    selected_csv = os.path.join(QUESTION_RUNS_DIR, f"{tag}_subquery_selected_top15.csv")
 
-    with open(raw_csv, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=FIELDNAMES)
-        writer.writeheader()
-        for row in all_raw_rows:
-            writer.writerow({k: row.get(k) for k in FIELDNAMES})
-
-    with open(selected_csv, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=FIELDNAMES)
-        writer.writeheader()
-        for row in all_selected_rows:
-            writer.writerow({k: row.get(k) for k in FIELDNAMES})
+    write_dicts_to_csv(raw_csv, all_raw_rows, FIELDNAMES)
+    write_dicts_to_csv(selected_csv, all_selected_rows, FIELDNAMES)
 
     print(f"  -> saved {len(all_raw_rows)} raw rows to {raw_csv}, "
           f"{len(all_selected_rows)} selected rows to {selected_csv}")
@@ -101,24 +118,76 @@ def run_question(agent: RetrievalAgent, question: str) -> dict:
             deduped[key] = c
     matched_chunks = list(deduped.values())
 
+    t0 = time.perf_counter()
     final_chunks = augment_chunks(agent, matched_chunks)
     print(f"  {len(matched_chunks)} deduped matched chunks -> "
-          f"{len(final_chunks)} after page-based augmentation")
+          f"{len(final_chunks)} after page-based augmentation "
+          f"[timing] augment_chunks: {time.perf_counter() - t0:.2f}s")
 
-    answer = synthesize(question, final_chunks)
+    return {
+        "tag": tag,
+        "t_start": t_start,
+        "subqueries": subqueries,
+        "matched_chunks": matched_chunks,
+        "final_chunks": final_chunks,
+    }
 
-    out_path = f"{tag}_final_synthesis_answer.txt"
-    with open(out_path, "w", encoding="utf-8") as f:
-        f.write(f"Audit question: {question}\n")
-        f.write(f"Sub-queries used: {subqueries}\n")
-        f.write(f"Chunks used: {len(final_chunks)} "
-                f"({len(matched_chunks)} matched from {len(subqueries)} facet sub-queries + augmented context)\n")
-        f.write("=" * 80 + "\n")
-        f.write(answer + "\n")
 
+def _write_final_answer(tag: str, question: str, answer: str, subqueries: list[str],
+                         matched_chunks: list[dict], final_chunks: list[dict]):
+    out_path = os.path.join(QUESTION_RUNS_DIR, f"{tag}_final_synthesis_answer.txt")
+    write_answer_file(
+        out_path, question, answer,
+        chunks_used=f"{len(final_chunks)} ({len(matched_chunks)} matched from "
+                    f"{len(subqueries)} facet sub-queries + augmented context)",
+        extra_lines=[f"Sub-queries used: {subqueries}"],
+    )
     print(f"  -> saved final answer to {out_path}\n")
+
+
+def run_question(agent: RetrievalAgent, question: str) -> dict:
+    """Returns {"answer", "subqueries", "documents_cited", "chunks_used"} for a
+    single arbitrary audit question."""
+    ctx = _prepare_context(agent, question)
+    tag, subqueries = ctx["tag"], ctx["subqueries"]
+    matched_chunks, final_chunks = ctx["matched_chunks"], ctx["final_chunks"]
+
+    t0 = time.perf_counter()
+    answer = synthesize(question, final_chunks)
+    print(f"  [timing] synthesize (LLM call): {time.perf_counter() - t0:.2f}s")
+    print(f"  [timing] TOTAL run_question: {time.perf_counter() - ctx['t_start']:.2f}s")
+
+    _write_final_answer(tag, question, answer, subqueries, matched_chunks, final_chunks)
     return {
         "answer": answer,
+        "subqueries": subqueries,
+        "documents_cited": _parse_documents_cited(answer),
+        "chunks_used": len(final_chunks),
+    }
+
+
+def run_question_stream(agent: RetrievalAgent, question: str):
+    """Like run_question(), but yields dicts as the answer streams in:
+      {"type": "delta", "text": "..."}  -- one per streamed text chunk from the LLM
+      {"type": "done", "subqueries": [...], "documents_cited": [...], "chunks_used": N}
+                                         -- exactly once, after the full answer is in
+    """
+    ctx = _prepare_context(agent, question)
+    tag, subqueries = ctx["tag"], ctx["subqueries"]
+    matched_chunks, final_chunks = ctx["matched_chunks"], ctx["final_chunks"]
+
+    t0 = time.perf_counter()
+    answer_parts = []
+    for delta in synthesize_stream(question, final_chunks):
+        answer_parts.append(delta)
+        yield {"type": "delta", "text": delta}
+    answer = "".join(answer_parts)
+    print(f"  [timing] synthesize (LLM call, streamed): {time.perf_counter() - t0:.2f}s")
+    print(f"  [timing] TOTAL run_question_stream: {time.perf_counter() - ctx['t_start']:.2f}s")
+
+    _write_final_answer(tag, question, answer, subqueries, matched_chunks, final_chunks)
+    yield {
+        "type": "done",
         "subqueries": subqueries,
         "documents_cited": _parse_documents_cited(answer),
         "chunks_used": len(final_chunks),
@@ -130,7 +199,7 @@ if __name__ == "__main__":
         print('Usage: python answer_question.py "<audit question>"')
         sys.exit(1)
 
-    agent = RetrievalAgent(docs_folder="docs", csv_path="latest_revisions.csv")
+    agent = RetrievalAgent(docs_folder="docs", csv_path=LATEST_REVISIONS_CSV)
 
     question = sys.argv[1]
     result = run_question(agent, question)

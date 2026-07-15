@@ -1,6 +1,0 @@
-Audit question: How does the organization determine which products/devices are subject to design and development controls?
-Chunks used: 37
-================================================================================
-The retrieved excerpts do not directly address how the organization determines which products/devices are subject to design and development controls. None of the excerpts explicitly outline the criteria or processes used by the organization to determine the applicability of design and development controls for products/devices like the Halcyon 4.0 radiotherapy system.
-
-Documents cited: None.

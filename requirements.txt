@@ -1,6 +1,7 @@
-anthropic
-openai
-pinecone
-python-dotenv
-PyMuPDF
-openpyxl
+anthropic==0.115.0
+openai==2.44.0
+pinecone==9.1.0
+python-dotenv==1.2.2
+PyMuPDF==1.28.0
+openpyxl==3.1.5
+flask==3.1.3
