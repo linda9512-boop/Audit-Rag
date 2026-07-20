@@ -48,7 +48,7 @@
   h1 {
     font-size: 22px;
     font-weight: 600;
-    margin: 0 0 6px;
+    margin: 0 0 22px;
   }
   .subtitle {
     color: var(--muted);
@@ -117,10 +117,17 @@
   @keyframes spin { to { transform: rotate(360deg); } }
 
   .answer-box {
-    white-space: pre-wrap;
     line-height: 1.6;
     font-size: 15px;
   }
+  .answer-box p { margin: 0 0 14px; }
+  .answer-box p:last-child { margin-bottom: 0; }
+  .answer-box ul { margin: 0 0 14px; padding-left: 22px; }
+  .answer-box ul:last-child { margin-bottom: 0; }
+  .answer-box li { margin-bottom: 12px; }
+  .answer-box li:last-child { margin-bottom: 0; }
+  .answer-box strong { color: var(--petrol-dark); }
+  .answer-box .citation { text-decoration: underline; text-decoration-color: var(--petrol); text-underline-offset: 2px; }
   .meta {
     margin-top: 20px;
     padding-top: 16px;
@@ -166,7 +173,6 @@
 
 <main>
   <h1>Ask an audit question</h1>
-  <p class="subtitle">Answers are synthesized from the indexed Design History File documents, with citations.</p>
 
   <div class="card">
     <textarea id="question" placeholder="e.g. Are all devices, including accessories, software, variants, and families, appropriately identified and included?"></textarea>
@@ -199,6 +205,40 @@
 </main>
 
 <script>
+function escapeHtml(s) {
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+function inlineFormat(s) {
+  let out = escapeHtml(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  // Underline citation brackets, e.g. "[D54978 ... .pdf, page 5]".
+  out = out.replace(/\[([^\[\]]+?,\s*pages?\s+[\d\-–]+)\]/gi, '<span class="citation">[$1]</span>');
+  return out;
+}
+
+// Lightweight renderer for the model's markdown-style output (bullet lists with
+// "*"/"-" prefixes and **bold** headers) -- not a full markdown parser, just
+// enough structure so bullets/paragraphs get real spacing instead of showing
+// literal "*" characters in a wall of pre-wrapped text.
+function renderAnswer(text) {
+  const lines = text.split("\n");
+  let html = "";
+  let inList = false;
+  for (const rawLine of lines) {
+    const line = rawLine.trim();
+    const bulletMatch = line.match(/^[\*\-]\s+(.*)/);
+    if (bulletMatch) {
+      if (!inList) { html += "<ul>"; inList = true; }
+      html += `<li>${inlineFormat(bulletMatch[1])}</li>`;
+    } else {
+      if (inList) { html += "</ul>"; inList = false; }
+      if (line) html += `<p>${inlineFormat(line)}</p>`;
+    }
+  }
+  if (inList) html += "</ul>";
+  return html;
+}
+
 async function askQuestion() {
   const question = document.getElementById("question").value.trim();
   if (!question) return;
@@ -217,6 +257,7 @@ async function askQuestion() {
 
   const answerEl = document.getElementById("answer");
   answerEl.textContent = "";
+  let answerText = "";
   let firstDeltaSeen = false;
 
   try {
@@ -256,7 +297,8 @@ async function askQuestion() {
             status.style.display = "none";
             result.style.display = "block";
           }
-          answerEl.textContent += event.text;
+          answerText += event.text;
+          answerEl.innerHTML = renderAnswer(answerText);
         } else if (event.type === "done") {
           const subqueriesEl = document.getElementById("subqueries");
           subqueriesEl.innerHTML = "";

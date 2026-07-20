@@ -19,18 +19,20 @@ else:
 
 PINECONE_INDEX_NAME = "audit"
 
+# Per-request timing breakdown (see timing_log.py) -- prints and logs to outputs/question_runs/timing.log.
+# Set TIMING_ENABLED=false in production to silence it without touching any of the tlog() call sites.
+TIMING_ENABLED = os.environ.get("TIMING_ENABLED", "true").lower() in ("1", "true", "yes")
+
 OUTPUT_DIR = "outputs"  # root folder for all generated run artifacts (gitignored)
 LATEST_REVISIONS_CSV = "outputs/latest_revisions.csv"  # written by extracting_latest.py,
                                                         # read by every script that builds a RetrievalAgent
 
 # Retrieval + rerank sizing for answer_question.py's per-sub-query retrieval.
-ANSWER_CANDIDATE_POOL = 65  # raw candidates fetched by embedding search, before reranking
+ANSWER_CANDIDATE_POOL = 100  # raw candidates fetched by embedding search, before reranking --
+                             # Pinecone's bge-reranker-v2-m3 hard-caps at 100 documents per
+                             # rerank() call, so this can't go higher without batching the
+                             # rerank call itself.
 ANSWER_TOP_N_PER_SUBQUERY = 30  # kept after reranking, per sub-query
 
-# Hard cap on augment_chunks()'s output size. Extensively benchmarked against a
-# token-based budget (100k down to 200 tokens) -- context size never showed a
-# consistent effect on synthesize() latency (that's driven by output length, not
-# input size -- see SYSTEM_PROMPT rule 11 in synthesis_agent.py for the real fix).
-# Reverted to a plain chunk count for simplicity now that the token-precision
-# this used to buy isn't earning its complexity.
-MAX_TOTAL_CHUNKS = 200
+# Hard cap on augment_chunks()'s output size. 
+MAX_TOTAL_CHUNKS = 100000

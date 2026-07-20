@@ -60,7 +60,7 @@ def generate_subqueries(question: str, max_n: int = 3, model: str = OPENAI_MODEL
 
     user_prompt = f"Audit question: {question}"
 
-    response = call_llm(client, model, SYSTEM_PROMPT, user_prompt, label="subquery LLM error")
+    response = call_llm(client, model, SYSTEM_PROMPT, user_prompt, label="subquery LLM error", temperature=0)
 
     content = response.choices[0].message.content.strip()
     # Strip markdown code fences if the model wrapped the JSON in ```...```

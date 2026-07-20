@@ -68,7 +68,7 @@ def get_openai_client() -> OpenAI:
 
 def call_llm(client: OpenAI, model: str, system_prompt: str, user_prompt: str, *,
              retries: int = LLM_RETRIES, base_wait: float = LLM_RETRY_BASE_WAIT, label: str = "LLM error",
-             max_tokens: int | None = None):
+             max_tokens: int | None = None, temperature: float | None = None):
     """chat.completions.create(), retrying with backoff on openai.APIError.
 
     `max_tokens` is meant as a generous safety backstop (well above what a
@@ -82,6 +82,7 @@ def call_llm(client: OpenAI, model: str, system_prompt: str, user_prompt: str, *
                 {"role": "user", "content": user_prompt},
             ],
             **({"max_tokens": max_tokens} if max_tokens is not None else {}),
+            **({"temperature": temperature} if temperature is not None else {}),
         ),
         retries=retries, base_wait=base_wait, exceptions=APIError, label=label,
     )
@@ -89,7 +90,7 @@ def call_llm(client: OpenAI, model: str, system_prompt: str, user_prompt: str, *
 
 def call_llm_stream(client: OpenAI, model: str, system_prompt: str, user_prompt: str, *,
                      retries: int = LLM_RETRIES, base_wait: float = LLM_RETRY_BASE_WAIT, label: str = "LLM error",
-                     max_tokens: int | None = None):
+                     max_tokens: int | None = None, temperature: float | None = None):
     """Like call_llm, but yields text deltas as they arrive instead of returning the
     full response at once. Retry-with-backoff covers establishing the stream; once
     streaming begins, a mid-stream failure propagates to the caller as-is (there's
@@ -103,6 +104,7 @@ def call_llm_stream(client: OpenAI, model: str, system_prompt: str, user_prompt:
             ],
             stream=True,
             **({"max_tokens": max_tokens} if max_tokens is not None else {}),
+            **({"temperature": temperature} if temperature is not None else {}),
         ),
         retries=retries, base_wait=base_wait, exceptions=APIError, label=label,
     )

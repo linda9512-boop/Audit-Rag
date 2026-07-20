@@ -47,7 +47,6 @@ EMBED_MODEL = "llama-text-embed-v2"  # Pinecone-hosted model backing the "audit"
 EMBED_BATCH_SIZE = 96  # Pinecone inference API batch limit for text embedding models
 EMBED_RATE_LIMIT_RETRIES = 6  # retries on 429 before giving up on a batch
 EMBED_MAX_WORKERS = 10  # concurrent embed+upsert batches -- _embed_batch's own retry/backoff absorbs 429s
-DOCUMENT_HEADER_PENALTY = 0.7  # score multiplier for cover-page/boilerplate chunks in retrieve()
 RERANK_MODEL = "bge-reranker-v2-m3"  # Pinecone-hosted cross-encoder reranker
 PINECONE_RETRIES = 2  # attempts on transient Pinecone API errors (e.g. network/proxy
                       # redirects) before giving up on a query/fetch call
@@ -279,20 +278,7 @@ class RetrievalAgent:
             print("[RetrievalAgent] No indexed documents available.")
             return []
 
-        # Cover pages / signature blocks / revision tables are usually boilerplate whose
-        # legal/regulatory language embeds deceptively close to audit questions -- but
-        # occasionally a heading genuinely wasn't detected (e.g. before the Appendix/Annex
-        # fix) and real content ended up under this title. A soft penalty lets them still
-        # surface if they're a strong enough match, instead of a hard filter that would
-        # silently drop them no matter how relevant.
-        def _adjusted_score(match) -> float:
-            score = float(match.score)
-            title = (match.metadata or {}).get("title", "")
-            if title in ("Document_Header", "Document_Header (Continued)"):
-                return score * DOCUMENT_HEADER_PENALTY
-            return score
-
-        ranked_matches = sorted(response.matches, key=_adjusted_score, reverse=True)
+        ranked_matches = sorted(response.matches, key=lambda match: float(match.score), reverse=True)
 
         results = []
         per_source_count = {}
@@ -305,7 +291,7 @@ class RetrievalAgent:
 
             results.append({
                 "rank": len(results) + 1,
-                "score": _adjusted_score(match),
+                "score": float(match.score),
                 **chunk_from_metadata(md),
             })
             if len(results) == result_limit:

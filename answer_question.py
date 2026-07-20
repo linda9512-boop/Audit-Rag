@@ -8,6 +8,7 @@ Writes <tag>_subquery_raw_candidates.csv, <tag>_subquery_selected_top15.csv, and
 run timestamp (each output file also has the question text written inside it).
 """
 import os
+import re
 import sys
 import time
 from concurrent.futures import ThreadPoolExecutor
@@ -26,15 +27,55 @@ QUESTION_RUNS_DIR = os.path.join(OUTPUT_DIR, "question_runs")
 TIMING_LOG_PATH = os.path.join(QUESTION_RUNS_DIR, "timing.log")
 
 
+# Matches a bracketed OR parenthesized citation group, e.g. both
+# "[D54978 ... Rev 5.0.pdf, page 5]" and "(D101277, p. 229; 104993953MIN-001, p. 235)"
+# -- the model doesn't reliably stick to one bracket style or "page" spelling.
+_CITATION_GROUP_RE = re.compile(r"[\[\(]([^\[\]\(\)]+)[\]\)]")
+# Within a group, one or more "source, p[age][s]. N[-M]" items separated by ';'.
+_CITATION_ITEM_RE = re.compile(r"^\s*(.+?),\s*p(?:age)?s?\.?\s*(\d+(?:[\-–]\d+)?)\s*$", re.IGNORECASE)
+
+
 def _parse_documents_cited(answer: str) -> list[str]:
-    """Pull out the "Documents cited:" list at the end of a synthesize() answer
-    (see rule 10 of SYSTEM_PROMPT in synthesis_agent.py) as a plain list of strings."""
-    marker = "Documents cited:"
-    idx = answer.find(marker)
-    if idx == -1:
-        return []
-    tail = answer[idx + len(marker):]
-    return [line.strip().lstrip("-").strip() for line in tail.splitlines() if line.strip()]
+    """Extract every [source, page] citation directly from the answer body via
+    regex, deduplicated in first-seen order. This doesn't rely on the model
+    correctly compiling its own "Documents cited:" list at the end -- that
+    formatting instruction (SYSTEM_PROMPT rule 10, now removed) turned out to
+    be followed inconsistently by the time the model reaches the end of a long
+    answer. It also doesn't assume a single inline citation style: the model
+    has been observed switching between "[source, page N]" and
+    "(source, p. N; other source, p. M)" even within one answer, so groups are
+    matched with either bracket style and split on ';' for multi-citation
+    groups before parsing each "source, page" pair."""
+    seen = set()
+    citations = []
+    for group in _CITATION_GROUP_RE.findall(answer):
+        for item in group.split(";"):
+            m = _CITATION_ITEM_RE.match(item)
+            if not m:
+                continue
+            source, page = m.group(1).strip(), m.group(2)
+            key = (source, page)
+            if key not in seen:
+                seen.add(key)
+                citations.append(f"{source}, page {page}")
+    return citations
+
+
+def _normalize_citations(answer: str) -> str:
+    """Rewrite every recognized citation group -- whichever bracket style or
+    "page" spelling the model actually used -- into the canonical
+    "[source, page]" form, one bracket per citation, so the answer text shown
+    to the user is visually consistent even when the model didn't produce that
+    format itself. A group with any item that doesn't parse as a citation is
+    left untouched (it's probably just a parenthetical aside, not a citation)."""
+    def _replace(match: re.Match) -> str:
+        items = match.group(1).split(";")
+        parsed = [_CITATION_ITEM_RE.match(item) for item in items]
+        if not all(parsed):
+            return match.group(0)
+        return " ".join(f"[{m.group(1).strip()}, page {m.group(2)}]" for m in parsed)
+
+    return _CITATION_GROUP_RE.sub(_replace, answer)
 
 
 def _retrieve_and_rerank(agent: RetrievalAgent, sq: str, per_subquery_n: int) -> dict:
@@ -160,6 +201,7 @@ def run_question(agent: RetrievalAgent, question: str) -> dict:
     tlog(f"  [timing] synthesize (LLM call): {time.perf_counter() - t0:.2f}s")
     tlog(f"  [timing] TOTAL run_question: {time.perf_counter() - ctx['t_start']:.2f}s")
 
+    answer = _normalize_citations(answer)
     _write_final_answer(tag, question, answer, subqueries, matched_chunks, final_chunks)
     save_timing(TIMING_LOG_PATH)
     return {
@@ -185,7 +227,7 @@ def run_question_stream(agent: RetrievalAgent, question: str):
     for delta in synthesize_stream(question, final_chunks):
         answer_parts.append(delta)
         yield {"type": "delta", "text": delta}
-    answer = "".join(answer_parts)
+    answer = _normalize_citations("".join(answer_parts))
     tlog(f"  [timing] synthesize (LLM call, streamed): {time.perf_counter() - t0:.2f}s")
     tlog(f"  [timing] TOTAL run_question_stream: {time.perf_counter() - ctx['t_start']:.2f}s")
 

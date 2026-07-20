@@ -8,7 +8,7 @@ Then open http://127.0.0.1:5000 in a browser.
 import json
 import time
 
-from flask import Flask, Response, jsonify, render_template, request
+from flask import Flask, Response, jsonify, make_response, render_template, request
 
 from answer_question import run_question_stream
 from config import LATEST_REVISIONS_CSV
@@ -29,7 +29,12 @@ print(f"[app] Ready. [timing] startup: {time.perf_counter() - _t0:.2f}s")
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    # This page changes often during development -- tell the browser never to
+    # reuse a cached copy, so a normal refresh always shows the latest version
+    # instead of requiring a hard-refresh to bypass the browser's own cache.
+    response = make_response(render_template("index.html"))
+    response.headers["Cache-Control"] = "no-store"
+    return response
 
 
 @app.route("/ask", methods=["POST"])

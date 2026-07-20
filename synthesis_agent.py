@@ -43,39 +43,52 @@ Using only the excerpts provided:
    that list, not the other way around.
 2. Cite which document(s) support each part of your answer, as [source, page],
    using the filename exactly as given in each excerpt's tag -- do not shorten
-   it to just the document ID.
+   it to just the document ID. i Always use this exact format, every time, even
+   when citing several sources together: square brackets, the word "page" (not
+   "p." or "pg"), and one [source, page] per citation rather than combining
+   multiple sources inside a single bracket. For example, write
+   "[D54978 HAL 4.0 Regulatory Plan Rev 5.0.pdf, page 5] [D58308 HAL 4.0 Device
+   Description Rev 1.0.docx.pdf, page 3]" -- not "(D54978, p. 5; D58308, p. 3)"
+   or any other abbreviated or combined form.
 3. When an excerpt contains a device-specific determination -- a classification
    outcome, a rule-by-rule justification, a test result, a decision made for
    Halcyon 4.0 itself -- state that concrete determination. Do not stop at
    restating the general regulation or rule text if the excerpt also shows how
    it was applied to Halcyon 4.0.
-4. If two excerpts conflict (e.g. different revisions of the same or related
-   documents state different things), do not silently pick one -- report both
-   and note that they conflict.
-5. If the excerpts only partially answer the question, say plainly what's missing --
+4. If the excerpts only partially answer the question, say plainly what's missing --
    do not guess or fill gaps with outside knowledge.
-6. If none of the excerpts are relevant to the audit question, say plainly that
+5. If none of the excerpts are relevant to the audit question, say plainly that
    no relevant evidence was found -- do not force an answer out of irrelevant material.
-7. Ignore excerpts that are irrelevant boilerplate (cover pages, unrelated sections)
+6. Ignore excerpts that are irrelevant boilerplate (cover pages, unrelated sections)
    even if they were retrieved.
-8. Do not stretch an excerpt to fit a part of the question it doesn't actually
-   address, just because it shares keywords or a general topic. Cite an excerpt
-   only if it genuinely provides evidence for the specific thing being asked --
-   if nothing retrieved actually addresses that part, say so instead of forcing
-   a tangentially-related excerpt to answer it.
-9. Watch the tense and status of what an excerpt actually says. Action items,
+7. ONLY USE DOCUMENTS THAT DIRECTLY ANSWER THE AUDIT QUESTION. Avoid documents
+   that only provide supporting, reference, or background information -- for
+   each document you cite, you should be able to explain how it directly
+   answers the main query, not just that it's topically related. Do not
+   stretch an excerpt to fit a part of the question it doesn't actually
+   address, just because it shares keywords or a general topic -- if nothing
+   retrieved actually addresses that part, say so instead of forcing a
+   tangentially-related excerpt to answer it.
+
+   Example -- Question: "Are all devices, including accessories, software,
+   variants, and families, appropriately identified and included?" 
+   Retrieved evidence available: Accessory and Component List, Device Description,
+   Validation Summary Report, Test System Configuration List (TSCL).
+   Good: use the Accessory and Component List, Device Description, and
+   Validation Summary Report, because they directly identify the released
+   device, accessories, and software.
+   Bad: do not use the Test System Configuration List (TSCL) as evidence for
+   software identification -- TSCL is just the environment setup of the
+   selected test cell for validation activities; it doesn't reflect the
+   device's latest software version, so it's background/supporting
+   information, not a direct answer.
+8. Watch the tense and status of what an excerpt actually says. Action items,
    findings, meeting notes, and plans ("shall define," "need to," "is planned,"
    "recommended," open CAPAs) describe something that does NOT yet exist or
    isn't yet resolved -- do not report these as an established, existing process
    or outcome. Only present something as in place if the excerpt describes it as
    already implemented, approved, or completed.
-10. End your answer with a "Documents cited:" list -- every [source, page] you
-    actually cited above, in the same [source, page] format used inline, one per
-    line, deduplicated (the same source+page pair listed once even if referenced
-    more than once in the body above). If a source was cited at more than one
-    page, list each distinct page separately.
-11. Be concise. For each document (or point) you cite, keep the description of
-    what it shows to under 100 words -- state the determination plainly with its
+9. Be concise. For each document (or point) you cite, state the determination plainly with its
     citation and move on, rather than elaborating at length. This applies per
     citation, not to the answer as a whole, so a question needing many citations
     still gets a complete answer -- it's each individual explanation that stays
@@ -83,6 +96,7 @@ Using only the excerpts provided:
     re-explain what a Role label means, or pad the answer with summary/recap
     sections.
 """
+
 
 
 def load_chunks(csv_path: str) -> list[dict]:
@@ -114,7 +128,7 @@ def synthesize(question: str, chunks: list[dict], model: str = OPENAI_MODEL) -> 
 
     t0 = time.perf_counter()
     response = call_llm(client, model, SYSTEM_PROMPT, user_prompt, label="synthesis LLM error",
-                         max_tokens=MAX_ANSWER_TOKENS)
+                         max_tokens=MAX_ANSWER_TOKENS, temperature=0)
     tlog(f"  [synthesis] LLM call: {time.perf_counter() - t0:.2f}s")
     return response.choices[0].message.content
 
@@ -137,7 +151,7 @@ def synthesize_stream(question: str, chunks: list[dict], model: str = OPENAI_MOD
     t0 = time.perf_counter()
     first_token = True
     for delta in call_llm_stream(client, model, SYSTEM_PROMPT, user_prompt, label="synthesis LLM error",
-                                  max_tokens=MAX_ANSWER_TOKENS):
+                                  max_tokens=MAX_ANSWER_TOKENS, temperature=0):
         if first_token:
             tlog(f"  [synthesis] time to first token: {time.perf_counter() - t0:.2f}s")
             first_token = False

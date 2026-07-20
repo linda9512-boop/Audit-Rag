@@ -11,6 +11,8 @@ Usage:
 import threading
 from datetime import datetime
 
+from config import TIMING_ENABLED
+
 _local = threading.local()
 
 
@@ -36,3 +38,11 @@ def save_timing(path: str):
         f.write(f"{'=' * 60}\n")
         for line in lines:
             f.write(line.strip() + "\n")
+
+
+def _noop(*_args, **_kwargs):
+    pass
+
+
+if not TIMING_ENABLED:
+    reset_timing = tlog = save_timing = _noop
