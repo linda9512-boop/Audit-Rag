@@ -13,10 +13,6 @@ from utils import call_llm, call_llm_stream, get_openai_client, write_answer_fil
 
 load_dotenv()
 
-MAX_ANSWER_TOKENS = 3000  # generous safety backstop, not the primary length control --
-                          # SYSTEM_PROMPT rule 11 (conciseness) is what actually shapes
-                          # typical answer length; this only guards against runaway output
-
 SYSTEM_PROMPT = """You are an audit assistant for a medical device Design History File.
 
 The subject device under audit is the Halcyon 4.0 (HAL 4.0) radiotherapy system --
@@ -55,13 +51,13 @@ Using only the excerpts provided:
    Halcyon 4.0 itself -- state that concrete determination. Do not stop at
    restating the general regulation or rule text if the excerpt also shows how
    it was applied to Halcyon 4.0.
-4. If the excerpts only partially answer the question, say plainly what's missing --
-   do not guess or fill gaps with outside knowledge.
-5. If none of the excerpts are relevant to the audit question, say plainly that
-   no relevant evidence was found -- do not force an answer out of irrelevant material.
-6. Ignore excerpts that are irrelevant boilerplate (cover pages, unrelated sections)
+4. If the excerpts don't fully answer the question -- partially, not at all, or a
+   specific cited document doesn't actually support what it's attached to -- say
+   plainly what's missing. Never guess, fill gaps with outside knowledge, or
+   stretch an excerpt to imply an answer it doesn't support.
+5. Ignore excerpts that are irrelevant boilerplate (cover pages, unrelated sections)
    even if they were retrieved.
-7. ONLY USE DOCUMENTS THAT DIRECTLY ANSWER THE AUDIT QUESTION. Avoid documents
+6. ONLY USE DOCUMENTS THAT DIRECTLY ANSWER THE AUDIT QUESTION. Avoid documents
    that only provide supporting, reference, or background information -- for
    each document you cite, you should be able to explain how it directly
    answers the main query, not just that it's topically related. Do not
@@ -82,19 +78,22 @@ Using only the excerpts provided:
    selected test cell for validation activities; it doesn't reflect the
    device's latest software version, so it's background/supporting
    information, not a direct answer.
-8. Watch the tense and status of what an excerpt actually says. Action items,
+7. Watch the tense and status of what an excerpt actually says. Action items,
    findings, meeting notes, and plans ("shall define," "need to," "is planned,"
    "recommended," open CAPAs) describe something that does NOT yet exist or
    isn't yet resolved -- do not report these as an established, existing process
    or outcome. Only present something as in place if the excerpt describes it as
    already implemented, approved, or completed.
-9. Be concise. For each document (or point) you cite, state the determination plainly with its
-    citation and move on, rather than elaborating at length. This applies per
-    citation, not to the answer as a whole, so a question needing many citations
-    still gets a complete answer -- it's each individual explanation that stays
-    tight, not the total count of documents covered. Do not restate the question,
-    re-explain what a Role label means, or pad the answer with summary/recap
-    sections.
+8. For each cited document, explicitly explain how it answers the audit
+   question -- state what evidence the document provides and why that evidence
+   is relevant, not merely a summary of what the document says.
+
+   Example:
+   Weak: "The document states the release is limited to software changes and
+   no new hazards were introduced."
+   Better: "This shows that the project evaluated the change scope, risk
+   impact, and required V&V activities to determine whether additional design
+   controls were necessary."
 """
 
 
@@ -128,7 +127,7 @@ def synthesize(question: str, chunks: list[dict], model: str = OPENAI_MODEL) -> 
 
     t0 = time.perf_counter()
     response = call_llm(client, model, SYSTEM_PROMPT, user_prompt, label="synthesis LLM error",
-                         max_tokens=MAX_ANSWER_TOKENS, temperature=0)
+                         temperature=0)
     tlog(f"  [synthesis] LLM call: {time.perf_counter() - t0:.2f}s")
     return response.choices[0].message.content
 
@@ -151,7 +150,7 @@ def synthesize_stream(question: str, chunks: list[dict], model: str = OPENAI_MOD
     t0 = time.perf_counter()
     first_token = True
     for delta in call_llm_stream(client, model, SYSTEM_PROMPT, user_prompt, label="synthesis LLM error",
-                                  max_tokens=MAX_ANSWER_TOKENS, temperature=0):
+                                  temperature=0):
         if first_token:
             tlog(f"  [synthesis] time to first token: {time.perf_counter() - t0:.2f}s")
             first_token = False

@@ -1,4 +1,4 @@
-●
+● start from number 10
 trying to reduce false negative=> including mroe is better than excluding 
 
  1. Finding the document ID (extract_document_id)
