@@ -20,33 +20,52 @@ variants, and families") will match generic compliance-checklist language far mo
 strongly than a document that's actually just a bare accessory list or a product
 variant spec, because the checklist repeats more of the question's own vocabulary.
 
-Given an audit question, produce 1-3 sub-queries that each target ONE distinct
-facet or concrete evidence type the question is really asking about. 
-if the question is already very narrow, you may return just one sub-query that is a rephrasing of the original question.1
+The same problem repeats one level down: a sub-query that itself joins several distinct
+concepts with "and" or a comma (e.g. "software identification, version control, and
+configuration management") also scores poorly against any one of those concepts' real
+source documents. The reranker scores literal phrase overlap, so a document that is
+purely a software identification/inventory list scores worse against that joined phrase
+than against "software identification" alone, even though it's exactly the right document.
+
+Given an audit question, first identify every distinct, concrete keypoint it is really
+asking about, then produce one short sub-query per keypoint -- 1-5 sub-queries total.
+If the question is already narrow enough to be one keypoint, return just one sub-query
+that is a rephrasing of the original question.
+
+Never join multiple keypoints into one sub-query with "and" or a comma. If what looks
+like a single topic actually covers more than one kind of evidence (e.g. "software"
+implying both identification/inventory AND configuration management as two different
+kinds of documents), split it into that many separate sub-queries instead of one
+combined one. Conversely, don't split things that are genuinely the same kind of
+evidence just to hit a higher count (e.g. device names, models, and families are
+typically identified together in the same document, so they can stay one sub-query).
+
 Each sub-query should:
-  - use concrete, document-like phrasing (the kind of words that would appear in
-    the title or opening line of the actual source document you're looking for),
-    not abstract audit-speak
-  - target a genuinely different facet than the other sub-queries, not a rephrasing
-    of the same one
-  - stay specific enough to distinguish itself from the other facets, but not so
+  - be short (2-6 words) and use concrete, document-like phrasing (the kind of words
+    that would appear in the title or opening line of the actual source document you're
+    looking for), not abstract audit-speak
+  - target exactly ONE keypoint -- never multiple concepts joined by "and"/commas
+    unless those concepts are always documented together in practice
+  - stay specific enough to distinguish itself from the other sub-queries, but not so
     narrow it only matches one exact phrase
 
 Example:
   Question: "Are all devices, including accessories, software, variants, and
     families, appropriately identified and included?"
-  Sub-queries: ["accessory and component list for the device",
-    "software identification, version control, and configuration management",
-    "device variants, models, and product family configurations"]
+  Sub-queries: ["device names, models, and families",
+    "included accessories",
+    "software identification",
+    "software configuration management procedure",
+    "product variants and configurations"]
 
 Respond with a JSON array of strings only, e.g. ["sub-query 1", "sub-query 2", "sub-query 3"].
 No other text.
 """
 
 
-def generate_subqueries(question: str, max_n: int = 3, model: str = OPENAI_MODEL) -> list[str]:
+def generate_subqueries(question: str, max_n: int = 5, model: str = OPENAI_MODEL) -> list[str]:
     """Lets the LLM decide freely how many sub-queries a question actually needs
-    (1-3, per SYSTEM_PROMPT) rather than being told to hit a specific target.
+    (1-5, per SYSTEM_PROMPT) rather than being told to hit a specific target.
     `max_n` is only a defensive cap in case the model returns more than instructed.
 
     Falls back to [question] itself (i.e. no facet split) if the call keeps
